@@ -1,12 +1,8 @@
-/**
- * Learn more about createBottomTabNavigator:
- * https://reactnavigation.org/docs/bottom-tab-navigator
- */
-
 import { Ionicons } from "@expo/vector-icons";
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 import { createStackNavigator } from "@react-navigation/stack";
 import * as React from "react";
+import { StyleSheet } from "react-native";
 
 import Colors from "../constants/Colors";
 import useColorScheme from "../hooks/useColorScheme";
@@ -67,13 +63,8 @@ function TabOneNavigator() {
         component={HomeScreen}
         options={{
           headerTitle: "Home",
-          headerStyle: {
-            backgroundColor: Colors.light.primary,
-          },
-          headerTitleStyle: {
-            fontWeight: "normal",
-            color: Colors.light.white,
-          },
+          headerStyle: styles.header,
+          headerTitleStyle: styles.headerTitle,
         }}
       />
     </TabOneStack.Navigator>
@@ -89,16 +80,21 @@ function TabTwoNavigator() {
         name="TabTwoScreen"
         component={TabTwoScreen}
         options={{
-          headerTitle: "Tab Two Title",
-          headerStyle: {
-            backgroundColor: Colors.light.primary,
-          },
-          headerTitleStyle: {
-            fontWeight: "normal",
-            color: Colors.light.white,
-          },
+          headerTitle: "Stats",
+          headerStyle: styles.header,
+          headerTitleStyle: styles.headerTitle,
         }}
       />
     </TabTwoStack.Navigator>
   );
 }
+
+const styles = StyleSheet.create({
+  headerTitle: {
+    fontWeight: "normal",
+    color: Colors.light.white,
+  },
+  header: {
+    backgroundColor: Colors.light.primary,
+  },
+});

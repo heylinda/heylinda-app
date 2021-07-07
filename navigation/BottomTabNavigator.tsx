@@ -64,15 +64,18 @@ function TabOneNavigator() {
           headerTitle: "Home",
           headerStyle: styles.header,
           headerTitleStyle: styles.headerTitle,
+          headerTintColor: Colors.light.white,
         }}
       />
       <HomeStack.Screen
         name="PlayScreen"
         component={PlayScreen}
         options={{
+          headerBackTitle: "Back",
           headerTitle: "Play",
           headerStyle: styles.header,
           headerTitleStyle: styles.headerTitle,
+          headerTintColor: Colors.light.white,
         }}
       />
     </HomeStack.Navigator>

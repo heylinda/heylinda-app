@@ -1,3 +1,4 @@
+import { StackNavigationProp } from "@react-navigation/stack";
 import * as React from "react";
 import { StyleSheet, ScrollView, FlatList, Alert } from "react-native";
 import { Card, Paragraph } from "react-native-paper";
@@ -5,11 +6,23 @@ import { Card, Paragraph } from "react-native-paper";
 import { Text } from "../../components/Themed";
 import Colors from "../../constants/Colors";
 import { meditations, MeditationItem } from "../../data/meditations";
+import { HomeParamList } from "../../types";
 
-export default function Home() {
+interface Props {
+  navigation: StackNavigationProp<HomeParamList, "HomeScreen">;
+}
+
+export default function Home({ navigation }: Props) {
   const renderCard = ({ item }: MeditationItem) => {
     return (
-      <Card style={styles.card} onPress={() => Alert.alert("foo")}>
+      <Card
+        style={styles.card}
+        onPress={() =>
+          navigation.navigate("PlayScreen", {
+            id: item.id,
+          })
+        }
+      >
         <Card.Cover style={styles.cardImage} source={item.image} />
         <Card.Title
           titleStyle={styles.cardTitle}

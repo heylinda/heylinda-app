@@ -7,6 +7,7 @@ import { StyleSheet } from "react-native";
 import Colors from "../constants/Colors";
 import useColorScheme from "../hooks/useColorScheme";
 import HomeScreen from "../screens/Home";
+import PlayScreen from "../screens/Play";
 import StatsScreen from "../screens/Stats";
 import { BottomTabParamList, HomeParamList, StatsParamList } from "../types";
 
@@ -51,12 +52,12 @@ function TabBarIcon(props: {
 
 // Each tab has its own navigation stack, you can read more about this pattern here:
 // https://reactnavigation.org/docs/tab-based-navigation#a-stack-navigator-for-each-tab
-const TabOneStack = createStackNavigator<HomeParamList>();
+const HomeStack = createStackNavigator<HomeParamList>();
 
 function TabOneNavigator() {
   return (
-    <TabOneStack.Navigator>
-      <TabOneStack.Screen
+    <HomeStack.Navigator>
+      <HomeStack.Screen
         name="HomeScreen"
         component={HomeScreen}
         options={{
@@ -65,7 +66,16 @@ function TabOneNavigator() {
           headerTitleStyle: styles.headerTitle,
         }}
       />
-    </TabOneStack.Navigator>
+      <HomeStack.Screen
+        name="PlayScreen"
+        component={PlayScreen}
+        options={{
+          headerTitle: "Play",
+          headerStyle: styles.header,
+          headerTitleStyle: styles.headerTitle,
+        }}
+      />
+    </HomeStack.Navigator>
   );
 }
 

@@ -1,50 +1,60 @@
 import * as React from "react";
-import { StyleSheet, ScrollView, Alert } from "react-native";
+import { StyleSheet, ScrollView, FlatList, Alert } from "react-native";
 import { Card, Paragraph } from "react-native-paper";
 
 import { Text } from "../../components/Themed";
 import Colors from "../../constants/Colors";
+import { meditations, MeditationItem } from "../../data/meditations";
 
 export default function Home() {
+  const renderCard = ({ item }: MeditationItem) => {
+    return (
+      <Card style={styles.card} onPress={() => Alert.alert("foo")}>
+        <Card.Cover style={styles.cardImage} source={item.image} />
+        <Card.Title
+          titleStyle={styles.cardTitle}
+          subtitleStyle={styles.cardSubtitle}
+          title={item.title}
+          subtitle={item.subtitle}
+        />
+        <Card.Content style={styles.cardContent}>
+          <Paragraph style={styles.cardParagraph}>
+            {item.time} minutes
+          </Paragraph>
+        </Card.Content>
+      </Card>
+    );
+  };
+
   return (
     <ScrollView style={styles.container}>
-      <Text style={styles.title}>FOR YOU</Text>
-      <ScrollView
+      <Text style={styles.title}>SHORT AND SWEET</Text>
+      <FlatList
         style={styles.cards}
         horizontal
         showsHorizontalScrollIndicator={false}
-      >
-        <Card style={styles.card} onPress={() => Alert.alert("foo")}>
-          <Card.Cover
-            style={styles.cardImage}
-            source={require("../../assets/images/meditate1.jpg")}
-          />
-          <Card.Title
-            titleStyle={styles.cardTitle}
-            subtitleStyle={styles.cardSubtitle}
-            title="Sleep"
-            subtitle="Drift Off To Sleep"
-          />
-          <Card.Content style={styles.cardContent}>
-            <Paragraph style={styles.cardParagraph}>10 minutes</Paragraph>
-          </Card.Content>
-        </Card>
-        <Card style={styles.card} onPress={() => Alert.alert("foo")}>
-          <Card.Cover
-            style={styles.cardImage}
-            source={require("../../assets/images/meditate1.jpg")}
-          />
-          <Card.Title
-            titleStyle={styles.cardTitle}
-            subtitleStyle={styles.cardSubtitle}
-            title="Sleep"
-            subtitle="Drift Off To Sleep"
-          />
-          <Card.Content style={styles.cardContent}>
-            <Paragraph style={styles.cardParagraph}>10 minutes</Paragraph>
-          </Card.Content>
-        </Card>
-      </ScrollView>
+        data={meditations.short}
+        renderItem={renderCard}
+        keyExtractor={({ id }) => id}
+      />
+      <Text style={styles.title}>GOT SOME TIME</Text>
+      <FlatList
+        style={styles.cards}
+        horizontal
+        showsHorizontalScrollIndicator={false}
+        data={meditations.medium}
+        renderItem={renderCard}
+        keyExtractor={({ id }) => id}
+      />
+      <Text style={styles.title}>LET GO</Text>
+      <FlatList
+        style={styles.cards}
+        horizontal
+        showsHorizontalScrollIndicator={false}
+        data={meditations.medium}
+        renderItem={renderCard}
+        keyExtractor={({ id }) => id}
+      />
     </ScrollView>
   );
 }

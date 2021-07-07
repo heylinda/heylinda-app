@@ -1,29 +1,56 @@
 import * as React from "react";
-import { StyleSheet, ImageBackground, ScrollView, View } from "react-native";
+import {
+  StyleSheet,
+  ImageBackground,
+  ScrollView,
+  View,
+  Alert,
+} from "react-native";
+import { Card, Paragraph } from "react-native-paper";
 
 import { Text } from "../../components/Themed";
-import { BlurView } from "expo-blur";
 import Colors from "../../constants/Colors";
 
 export default function Home() {
   return (
     <ScrollView style={styles.container}>
-      <View>
-        <Text style={styles.title}>FOR YOU</Text>
-        <View>
-          <ImageBackground
-            style={styles.image}
+      <Text style={styles.title}>FOR YOU</Text>
+      <ScrollView
+        style={styles.cards}
+        horizontal
+        showsHorizontalScrollIndicator={false}
+      >
+        <Card style={styles.card} onPress={() => Alert.alert("foo")}>
+          <Card.Cover
+            style={styles.cardImage}
             source={require("../../assets/images/meditate1.jpg")}
-          >
-            <BlurView intensity={75} style={styles.blurView}>
-              <Text style={styles.blurText}>5 MINUTES</Text>
-            </BlurView>
-          </ImageBackground>
-        </View>
-      </View>
-      <View>
-        <Text style={styles.title}>SAFE AND SOUND</Text>
-      </View>
+          />
+          <Card.Title
+            titleStyle={styles.cardTitle}
+            subtitleStyle={styles.cardSubtitle}
+            title="Sleep"
+            subtitle="Drift Off To Sleep"
+          />
+          <Card.Content style={styles.cardContent}>
+            <Paragraph style={styles.cardParagraph}>10 minutes</Paragraph>
+          </Card.Content>
+        </Card>
+        <Card style={styles.card} onPress={() => Alert.alert("foo")}>
+          <Card.Cover
+            style={styles.cardImage}
+            source={require("../../assets/images/meditate1.jpg")}
+          />
+          <Card.Title
+            titleStyle={styles.cardTitle}
+            subtitleStyle={styles.cardSubtitle}
+            title="Sleep"
+            subtitle="Drift Off To Sleep"
+          />
+          <Card.Content style={styles.cardContent}>
+            <Paragraph style={styles.cardParagraph}>10 minutes</Paragraph>
+          </Card.Content>
+        </Card>
+      </ScrollView>
     </ScrollView>
   );
 }
@@ -31,36 +58,36 @@ export default function Home() {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    paddingTop: 30,
-    padding: 20,
-    // alignItems: "center",
-    // justifyContent: "center",
+    paddingTop: 36,
+    paddingBottom: 36,
+    paddingLeft: 14,
   },
-  blurView: {
-    width: "90%",
-    margin: 20,
-    padding: 30,
-    borderRadius: 50,
+  card: {
+    width: 250,
+    marginRight: 10,
   },
-  blurText: {
-    color: Colors.light.white,
+  cardTitle: {
+    fontSize: 16,
+    color: Colors.light.gray900,
   },
-  image: {
-    width: "100%",
-    height: 400,
-    borderRadius: 10,
-    marginBottom: 20,
-    alignItems: "center",
-    justifyContent: "flex-end",
+  cardImage: {
+    height: 135,
+  },
+  cardContent: {},
+  cardSubtitle: {
+    color: Colors.light.gray800,
+    fontSize: 14,
+  },
+  cardParagraph: {
+    color: Colors.light.purple900,
+    fontWeight: "600",
+  },
+  cards: {
+    marginBottom: 30,
   },
   title: {
     fontSize: 16,
     fontWeight: "bold",
-    marginBottom: 20,
-  },
-  separator: {
-    marginVertical: 30,
-    height: 1,
-    width: "80%",
+    marginBottom: 19,
   },
 });

@@ -73,6 +73,7 @@ const styles = StyleSheet.create({
     paddingTop: 36,
     paddingBottom: 36,
     paddingLeft: 14,
+    backgroundColor: Colors.light.background,
   },
   contentContainer: {
     paddingBottom: 36,

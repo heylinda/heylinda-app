@@ -4,6 +4,7 @@ const purples = {
 };
 const grays = {
   white: "#fff",
+  gray100: "#F2F2F2",
   gray800: "#5D5D5D",
   gray900: "#333333",
   black: "#000",
@@ -13,7 +14,7 @@ export default {
   light: {
     primary,
     text: grays.black,
-    background: grays.white,
+    background: grays.gray100,
     tint: primary,
     tabIconDefault: "#ccc",
     ...purples,
@@ -22,7 +23,7 @@ export default {
   dark: {
     primary,
     text: grays.black,
-    background: grays.white,
+    background: grays.gray100,
     tint: primary,
     tabIconDefault: "#ccc",
     ...purples,

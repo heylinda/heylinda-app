@@ -91,8 +91,9 @@ function TabTwoNavigator() {
 
 const styles = StyleSheet.create({
   headerTitle: {
-    fontWeight: "normal",
+    fontWeight: "600",
     color: Colors.light.white,
+    fontSize: 16,
   },
   header: {
     backgroundColor: Colors.light.primary,

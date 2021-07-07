@@ -7,7 +7,7 @@ import { StyleSheet } from "react-native";
 import Colors from "../constants/Colors";
 import useColorScheme from "../hooks/useColorScheme";
 import HomeScreen from "../screens/Home";
-import StatsScreen from "../screens/StatsScreen";
+import StatsScreen from "../screens/Stats";
 import { BottomTabParamList, HomeParamList, StatsParamList } from "../types";
 
 const BottomTab = createBottomTabNavigator<BottomTabParamList>();

@@ -90,7 +90,7 @@ export const ten: Meditation[] = [
     title: "Good Sleep",
     subtitle: "Drift Off To Sleep",
     time: 10,
-    image: require("../assets/images/meditate5.jpg"),
+    image: require("../assets/images/sleep2.jpg"),
   },
 ];
 

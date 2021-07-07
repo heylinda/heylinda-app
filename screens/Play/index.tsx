@@ -1,7 +1,7 @@
 import * as React from "react";
 import { Image, StyleSheet, TouchableWithoutFeedback } from "react-native";
 import { AntDesign as Icon } from "@expo/vector-icons";
-import { Audio } from "expo-av";
+import { Audio, AVPlaybackStatus } from "expo-av";
 
 import { View, Text } from "../../components/Themed";
 import Colors from "../../constants/Colors";
@@ -37,10 +37,25 @@ export default function PlayScreen({ route }: Props) {
   const meditation = useMeditation(id);
   const [isPlaying, setIsPlaying] = useState(false);
   const [sound, setSound] = useState<any>();
+  const [currentTime, setCurrentTime] = useState(0);
+  const [timeLeft, setTimeLeft] = useState("");
+
+  const onPlaybackStatusUpdate = (playbackStatus: AVPlaybackStatus) => {
+    if (!playbackStatus.isLoaded) {
+      // Update your UI for the unloaded state
+    } else {
+      // Update your UI for the loaded state
+      if (playbackStatus.positionMillis) {
+        setCurrentTime(playbackStatus.positionMillis);
+      }
+    }
+  };
 
   const play = async () => {
     const { sound } = await Audio.Sound.createAsync(
-      require("../../assets/meditations/meditation.mp3")
+      require("../../assets/meditations/meditation.mp3"),
+      {},
+      onPlaybackStatusUpdate
     );
     setSound(sound);
     await sound.playAsync();
@@ -58,12 +73,17 @@ export default function PlayScreen({ route }: Props) {
 
   const { title, subtitle, image } = meditation;
 
+  const minutes = Math.floor(currentTime / 60000);
+  const seconds = Math.floor((currentTime * 0.001) % 60);
   return (
     <View style={styles.container}>
       <Image source={image} style={styles.image} />
       <Text style={styles.title}>{title}</Text>
       <Text style={styles.subtitle}>{subtitle}</Text>
       <View style={styles.controls}>
+        <Text>
+          {minutes}:{seconds}
+        </Text>
         <PlayerIcon name="stepbackward" onPress={() => {}} size={20} />
         {isPlaying ? (
           <PlayerIcon name="pausecircle" onPress={pause} />
@@ -71,6 +91,9 @@ export default function PlayScreen({ route }: Props) {
           <PlayerIcon name="play" onPress={play} />
         )}
         <PlayerIcon name="stepforward" onPress={() => {}} size={20} />
+        <Text>
+          {minutes}:{seconds}
+        </Text>
       </View>
     </View>
   );

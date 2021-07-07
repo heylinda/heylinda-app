@@ -1,11 +1,5 @@
 import * as React from "react";
-import {
-  StyleSheet,
-  ImageBackground,
-  ScrollView,
-  View,
-  Alert,
-} from "react-native";
+import { StyleSheet, ScrollView, Alert } from "react-native";
 import { Card, Paragraph } from "react-native-paper";
 
 import { Text } from "../../components/Themed";

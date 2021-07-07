@@ -102,6 +102,7 @@ const styles = StyleSheet.create({
   quote: {
     fontSize: 16,
     marginBottom: 30,
+    marginRight: 14,
     fontStyle: "italic",
   },
 });

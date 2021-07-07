@@ -1,5 +1,5 @@
 import * as React from "react";
-import { StyleSheet, ScrollView } from "react-native";
+import { StyleSheet, ScrollView, TouchableWithoutFeedback } from "react-native";
 import { AntDesign as Icon } from "@expo/vector-icons";
 
 import { View, Text } from "../../components/Themed";
@@ -8,19 +8,23 @@ import { useMeditation } from "../../hooks/useMeditation";
 import NotFoundScreen from "../NotFoundScreen";
 import { HomeParamList } from "../../types";
 import { RouteProp } from "@react-navigation/native";
+import { useState } from "react";
 
 function PlayerIcon(props: {
   name: React.ComponentProps<typeof Icon>["name"];
   color?: string;
   size?: number;
+  onPress: () => void;
 }) {
   return (
-    <Icon
-      size={50}
-      color={Colors.light.primary}
-      style={{ marginBottom: -3 }}
-      {...props}
-    />
+    <TouchableWithoutFeedback onPress={props.onPress}>
+      <Icon
+        size={50}
+        color={Colors.light.primary}
+        style={{ marginBottom: -3 }}
+        {...props}
+      />
+    </TouchableWithoutFeedback>
   );
 }
 type PlayRouteProp = RouteProp<HomeParamList, "PlayScreen">;
@@ -30,6 +34,7 @@ interface Props {
 export default function PlayScreen({ route }: Props) {
   const { id } = route.params;
   const meditation = useMeditation(id);
+  const [isPlaying, setIsPlaying] = useState(true);
 
   if (!meditation) {
     return <NotFoundScreen />;
@@ -45,9 +50,13 @@ export default function PlayScreen({ route }: Props) {
     >
       <Text>{title}</Text>
       <View style={styles.controls}>
-        <PlayerIcon name="stepbackward" size={20} />
-        <PlayerIcon name="play" />
-        <PlayerIcon name="stepforward" size={20} />
+        <PlayerIcon name="stepbackward" onPress={() => {}} size={20} />
+        {isPlaying ? (
+          <PlayerIcon name="play" onPress={() => setIsPlaying(false)} />
+        ) : (
+          <PlayerIcon name="pausecircle" onPress={() => setIsPlaying(true)} />
+        )}
+        <PlayerIcon name="stepforward" onPress={() => {}} size={20} />
       </View>
     </ScrollView>
   );

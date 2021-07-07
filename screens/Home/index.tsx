@@ -45,7 +45,7 @@ export default function Home({ navigation }: Props) {
       style={styles.container}
       showsVerticalScrollIndicator={false}
     >
-      <Text style={styles.title}>3 MINUTES</Text>
+      <Text style={styles.title}>FOR YOU</Text>
       <FlatList
         style={styles.cards}
         horizontal
@@ -54,7 +54,7 @@ export default function Home({ navigation }: Props) {
         renderItem={renderCard}
         keyExtractor={({ id }) => id}
       />
-      <Text style={styles.title}>5 MINUTES</Text>
+      <Text style={styles.title}>FOR FOCUS</Text>
       <FlatList
         style={styles.cards}
         horizontal
@@ -63,7 +63,7 @@ export default function Home({ navigation }: Props) {
         renderItem={renderCard}
         keyExtractor={({ id }) => id}
       />
-      <Text style={styles.title}>10 MINUTES</Text>
+      <Text style={styles.title}>JUST LET GO</Text>
       <FlatList
         style={styles.cards}
         horizontal

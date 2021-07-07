@@ -7,8 +7,8 @@ import { StyleSheet } from "react-native";
 import Colors from "../constants/Colors";
 import useColorScheme from "../hooks/useColorScheme";
 import HomeScreen from "../screens/Home";
-import TabTwoScreen from "../screens/TabTwoScreen";
-import { BottomTabParamList, HomeParamList, TabTwoParamList } from "../types";
+import StatsScreen from "../screens/StatsScreen";
+import { BottomTabParamList, HomeParamList, StatsParamList } from "../types";
 
 const BottomTab = createBottomTabNavigator<BottomTabParamList>();
 
@@ -30,8 +30,8 @@ export default function BottomTabNavigator() {
         }}
       />
       <BottomTab.Screen
-        name="TabTwo"
-        component={TabTwoNavigator}
+        name="Stats"
+        component={StatsNavigator}
         options={{
           tabBarIcon: ({ color }) => (
             <TabBarIcon name="ios-calendar" color={color} />
@@ -71,21 +71,21 @@ function TabOneNavigator() {
   );
 }
 
-const TabTwoStack = createStackNavigator<TabTwoParamList>();
+const StatsStack = createStackNavigator<StatsParamList>();
 
-function TabTwoNavigator() {
+function StatsNavigator() {
   return (
-    <TabTwoStack.Navigator>
-      <TabTwoStack.Screen
-        name="TabTwoScreen"
-        component={TabTwoScreen}
+    <StatsStack.Navigator>
+      <StatsStack.Screen
+        name="StatsScreen"
+        component={StatsScreen}
         options={{
           headerTitle: "Stats",
           headerStyle: styles.header,
           headerTitleStyle: styles.headerTitle,
         }}
       />
-    </TabTwoStack.Navigator>
+    </StatsStack.Navigator>
   );
 }
 

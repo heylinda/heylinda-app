@@ -1,6 +1,7 @@
 import * as React from "react";
 import { Image, StyleSheet, TouchableWithoutFeedback } from "react-native";
 import { AntDesign as Icon } from "@expo/vector-icons";
+import { Audio } from "expo-av";
 
 import { View, Text } from "../../components/Themed";
 import Colors from "../../constants/Colors";
@@ -34,7 +35,22 @@ interface Props {
 export default function PlayScreen({ route }: Props) {
   const { id } = route.params;
   const meditation = useMeditation(id);
-  const [isPlaying, setIsPlaying] = useState(true);
+  const [isPlaying, setIsPlaying] = useState(false);
+  const [sound, setSound] = useState<any>();
+
+  const play = async () => {
+    const { sound } = await Audio.Sound.createAsync(
+      require("../../assets/meditations/meditation.mp3")
+    );
+    setSound(sound);
+    await sound.playAsync();
+    setIsPlaying(true);
+  };
+
+  const pause = async () => {
+    await sound.pauseAsync();
+    setIsPlaying(false);
+  };
 
   if (!meditation) {
     return <NotFoundScreen />;
@@ -50,9 +66,9 @@ export default function PlayScreen({ route }: Props) {
       <View style={styles.controls}>
         <PlayerIcon name="stepbackward" onPress={() => {}} size={20} />
         {isPlaying ? (
-          <PlayerIcon name="play" onPress={() => setIsPlaying(false)} />
+          <PlayerIcon name="pausecircle" onPress={pause} />
         ) : (
-          <PlayerIcon name="pausecircle" onPress={() => setIsPlaying(true)} />
+          <PlayerIcon name="play" onPress={play} />
         )}
         <PlayerIcon name="stepforward" onPress={() => {}} size={20} />
       </View>

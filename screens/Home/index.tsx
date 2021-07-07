@@ -5,11 +5,8 @@ import { Card, Paragraph } from "react-native-paper";
 import { Text } from "../../components/Themed";
 import Colors from "../../constants/Colors";
 import { meditations, MeditationItem } from "../../data/meditations";
-import { useQuote } from "../../hooks/useQuote";
 
 export default function Home() {
-  const { quote } = useQuote();
-
   const renderCard = ({ item }: MeditationItem) => {
     return (
       <Card style={styles.card} onPress={() => Alert.alert("foo")}>
@@ -33,9 +30,8 @@ export default function Home() {
     <ScrollView
       contentContainerStyle={styles.contentContainer}
       style={styles.container}
+      showsVerticalScrollIndicator={false}
     >
-      <Text style={styles.title}>QUOTE OF THE DAY</Text>
-      <Text style={styles.quote}>"{quote}"</Text>
       <Text style={styles.title}>3 MINUTES</Text>
       <FlatList
         style={styles.cards}
@@ -105,10 +101,5 @@ const styles = StyleSheet.create({
     fontSize: 16,
     fontWeight: "bold",
     marginBottom: 19,
-  },
-  quote: {
-    fontSize: 16,
-    marginBottom: 30,
-    fontStyle: "italic",
   },
 });

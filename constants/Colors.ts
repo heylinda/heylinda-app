@@ -13,7 +13,7 @@ const grays = {
 export default {
   light: {
     primary,
-    text: grays.black,
+    text: grays.gray900,
     background: grays.gray100,
     tint: primary,
     tabIconDefault: "#ccc",
@@ -22,7 +22,7 @@ export default {
   },
   dark: {
     primary,
-    text: grays.black,
+    text: grays.gray900,
     background: grays.gray100,
     tint: primary,
     tabIconDefault: "#ccc",

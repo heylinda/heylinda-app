@@ -27,7 +27,10 @@ export default function Home() {
   };
 
   return (
-    <ScrollView style={styles.container}>
+    <ScrollView
+      contentContainerStyle={styles.contentContainer}
+      style={styles.container}
+    >
       <Text style={styles.title}>SHORT AND SWEET</Text>
       <FlatList
         style={styles.cards}
@@ -46,7 +49,7 @@ export default function Home() {
         renderItem={renderCard}
         keyExtractor={({ id }) => id}
       />
-      <Text style={styles.title}>LET GO</Text>
+      <Text style={styles.title}>JUST LET GO</Text>
       <FlatList
         style={styles.cards}
         horizontal
@@ -65,6 +68,9 @@ const styles = StyleSheet.create({
     paddingTop: 36,
     paddingBottom: 36,
     paddingLeft: 14,
+  },
+  contentContainer: {
+    paddingBottom: 36,
   },
   card: {
     width: 250,

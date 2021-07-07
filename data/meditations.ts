@@ -1,10 +1,12 @@
 import { ImageSourcePropType } from "react-native";
+import { v4 as uuid } from "uuid";
 
 export interface Meditation {
   id: string;
   title: string;
   subtitle: string;
   time: number;
+  order: number;
   image: ImageSourcePropType;
 }
 export interface MeditationItem {
@@ -13,14 +15,24 @@ export interface MeditationItem {
 
 export const short: Meditation[] = [
   {
-    id: "1",
+    id: uuid(),
+    order: 1,
+    title: "Morning",
+    subtitle: "Wake Up Refreshed",
+    time: 3,
+    image: require("../assets/images/meditate1.jpg"),
+  },
+  {
+    id: uuid(),
+    order: 2,
     title: "Sleep",
     subtitle: "Drift Off To Sleep",
     time: 10,
     image: require("../assets/images/meditate1.jpg"),
   },
   {
-    id: "2",
+    id: uuid(),
+    order: 3,
     title: "Sleep",
     subtitle: "Drift Off To Sleep",
     time: 10,
@@ -30,14 +42,16 @@ export const short: Meditation[] = [
 
 export const medium: Meditation[] = [
   {
-    id: "3",
+    id: uuid(),
+    order: 1,
     title: "Sleep",
     subtitle: "Drift Off To Sleep",
     time: 10,
     image: require("../assets/images/meditate1.jpg"),
   },
   {
-    id: "4",
+    id: uuid(),
+    order: 2,
     title: "Sleep",
     subtitle: "Drift Off To Sleep",
     time: 10,
@@ -47,14 +61,16 @@ export const medium: Meditation[] = [
 
 export const long: Meditation[] = [
   {
-    id: "5",
+    id: uuid(),
+    order: 1,
     title: "Sleep",
     subtitle: "Drift Off To Sleep",
     time: 10,
     image: require("../assets/images/meditate1.jpg"),
   },
   {
-    id: "6",
+    id: uuid(),
+    order: 2,
     title: "Sleep",
     subtitle: "Drift Off To Sleep",
     time: 10,

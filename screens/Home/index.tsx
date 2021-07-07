@@ -31,30 +31,30 @@ export default function Home() {
       contentContainerStyle={styles.contentContainer}
       style={styles.container}
     >
-      <Text style={styles.title}>SHORT AND SWEET</Text>
+      <Text style={styles.title}>3 MINUTES</Text>
       <FlatList
         style={styles.cards}
         horizontal
         showsHorizontalScrollIndicator={false}
-        data={meditations.short}
+        data={meditations.three}
         renderItem={renderCard}
         keyExtractor={({ id }) => id}
       />
-      <Text style={styles.title}>GOT SOME TIME</Text>
+      <Text style={styles.title}>5 MINUTES</Text>
       <FlatList
         style={styles.cards}
         horizontal
         showsHorizontalScrollIndicator={false}
-        data={meditations.medium}
+        data={meditations.five}
         renderItem={renderCard}
         keyExtractor={({ id }) => id}
       />
-      <Text style={styles.title}>JUST LET GO</Text>
+      <Text style={styles.title}>10 MINUTES</Text>
       <FlatList
         style={styles.cards}
         horizontal
         showsHorizontalScrollIndicator={false}
-        data={meditations.medium}
+        data={meditations.ten}
         renderItem={renderCard}
         keyExtractor={({ id }) => id}
       />

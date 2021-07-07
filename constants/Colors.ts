@@ -17,7 +17,7 @@ export default {
     primary,
     text: grays.black,
     background: grays.white,
-    tint: tintColorLight,
+    tint: primary,
     tabIconDefault: "#ccc",
     tabIconSelected: tintColorLight,
     ...purples,

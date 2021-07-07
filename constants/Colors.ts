@@ -1,6 +1,3 @@
-const tintColorLight = "#2f95dc";
-const tintColorDark = "#fff";
-
 const primary = "#463FB0";
 const purples = {
   purple900: "#4A5784",
@@ -19,7 +16,6 @@ export default {
     background: grays.white,
     tint: primary,
     tabIconDefault: "#ccc",
-    tabIconSelected: tintColorLight,
     ...purples,
     ...grays,
   },
@@ -27,9 +23,8 @@ export default {
     primary,
     text: grays.black,
     background: grays.white,
-    tint: tintColorDark,
+    tint: primary,
     tabIconDefault: "#ccc",
-    tabIconSelected: tintColorDark,
     ...purples,
     ...grays,
   },

@@ -1,4 +1,4 @@
-import { Ionicons } from "@expo/vector-icons";
+import { AntDesign } from "@expo/vector-icons";
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 import { createStackNavigator } from "@react-navigation/stack";
 import * as React from "react";
@@ -24,9 +24,7 @@ export default function BottomTabNavigator() {
         name="Home"
         component={TabOneNavigator}
         options={{
-          tabBarIcon: ({ color }) => (
-            <TabBarIcon name="ios-home" color={color} />
-          ),
+          tabBarIcon: ({ color }) => <TabBarIcon name="home" color={color} />,
         }}
       />
       <BottomTab.Screen
@@ -34,7 +32,7 @@ export default function BottomTabNavigator() {
         component={StatsNavigator}
         options={{
           tabBarIcon: ({ color }) => (
-            <TabBarIcon name="ios-calendar" color={color} />
+            <TabBarIcon name="calendar" color={color} />
           ),
         }}
       />
@@ -45,10 +43,10 @@ export default function BottomTabNavigator() {
 // You can explore the built-in icon families and icons on the web at:
 // https://icons.expo.fyi/
 function TabBarIcon(props: {
-  name: React.ComponentProps<typeof Ionicons>["name"];
+  name: React.ComponentProps<typeof AntDesign>["name"];
   color: string;
 }) {
-  return <Ionicons size={30} style={{ marginBottom: -3 }} {...props} />;
+  return <AntDesign size={25} style={{ marginBottom: -3 }} {...props} />;
 }
 
 // Each tab has its own navigation stack, you can read more about this pattern here:

@@ -1,7 +1,8 @@
 import { StackNavigationProp } from "@react-navigation/stack";
 import * as React from "react";
-import { StyleSheet, ScrollView, FlatList, Alert } from "react-native";
+import { StyleSheet, ScrollView, FlatList } from "react-native";
 import { Card, Paragraph } from "react-native-paper";
+import Screen from "../../components/Screen";
 
 import { Text } from "../../components/Themed";
 import Colors from "../../constants/Colors";
@@ -40,11 +41,7 @@ export default function Home({ navigation }: Props) {
   };
 
   return (
-    <ScrollView
-      contentContainerStyle={styles.contentContainer}
-      style={styles.container}
-      showsVerticalScrollIndicator={false}
-    >
+    <Screen scroll>
       <Text style={styles.title}>FOR YOU</Text>
       <FlatList
         style={styles.cards}
@@ -72,7 +69,7 @@ export default function Home({ navigation }: Props) {
         renderItem={renderCard}
         keyExtractor={({ id }) => id}
       />
-    </ScrollView>
+    </Screen>
   );
 }
 

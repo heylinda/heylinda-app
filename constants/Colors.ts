@@ -22,11 +22,12 @@ export default {
   },
   dark: {
     primary,
-    text: grays.gray900,
-    background: grays.gray100,
+    text: grays.white,
+    background: grays.gray900,
     tint: primary,
     tabIconDefault: "#ccc",
     ...purples,
     ...grays,
+    white: "#1D1E1E",
   },
 };

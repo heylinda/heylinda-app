@@ -6,16 +6,13 @@ import Calendar from "./Calendar";
 import { Text } from "../../components/Themed";
 import Colors from "../../constants/Colors";
 import { useQuote } from "../../hooks/useQuote";
+import Screen from "../../components/Screen";
 
 export default function StatsScreen() {
   const { quote } = useQuote();
 
   return (
-    <ScrollView
-      contentContainerStyle={styles.contentContainer}
-      style={styles.container}
-      showsVerticalScrollIndicator={false}
-    >
+    <Screen scroll>
       <Text style={styles.title}>QUICK STATS</Text>
       <ScrollView
         horizontal
@@ -45,21 +42,11 @@ export default function StatsScreen() {
       <Calendar />
       <Text style={styles.title}>QUOTE OF THE DAY</Text>
       <Text style={styles.quote}>"{quote}"</Text>
-    </ScrollView>
+    </Screen>
   );
 }
 
 const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    paddingTop: 36,
-    paddingBottom: 36,
-    paddingLeft: 14,
-    backgroundColor: Colors.light.background,
-  },
-  contentContainer: {
-    paddingBottom: 36,
-  },
   title: {
     fontSize: 16,
     fontWeight: "bold",

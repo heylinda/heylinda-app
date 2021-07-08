@@ -3,6 +3,7 @@ import { Image, StyleSheet, TouchableWithoutFeedback } from "react-native";
 import { AntDesign as Icon } from "@expo/vector-icons";
 import { Audio, AVPlaybackStatus } from "expo-av";
 
+import Screen from "../../components/Screen";
 import { View, Text } from "../../components/Themed";
 import Colors from "../../constants/Colors";
 import { useMeditation } from "../../hooks/useMeditation";
@@ -76,7 +77,7 @@ export default function PlayScreen({ route }: Props) {
   const minutes = Math.floor(currentTime / 60000);
   const seconds = Math.floor((currentTime * 0.001) % 60);
   return (
-    <View style={styles.container}>
+    <Screen style={styles.container}>
       <Image source={image} style={styles.image} />
       <Text style={styles.title}>{title}</Text>
       <Text style={styles.subtitle}>{subtitle}</Text>
@@ -95,7 +96,7 @@ export default function PlayScreen({ route }: Props) {
           {minutes}:{seconds}
         </Text>
       </View>
-    </View>
+    </Screen>
   );
 }
 
@@ -106,7 +107,6 @@ const styles = StyleSheet.create({
     paddingBottom: 66,
     paddingLeft: 31,
     paddingRight: 31,
-    backgroundColor: Colors.light.background,
   },
   title: {
     fontSize: 18,

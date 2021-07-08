@@ -37,6 +37,14 @@ export default function PlayScreen({ route }: Props) {
   const [currentTime, setCurrentTime] = useState(0)
   const time = useMsToTime(currentTime)
 
+  React.useEffect(() => {
+    return sound
+      ? () => {
+          sound.unloadAsync()
+        }
+      : undefined
+  }, [sound])
+
   const onPlaybackStatusUpdate = (playbackStatus: AVPlaybackStatus) => {
     if (!playbackStatus.isLoaded) {
       // Update your UI for the unloaded state

@@ -1,5 +1,6 @@
 import * as React from "react";
 import { StyleSheet } from "react-native";
+import dayjs from "dayjs";
 
 import { Calendar as DefaultCalendar } from "react-native-calendars";
 import { useThemeColor } from "../../../components/Themed";
@@ -9,20 +10,29 @@ export default function Calendar() {
   const primary = useThemeColor({}, "primary");
   const gray900 = useThemeColor({}, "gray900");
   const text = useThemeColor({}, "text");
+  const today = dayjs().format("YYYY-MM-DD");
+  const markedDates = {
+    [today]: {
+      marked: true,
+    },
+    "2021-07-02": { selected: true },
+    "2021-07-01": { selected: true },
+  };
 
   return (
     <DefaultCalendar
       style={styles.calendar}
+      markedDates={markedDates}
       theme={{
         backgroundColor: white,
         calendarBackground: white,
         textSectionTitleColor: "#b6c1cd",
-        selectedDayBackgroundColor: "#00adf5",
+        selectedDayBackgroundColor: primary,
         selectedDayTextColor: white,
         todayTextColor: primary,
-        dayTextColor: "#2d4150",
+        dayTextColor: text,
         textDisabledColor: "#d9e1e8",
-        dotColor: "#00adf5",
+        dotColor: primary,
         selectedDotColor: white,
         arrowColor: gray900,
         monthTextColor: text,

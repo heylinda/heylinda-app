@@ -11,6 +11,7 @@ import NotFoundScreen from "../NotFoundScreen";
 import { HomeParamList } from "../../types";
 import { RouteProp } from "@react-navigation/native";
 import { useState } from "react";
+import useMsToTime from "../../hooks/useMsToTime";
 
 function PlayerIcon(props: {
   name: React.ComponentProps<typeof Icon>["name"];
@@ -39,6 +40,7 @@ export default function PlayScreen({ route }: Props) {
   const [isPlaying, setIsPlaying] = useState(false);
   const [sound, setSound] = useState<any>();
   const [currentTime, setCurrentTime] = useState(0);
+  const time = useMsToTime(currentTime);
   const [timeLeft, setTimeLeft] = useState("");
 
   const onPlaybackStatusUpdate = (playbackStatus: AVPlaybackStatus) => {
@@ -74,17 +76,13 @@ export default function PlayScreen({ route }: Props) {
 
   const { title, subtitle, image } = meditation;
 
-  const minutes = Math.floor(currentTime / 60000);
-  const seconds = Math.floor((currentTime * 0.001) % 60);
   return (
     <Screen style={styles.container}>
       <Image source={image} style={styles.image} />
       <Text style={styles.title}>{title}</Text>
       <Text style={styles.subtitle}>{subtitle}</Text>
       <View style={styles.controls}>
-        <Text>
-          {minutes}:{seconds}
-        </Text>
+        <Text>{time}</Text>
         <PlayerIcon name="stepbackward" onPress={() => {}} size={20} />
         {isPlaying ? (
           <PlayerIcon name="pausecircle" onPress={pause} />
@@ -92,9 +90,7 @@ export default function PlayScreen({ route }: Props) {
           <PlayerIcon name="play" onPress={play} />
         )}
         <PlayerIcon name="stepforward" onPress={() => {}} size={20} />
-        <Text>
-          {minutes}:{seconds}
-        </Text>
+        <Text>{time}</Text>
       </View>
     </Screen>
   );

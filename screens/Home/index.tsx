@@ -1,16 +1,16 @@
-import { StackNavigationProp } from "@react-navigation/stack";
-import * as React from "react";
-import { StyleSheet, ScrollView, FlatList } from "react-native";
-import { Card, Paragraph } from "react-native-paper";
-import Screen from "../../components/Screen";
+import { StackNavigationProp } from '@react-navigation/stack'
+import * as React from 'react'
+import { StyleSheet, FlatList } from 'react-native'
+import { Card, Paragraph } from 'react-native-paper'
+import Screen from '../../components/Screen'
 
-import { Text } from "../../components/Themed";
-import Colors from "../../constants/Colors";
-import { meditations, MeditationItem } from "../../data/meditations";
-import { HomeParamList } from "../../types";
+import { Text } from '../../components/Themed'
+import Colors from '../../constants/Colors'
+import { meditations, MeditationItem } from '../../data/meditations'
+import { HomeParamList } from '../../types'
 
 interface Props {
-  navigation: StackNavigationProp<HomeParamList, "HomeScreen">;
+  navigation: StackNavigationProp<HomeParamList, 'HomeScreen'>
 }
 
 export default function Home({ navigation }: Props) {
@@ -19,7 +19,7 @@ export default function Home({ navigation }: Props) {
       <Card
         style={styles.card}
         onPress={() =>
-          navigation.navigate("PlayScreen", {
+          navigation.navigate('PlayScreen', {
             id: item.id,
           })
         }
@@ -32,13 +32,11 @@ export default function Home({ navigation }: Props) {
           subtitle={item.subtitle}
         />
         <Card.Content style={styles.cardContent}>
-          <Paragraph style={styles.cardParagraph}>
-            {item.time} minutes
-          </Paragraph>
+          <Paragraph style={styles.cardParagraph}>{item.time} minutes</Paragraph>
         </Card.Content>
       </Card>
-    );
-  };
+    )
+  }
 
   return (
     <Screen scroll>
@@ -70,20 +68,10 @@ export default function Home({ navigation }: Props) {
         keyExtractor={({ id }) => id}
       />
     </Screen>
-  );
+  )
 }
 
 const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    paddingTop: 36,
-    paddingBottom: 36,
-    paddingLeft: 14,
-    backgroundColor: Colors.light.background,
-  },
-  contentContainer: {
-    paddingBottom: 36,
-  },
   card: {
     width: 250,
     marginRight: 10,
@@ -102,14 +90,14 @@ const styles = StyleSheet.create({
   },
   cardParagraph: {
     color: Colors.light.purple900,
-    fontWeight: "600",
+    fontWeight: '600',
   },
   cards: {
     marginBottom: 30,
   },
   title: {
     fontSize: 16,
-    fontWeight: "bold",
+    fontWeight: 'bold',
     marginBottom: 19,
   },
-});
+})

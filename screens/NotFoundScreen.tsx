@@ -1,11 +1,11 @@
-import { useNavigation, NavigationProp } from "@react-navigation/native";
-import * as React from "react";
-import { StyleSheet, Text, TouchableOpacity, View } from "react-native";
+import { useNavigation, NavigationProp } from '@react-navigation/native'
+import * as React from 'react'
+import { StyleSheet, Text, TouchableOpacity, View } from 'react-native'
 
-import { RootStackParamList } from "../types";
+import { RootStackParamList } from '../types'
 
 export default function NotFoundScreen() {
-  const navigation = useNavigation<NavigationProp<RootStackParamList>>();
+  const navigation = useNavigation<NavigationProp<RootStackParamList>>()
 
   return (
     <View style={styles.container}>
@@ -14,20 +14,20 @@ export default function NotFoundScreen() {
         <Text style={styles.linkText}>Go to home screen!</Text>
       </TouchableOpacity>
     </View>
-  );
+  )
 }
 
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: "#fff",
-    alignItems: "center",
-    justifyContent: "center",
+    backgroundColor: '#fff',
+    alignItems: 'center',
+    justifyContent: 'center',
     padding: 20,
   },
   title: {
     fontSize: 20,
-    fontWeight: "bold",
+    fontWeight: 'bold',
   },
   link: {
     marginTop: 15,
@@ -35,6 +35,6 @@ const styles = StyleSheet.create({
   },
   linkText: {
     fontSize: 14,
-    color: "#2e78b7",
+    color: '#2e78b7',
   },
-});
+})

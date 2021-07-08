@@ -1,47 +1,41 @@
-import * as React from "react";
-import { Image, StyleSheet, TouchableWithoutFeedback } from "react-native";
-import { AntDesign as Icon } from "@expo/vector-icons";
-import { Audio, AVPlaybackStatus } from "expo-av";
+import * as React from 'react'
+import { Image, StyleSheet, TouchableWithoutFeedback } from 'react-native'
+import { AntDesign as Icon } from '@expo/vector-icons'
+import { Audio, AVPlaybackStatus } from 'expo-av'
 
-import Screen from "../../components/Screen";
-import { View, Text } from "../../components/Themed";
-import Colors from "../../constants/Colors";
-import { useMeditation } from "../../hooks/useMeditation";
-import NotFoundScreen from "../NotFoundScreen";
-import { HomeParamList } from "../../types";
-import { RouteProp } from "@react-navigation/native";
-import { useState } from "react";
-import useMsToTime from "../../hooks/useMsToTime";
+import Screen from '../../components/Screen'
+import { View, Text } from '../../components/Themed'
+import Colors from '../../constants/Colors'
+import { useMeditation } from '../../hooks/useMeditation'
+import NotFoundScreen from '../NotFoundScreen'
+import { HomeParamList } from '../../types'
+import { RouteProp } from '@react-navigation/native'
+import { useState } from 'react'
+import useMsToTime from '../../hooks/useMsToTime'
 
 function PlayerIcon(props: {
-  name: React.ComponentProps<typeof Icon>["name"];
-  color?: string;
-  size?: number;
-  onPress: () => void;
+  name: React.ComponentProps<typeof Icon>['name']
+  color?: string
+  size?: number
+  onPress: () => void
 }) {
   return (
     <TouchableWithoutFeedback onPress={props.onPress}>
-      <Icon
-        size={50}
-        color={Colors.light.primary}
-        style={{ marginBottom: -3 }}
-        {...props}
-      />
+      <Icon size={50} color={Colors.light.primary} style={{ marginBottom: -3 }} {...props} />
     </TouchableWithoutFeedback>
-  );
+  )
 }
-type PlayRouteProp = RouteProp<HomeParamList, "PlayScreen">;
+type PlayRouteProp = RouteProp<HomeParamList, 'PlayScreen'>
 interface Props {
-  route: PlayRouteProp;
+  route: PlayRouteProp
 }
 export default function PlayScreen({ route }: Props) {
-  const { id } = route.params;
-  const meditation = useMeditation(id);
-  const [isPlaying, setIsPlaying] = useState(false);
-  const [sound, setSound] = useState<any>();
-  const [currentTime, setCurrentTime] = useState(0);
-  const time = useMsToTime(currentTime);
-  const [timeLeft, setTimeLeft] = useState("");
+  const { id } = route.params
+  const meditation = useMeditation(id)
+  const [isPlaying, setIsPlaying] = useState(false)
+  const [sound, setSound] = useState<any>()
+  const [currentTime, setCurrentTime] = useState(0)
+  const time = useMsToTime(currentTime)
 
   const onPlaybackStatusUpdate = (playbackStatus: AVPlaybackStatus) => {
     if (!playbackStatus.isLoaded) {
@@ -49,32 +43,32 @@ export default function PlayScreen({ route }: Props) {
     } else {
       // Update your UI for the loaded state
       if (playbackStatus.positionMillis) {
-        setCurrentTime(playbackStatus.positionMillis);
+        setCurrentTime(playbackStatus.positionMillis)
       }
     }
-  };
+  }
 
   const play = async () => {
     const { sound } = await Audio.Sound.createAsync(
-      require("../../assets/meditations/meditation.mp3"),
+      require('../../assets/meditations/meditation.mp3'),
       {},
       onPlaybackStatusUpdate
-    );
-    setSound(sound);
-    await sound.playAsync();
-    setIsPlaying(true);
-  };
-
-  const pause = async () => {
-    await sound.pauseAsync();
-    setIsPlaying(false);
-  };
-
-  if (!meditation) {
-    return <NotFoundScreen />;
+    )
+    setSound(sound)
+    await sound.playAsync()
+    setIsPlaying(true)
   }
 
-  const { title, subtitle, image } = meditation;
+  const pause = async () => {
+    await sound.pauseAsync()
+    setIsPlaying(false)
+  }
+
+  if (!meditation) {
+    return <NotFoundScreen />
+  }
+
+  const { title, subtitle, image } = meditation
 
   return (
     <Screen style={styles.container}>
@@ -93,7 +87,7 @@ export default function PlayScreen({ route }: Props) {
         <Text>{time}</Text>
       </View>
     </Screen>
-  );
+  )
 }
 
 const styles = StyleSheet.create({
@@ -106,12 +100,12 @@ const styles = StyleSheet.create({
   },
   title: {
     fontSize: 18,
-    textAlign: "center",
-    fontWeight: "bold",
+    textAlign: 'center',
+    fontWeight: 'bold',
     marginBottom: 8,
   },
   subtitle: {
-    textAlign: "center",
+    textAlign: 'center',
     fontSize: 16,
     marginBottom: 50,
   },
@@ -120,11 +114,11 @@ const styles = StyleSheet.create({
     height: 252,
     marginBottom: 66,
     borderRadius: 10,
-    alignSelf: "center",
+    alignSelf: 'center',
   },
   controls: {
-    flexDirection: "row",
-    alignItems: "center",
-    justifyContent: "space-evenly",
+    flexDirection: 'row',
+    alignItems: 'center',
+    justifyContent: 'space-evenly',
   },
-});
+})

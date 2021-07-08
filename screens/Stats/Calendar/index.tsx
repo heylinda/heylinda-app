@@ -1,23 +1,23 @@
-import * as React from "react";
-import { StyleSheet } from "react-native";
-import dayjs from "dayjs";
+import * as React from 'react'
+import { StyleSheet } from 'react-native'
+import dayjs from 'dayjs'
 
-import { Calendar as DefaultCalendar } from "react-native-calendars";
-import { useThemeColor } from "../../../components/Themed";
+import { Calendar as DefaultCalendar } from 'react-native-calendars'
+import { useThemeColor } from '../../../components/Themed'
 
 export default function Calendar() {
-  const white = useThemeColor({}, "white");
-  const primary = useThemeColor({}, "primary");
-  const gray900 = useThemeColor({}, "gray900");
-  const text = useThemeColor({}, "text");
-  const today = dayjs().format("YYYY-MM-DD");
+  const white = useThemeColor({}, 'white')
+  const primary = useThemeColor({}, 'primary')
+  const gray900 = useThemeColor({}, 'gray900')
+  const text = useThemeColor({}, 'text')
+  const today = dayjs().format('YYYY-MM-DD')
   const markedDates = {
     [today]: {
       marked: true,
     },
-    "2021-07-02": { selected: true },
-    "2021-07-01": { selected: true },
-  };
+    '2021-07-02': { selected: true },
+    '2021-07-01': { selected: true },
+  }
 
   return (
     <DefaultCalendar
@@ -26,26 +26,26 @@ export default function Calendar() {
       theme={{
         backgroundColor: white,
         calendarBackground: white,
-        textSectionTitleColor: "#b6c1cd",
+        textSectionTitleColor: '#b6c1cd',
         selectedDayBackgroundColor: primary,
         selectedDayTextColor: white,
         todayTextColor: primary,
         dayTextColor: text,
-        textDisabledColor: "#d9e1e8",
+        textDisabledColor: '#d9e1e8',
         dotColor: primary,
         selectedDotColor: white,
         arrowColor: gray900,
         monthTextColor: text,
-        indicatorColor: "blue",
-        textDayFontWeight: "300",
-        textMonthFontWeight: "bold",
-        textDayHeaderFontWeight: "300",
+        indicatorColor: 'blue',
+        textDayFontWeight: '300',
+        textMonthFontWeight: 'bold',
+        textDayHeaderFontWeight: '300',
         textDayFontSize: 16,
         textMonthFontSize: 16,
         textDayHeaderFontSize: 16,
       }}
     />
-  );
+  )
 }
 
 const styles = StyleSheet.create({
@@ -57,4 +57,4 @@ const styles = StyleSheet.create({
     paddingLeft: 16,
     paddingRight: 16,
   },
-});
+})

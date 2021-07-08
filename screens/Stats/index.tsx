@@ -1,24 +1,19 @@
-import * as React from "react";
-import { StyleSheet, ScrollView } from "react-native";
-import { Card, Title, Paragraph } from "react-native-paper";
+import * as React from 'react'
+import { StyleSheet, ScrollView } from 'react-native'
+import { Card, Title, Paragraph } from 'react-native-paper'
 
-import Calendar from "./Calendar";
-import { Text } from "../../components/Themed";
-import Colors from "../../constants/Colors";
-import { useQuote } from "../../hooks/useQuote";
-import Screen from "../../components/Screen";
+import Calendar from './Calendar'
+import { Text } from '../../components/Themed'
+import { useQuote } from '../../hooks/useQuote'
+import Screen from '../../components/Screen'
 
 export default function StatsScreen() {
-  const { quote } = useQuote();
+  const { quote } = useQuote()
 
   return (
     <Screen scroll>
       <Text style={styles.title}>QUICK STATS</Text>
-      <ScrollView
-        horizontal
-        showsHorizontalScrollIndicator={false}
-        style={styles.cards}
-      >
+      <ScrollView horizontal showsHorizontalScrollIndicator={false} style={styles.cards}>
         <Card style={styles.card}>
           <Card.Content>
             <Paragraph>Current Streak</Paragraph>
@@ -43,13 +38,13 @@ export default function StatsScreen() {
       <Text style={styles.title}>QUOTE OF THE DAY</Text>
       <Text style={styles.quote}>"{quote}"</Text>
     </Screen>
-  );
+  )
 }
 
 const styles = StyleSheet.create({
   title: {
     fontSize: 16,
-    fontWeight: "bold",
+    fontWeight: 'bold',
     marginBottom: 19,
   },
   cards: {
@@ -63,6 +58,6 @@ const styles = StyleSheet.create({
     fontSize: 16,
     marginBottom: 30,
     marginRight: 14,
-    fontStyle: "italic",
+    fontStyle: 'italic',
   },
-});
+})

@@ -1,20 +1,14 @@
-import * as React from "react";
-import {
-  ScrollView,
-  ViewProps,
-  StyleProp,
-  StyleSheet,
-  ViewStyle,
-} from "react-native";
-import { useThemeColor, View } from "./Themed";
+import * as React from 'react'
+import { ScrollView, ViewProps, StyleProp, StyleSheet, ViewStyle } from 'react-native'
+import { useThemeColor, View } from './Themed'
 
 interface Props extends ViewProps {
-  scroll?: boolean;
-  style?: StyleProp<ViewStyle>;
+  scroll?: boolean
+  style?: StyleProp<ViewStyle>
 }
 
 const Screen: React.FC<Props> = ({ scroll, style, children }) => {
-  const backgroundColor = useThemeColor({}, "background");
+  const backgroundColor = useThemeColor({}, 'background')
 
   return scroll ? (
     <ScrollView
@@ -26,9 +20,9 @@ const Screen: React.FC<Props> = ({ scroll, style, children }) => {
     </ScrollView>
   ) : (
     <View style={style}>{children}</View>
-  );
-};
-export default Screen;
+  )
+}
+export default Screen
 
 const styles = StyleSheet.create({
   container: {
@@ -40,4 +34,4 @@ const styles = StyleSheet.create({
   contentContainer: {
     paddingBottom: 36,
   },
-});
+})

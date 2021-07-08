@@ -7,6 +7,7 @@ const grays = {
   gray100: "#F2F2F2",
   gray800: "#5D5D5D",
   gray900: "#333333",
+  gray950: "#1D1E1E",
   black: "#000",
 };
 
@@ -28,6 +29,6 @@ export default {
     tabIconDefault: "#ccc",
     ...purples,
     ...grays,
-    white: "#1D1E1E",
+    white: grays.gray950,
   },
 };

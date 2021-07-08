@@ -21,7 +21,7 @@ function PlayerIcon(props: {
 }) {
   return (
     <TouchableWithoutFeedback onPress={props.onPress}>
-      <Icon size={50} color={Colors.light.primary} style={{ marginBottom: -3 }} {...props} />
+      <Icon size={50} color={Colors.light.primary} style={styles.playerIcon} {...props} />
     </TouchableWithoutFeedback>
   )
 }
@@ -33,7 +33,7 @@ export default function PlayScreen({ route }: Props) {
   const { id } = route.params
   const meditation = useMeditation(id)
   const [isPlaying, setIsPlaying] = useState(false)
-  const [sound, setSound] = useState<any>()
+  const [sound, setSound] = useState<Audio.Sound>()
   const [currentTime, setCurrentTime] = useState(0)
   const time = useMsToTime(currentTime)
 
@@ -49,18 +49,20 @@ export default function PlayScreen({ route }: Props) {
   }
 
   const play = async () => {
-    const { sound } = await Audio.Sound.createAsync(
+    const { sound: _sound } = await Audio.Sound.createAsync(
       require('../../assets/meditations/meditation.mp3'),
       {},
       onPlaybackStatusUpdate
     )
-    setSound(sound)
-    await sound.playAsync()
+    setSound(_sound)
+    await _sound.playAsync()
     setIsPlaying(true)
   }
 
   const pause = async () => {
-    await sound.pauseAsync()
+    if (sound) {
+      await sound.pauseAsync()
+    }
     setIsPlaying(false)
   }
 
@@ -121,4 +123,5 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     justifyContent: 'space-evenly',
   },
+  playerIcon: { marginBottom: -3 },
 })

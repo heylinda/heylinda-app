@@ -1,9 +1,8 @@
 import { combineReducers } from '@reduxjs/toolkit'
-import activityReducer from './activitySlice'
+import meditationReducer from './meditationSlice'
 
 const rootReducer = combineReducers({
-  activity: activityReducer,
+  meditation: meditationReducer,
 })
 
-export type RootState = ReturnType<typeof rootReducer>
 export default rootReducer

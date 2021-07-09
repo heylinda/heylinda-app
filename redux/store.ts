@@ -15,7 +15,7 @@ import rootReducer from './rootReducer'
 
 const persistConfig = {
   key: 'root',
-  version: 1,
+  version: 2,
   storage: AsyncStorage,
 }
 
@@ -30,4 +30,6 @@ export const store = configureStore({
       },
     }),
 })
+export type RootState = ReturnType<typeof rootReducer>
+export type AppDispatch = typeof store.dispatch
 export const persistor = persistStore(store)

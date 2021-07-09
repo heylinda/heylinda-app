@@ -8,7 +8,8 @@
     "eject": "expo eject",
     "test": "jest --watchAll",
     "prepare": "husky install",
-    "prettier": "prettier --write"
+    "prettier": "prettier --write",
+    "debug": "open 'rndebugger://set-debugger-loc?host=localhost&port=8081'"
   },
   "jest": {
     "preset": "jest-expo"

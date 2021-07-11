@@ -29,3 +29,19 @@ export const selectCalendar = (state: RootState) => {
   })
   return calendar
 }
+export const selectStreak = (state: RootState) => {
+  const calendar = selectCalendar(state)
+  let streak: number = 0
+
+  let n = 0
+  while (true) {
+    const date = dayjs().subtract(n, 'day').format('YYYY-MM-DD')
+    if (!calendar[date]) {
+      break
+    }
+    n += 1
+    streak += 1
+  }
+
+  return streak
+}

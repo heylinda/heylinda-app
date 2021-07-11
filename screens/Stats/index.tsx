@@ -7,11 +7,12 @@ import { Text } from '../../components/Themed'
 import { useQuote } from '../../hooks/useQuote'
 import Screen from '../../components/Screen'
 import { useAppSelector, useMsToMinutes } from '../../hooks'
-import { selectTotalDuration, selectTotalSessions } from '../../redux/selectors'
+import { selectStreak, selectTotalDuration, selectTotalSessions } from '../../redux/selectors'
 
 export default function StatsScreen() {
   const totalSessions = useAppSelector(selectTotalSessions)
   const totalDuration = useAppSelector(selectTotalDuration)
+  const streak = useAppSelector(selectStreak)
   const totalMinutes = useMsToMinutes(totalDuration)
   const { quote } = useQuote()
 
@@ -22,7 +23,9 @@ export default function StatsScreen() {
         <Card style={styles.card}>
           <Card.Content>
             <Paragraph>Current Streak</Paragraph>
-            <Title>2 days</Title>
+            <Title>
+              {streak} day{streak === 1 ? '' : 's'}
+            </Title>
           </Card.Content>
         </Card>
         <Card style={styles.card}>

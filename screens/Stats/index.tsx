@@ -6,8 +6,11 @@ import Calendar from './Calendar'
 import { Text } from '../../components/Themed'
 import { useQuote } from '../../hooks/useQuote'
 import Screen from '../../components/Screen'
+import { useAppSelector } from '../../hooks'
+import { selectTotalSessions } from '../../redux/selectors'
 
 export default function StatsScreen() {
+  const totalSessions = useAppSelector(selectTotalSessions)
   const { quote } = useQuote()
 
   return (
@@ -23,7 +26,7 @@ export default function StatsScreen() {
         <Card style={styles.card}>
           <Card.Content>
             <Paragraph>Total Sessions</Paragraph>
-            <Title>2 sessions</Title>
+            <Title>{totalSessions} sessions</Title>
           </Card.Content>
         </Card>
         <Card style={styles.card}>

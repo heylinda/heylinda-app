@@ -3,11 +3,12 @@ import { StyleSheet } from 'react-native'
 import dayjs from 'dayjs'
 
 import { useAppSelector } from '../../../hooks'
+import { selectActivity } from '../../../redux/selectors'
 import { Calendar as DefaultCalendar } from 'react-native-calendars'
 import { useThemeColor } from '../../../components/Themed'
 
 export default function Calendar() {
-  const activity = useAppSelector((state) => state.meditation.activity)
+  const activity = useAppSelector(selectActivity)
   const white = useThemeColor({}, 'white')
   const primary = useThemeColor({}, 'primary')
   const gray900 = useThemeColor({}, 'gray900')

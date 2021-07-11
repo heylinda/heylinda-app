@@ -20,7 +20,7 @@ const meditationSlice = createSlice({
   reducers: {
     completed(state) {
       state.activity[Date.now()] = {
-        duration: 10,
+        duration: 60000,
       }
     },
   },

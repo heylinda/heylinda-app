@@ -6,11 +6,13 @@ import Calendar from './Calendar'
 import { Text } from '../../components/Themed'
 import { useQuote } from '../../hooks/useQuote'
 import Screen from '../../components/Screen'
-import { useAppSelector } from '../../hooks'
-import { selectTotalSessions } from '../../redux/selectors'
+import { useAppSelector, useMsToMinutes } from '../../hooks'
+import { selectTotalDuration, selectTotalSessions } from '../../redux/selectors'
 
 export default function StatsScreen() {
   const totalSessions = useAppSelector(selectTotalSessions)
+  const totalDuration = useAppSelector(selectTotalDuration)
+  const totalMinutes = useMsToMinutes(totalDuration)
   const { quote } = useQuote()
 
   return (
@@ -32,7 +34,7 @@ export default function StatsScreen() {
         <Card style={styles.card}>
           <Card.Content>
             <Paragraph>Listened</Paragraph>
-            <Title>20 minutes</Title>
+            <Title>{totalMinutes} minutes</Title>
           </Card.Content>
         </Card>
       </ScrollView>

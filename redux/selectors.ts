@@ -36,11 +36,13 @@ export const selectStreak = (state: RootState) => {
   let n = 0
   while (true) {
     const date = dayjs().subtract(n, 'day').format('YYYY-MM-DD')
-    if (!calendar[date]) {
+    if (!calendar[date] && n !== 0) {
       break
     }
+    if (calendar[date]) {
+      streak += 1
+    }
     n += 1
-    streak += 1
   }
 
   return streak

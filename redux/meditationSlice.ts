@@ -1,6 +1,7 @@
 import { createSlice } from '@reduxjs/toolkit'
 
 export interface Activity {
+  // in miliseconds
   duration: number
 }
 export interface MeditationState {

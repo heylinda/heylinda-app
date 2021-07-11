@@ -1,7 +1,7 @@
 import { createSlice } from '@reduxjs/toolkit'
 
 export interface Activity {
-  selected: boolean
+  duration: number
 }
 export interface MeditationState {
   activity: {
@@ -19,7 +19,7 @@ const meditationSlice = createSlice({
   reducers: {
     completed(state) {
       state.activity[Date.now()] = {
-        selected: true,
+        duration: 10,
       }
     },
   },

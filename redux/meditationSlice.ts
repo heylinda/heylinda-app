@@ -1,10 +1,11 @@
 import { createSlice } from '@reduxjs/toolkit'
 
-interface MeditationState {
+export interface Activity {
+  selected: boolean
+}
+export interface MeditationState {
   activity: {
-    [key: string]: {
-      selected: boolean
-    }
+    [key: string]: Activity
   }
 }
 

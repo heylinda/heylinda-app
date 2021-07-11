@@ -31,7 +31,7 @@ export const selectCalendar = (state: RootState) => {
 }
 export const selectStreak = (state: RootState) => {
   const calendar = selectCalendar(state)
-  let streak: number = 0
+  let streak = 0
 
   let n = 0
   while (true) {

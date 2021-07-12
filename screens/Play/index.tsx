@@ -140,12 +140,14 @@ const styles = StyleSheet.create({
   subtitle: {
     textAlign: 'center',
     fontSize: 16,
-    marginBottom: 50,
+    marginBottom: 30,
   },
   image: {
-    width: 252,
-    height: 252,
-    marginBottom: 66,
+    width: '100%',
+    height: '100%',
+    maxWidth: 300,
+    maxHeight: 300,
+    marginBottom: 30,
     borderRadius: 10,
     alignSelf: 'center',
   },

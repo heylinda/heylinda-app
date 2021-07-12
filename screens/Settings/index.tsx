@@ -7,17 +7,21 @@ import { reset } from '../../redux/meditationSlice'
 const Settings = () => {
   const dispatch = useAppDispatch()
   const clearData = () => {
-    Alert.alert('Clear Data', 'Are you sure you want to delete your data? This cannot be undone.', [
-      {
-        text: 'Clear Data',
-        onPress: () => dispatch(reset()),
-        style: 'destructive',
-      },
-      {
-        text: 'Cancel',
-        style: 'cancel',
-      },
-    ])
+    Alert.alert(
+      'Clear Data',
+      'Are you sure you want to delete your data? All your stats will be reset. This cannot be undone.',
+      [
+        {
+          text: 'Clear Data',
+          onPress: () => dispatch(reset()),
+          style: 'destructive',
+        },
+        {
+          text: 'Cancel',
+          style: 'cancel',
+        },
+      ]
+    )
   }
   return (
     <>

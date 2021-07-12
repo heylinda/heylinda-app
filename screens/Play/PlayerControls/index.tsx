@@ -34,6 +34,9 @@ export default function PlayerControls() {
   }
 
   const play = async () => {
+    await Audio.setAudioModeAsync({
+      playsInSilentModeIOS: true,
+    })
     const { sound: _sound } = await Audio.Sound.createAsync(
       require('../../../assets/meditations/meditation.mp3'),
       {},

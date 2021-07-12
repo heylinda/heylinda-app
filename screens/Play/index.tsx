@@ -12,6 +12,7 @@ import { RouteProp } from '@react-navigation/native'
 import { useMsToTime, useAppDispatch } from '../../hooks'
 import { completed } from '../../redux/meditationSlice'
 import { LoadingScreen } from '../../components'
+import { useCallback } from 'react'
 
 type PlayRouteProp = RouteProp<HomeParamList, 'PlayScreen'>
 interface Props {
@@ -29,6 +30,26 @@ export default function PlayScreen({ route }: Props) {
   const positionTime = useMsToTime(positionMillis)
   const dispatch = useAppDispatch()
   const uri = meditation?.uri || ''
+
+  const onPlaybackStatusUpdate = useCallback(
+    (playbackStatus: AVPlaybackStatus) => {
+      if (!playbackStatus.isLoaded) {
+        // Update your UI for the unloaded state
+      } else {
+        // Update your UI for the loaded state
+        if (playbackStatus.positionMillis) {
+          setPositionMillis(playbackStatus.positionMillis)
+        }
+        if (playbackStatus.durationMillis) {
+          setDurationMills(playbackStatus.durationMillis)
+        }
+        if (playbackStatus.didJustFinish) {
+          dispatch(completed())
+        }
+      }
+    },
+    [dispatch]
+  )
 
   React.useEffect(() => {
     return sound
@@ -51,7 +72,7 @@ export default function PlayScreen({ route }: Props) {
     if (uri) {
       loadAudio()
     }
-  }, [uri])
+  }, [onPlaybackStatusUpdate, uri])
 
   const replay = async () => {
     await sound?.setPositionAsync(positionMillis - 10 * 1000)
@@ -64,29 +85,14 @@ export default function PlayScreen({ route }: Props) {
   const play = async () => {
     if (sound) {
       await sound.playAsync()
+      setIsPlaying(true)
     }
-    setIsPlaying(true)
-    dispatch(completed())
   }
 
   const pause = async () => {
     if (sound) {
       await sound.pauseAsync()
-    }
-    setIsPlaying(false)
-  }
-
-  const onPlaybackStatusUpdate = (playbackStatus: AVPlaybackStatus) => {
-    if (!playbackStatus.isLoaded) {
-      // Update your UI for the unloaded state
-    } else {
-      // Update your UI for the loaded state
-      if (playbackStatus.positionMillis) {
-        setPositionMillis(playbackStatus.positionMillis)
-      }
-      if (playbackStatus.durationMillis) {
-        setDurationMills(playbackStatus.durationMillis)
-      }
+      setIsPlaying(false)
     }
   }
 

@@ -40,7 +40,7 @@ export default function Home({ navigation }: Props) {
 
   return (
     <Screen scroll>
-      <Text style={styles.title}>FOR YOU</Text>
+      <Text style={styles.title}>POPULAR</Text>
       <FlatList
         style={styles.cards}
         horizontal
@@ -49,7 +49,7 @@ export default function Home({ navigation }: Props) {
         renderItem={renderCard}
         keyExtractor={({ id }) => id}
       />
-      <Text style={styles.title}>FOR FOCUS</Text>
+      <Text style={styles.title}>ANXIETY</Text>
       <FlatList
         style={styles.cards}
         horizontal
@@ -58,7 +58,7 @@ export default function Home({ navigation }: Props) {
         renderItem={renderCard}
         keyExtractor={({ id }) => id}
       />
-      <Text style={styles.title}>JUST LET GO</Text>
+      <Text style={styles.title}>SLEEP</Text>
       <FlatList
         style={styles.cards}
         horizontal
@@ -81,7 +81,7 @@ const styles = StyleSheet.create({
     color: Colors.light.gray900,
   },
   cardImage: {
-    height: 135,
+    height: 200,
   },
   cardContent: {},
   cardSubtitle: {

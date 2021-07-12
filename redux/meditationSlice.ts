@@ -1,4 +1,4 @@
-import { createSlice } from '@reduxjs/toolkit'
+import { createSlice, PayloadAction } from '@reduxjs/toolkit'
 
 export interface Activity {
   // in miliseconds
@@ -18,9 +18,9 @@ const meditationSlice = createSlice({
   name: 'meditation',
   initialState,
   reducers: {
-    completed(state) {
+    completed(state, action: PayloadAction<number>) {
       state.activity[Date.now()] = {
-        duration: 60000,
+        duration: action.payload,
       }
     },
     reset: () => initialState,

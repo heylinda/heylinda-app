@@ -44,7 +44,7 @@ export default function PlayScreen({ route }: Props) {
           setDurationMills(playbackStatus.durationMillis)
         }
         if (playbackStatus.didJustFinish) {
-          dispatch(completed())
+          dispatch(completed(playbackStatus.durationMillis || 0))
         }
       }
     },

@@ -100,7 +100,7 @@ export const sleep: Meditation[] = [
     track: 6,
     time: 28,
     uri: 'https://goofy-ritchie-dd0c3d.netlify.app/meditations/6.mp3',
-    image: require('../assets/images/meditate5.jpg'),
+    image: require('../assets/images/sleep.jpg'),
   },
   {
     id: uuid(),

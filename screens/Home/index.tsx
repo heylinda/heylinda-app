@@ -70,7 +70,7 @@ export default function Home({ navigation }: Props) {
         style={styles.cards}
         horizontal
         showsHorizontalScrollIndicator={false}
-        data={meditations.three}
+        data={meditations.popular}
         renderItem={renderPopularCard}
         keyExtractor={({ id }) => id}
       />
@@ -79,7 +79,7 @@ export default function Home({ navigation }: Props) {
         style={styles.cards}
         horizontal
         showsHorizontalScrollIndicator={false}
-        data={meditations.five}
+        data={meditations.anxiety}
         renderItem={renderCard}
         keyExtractor={({ id }) => id}
       />
@@ -88,7 +88,7 @@ export default function Home({ navigation }: Props) {
         style={styles.cards}
         horizontal
         showsHorizontalScrollIndicator={false}
-        data={meditations.ten}
+        data={meditations.sleep}
         renderItem={renderCard}
         keyExtractor={({ id }) => id}
       />

@@ -58,10 +58,4 @@ const styles = StyleSheet.create({
     width: 150,
     marginRight: 10,
   },
-  quote: {
-    fontSize: 16,
-    marginBottom: 30,
-    marginRight: 14,
-    fontStyle: 'italic',
-  },
 })

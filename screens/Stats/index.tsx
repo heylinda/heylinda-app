@@ -4,7 +4,6 @@ import { Card, Title, Paragraph } from 'react-native-paper'
 
 import Calendar from './Calendar'
 import { Text } from '../../components/Themed'
-import { useQuote } from '../../hooks/useQuote'
 import Screen from '../../components/Screen'
 import { useAppSelector, useMsToMinutes } from '../../hooks'
 import { selectStreak, selectTotalDuration, selectTotalSessions } from '../../redux/selectors'
@@ -14,7 +13,6 @@ export default function StatsScreen() {
   const totalDuration = useAppSelector(selectTotalDuration)
   const streak = useAppSelector(selectStreak)
   const totalMinutes = useMsToMinutes(totalDuration)
-  const { quote } = useQuote()
 
   return (
     <Screen scroll>
@@ -43,8 +41,6 @@ export default function StatsScreen() {
       </ScrollView>
       <Text style={styles.title}>YOUR ACTIVITY</Text>
       <Calendar />
-      <Text style={styles.title}>QUOTE OF THE DAY</Text>
-      <Text style={styles.quote}>"{quote}"</Text>
     </Screen>
   )
 }

@@ -8,8 +8,9 @@ import Colors from '../constants/Colors'
 import useColorScheme from '../hooks/useColorScheme'
 import HomeScreen from '../screens/Home'
 import PlayScreen from '../screens/Play'
+import SettingsScreen from '../screens/Settings'
 import StatsScreen from '../screens/Stats'
-import { BottomTabParamList, HomeParamList, StatsParamList } from '../types'
+import { BottomTabParamList, HomeParamList, SettingsParamList, StatsParamList } from '../types'
 
 const BottomTab = createBottomTabNavigator<BottomTabParamList>()
 
@@ -33,6 +34,13 @@ export default function BottomTabNavigator() {
         component={StatsNavigator}
         options={{
           tabBarIcon: ({ color }) => <TabBarIcon name="calendar" color={color} />,
+        }}
+      />
+      <BottomTab.Screen
+        name="Settings"
+        component={SettingsNavigator}
+        options={{
+          tabBarIcon: ({ color }) => <TabBarIcon name="setting" color={color} />,
         }}
       />
     </BottomTab.Navigator>
@@ -92,6 +100,24 @@ function StatsNavigator() {
         }}
       />
     </StatsStack.Navigator>
+  )
+}
+
+const SettingsStack = createStackNavigator<SettingsParamList>()
+
+function SettingsNavigator() {
+  return (
+    <SettingsStack.Navigator>
+      <SettingsStack.Screen
+        name="SettingsScreen"
+        component={SettingsScreen}
+        options={{
+          headerTitle: 'Settings',
+          headerStyle: styles.header,
+          headerTitleStyle: styles.headerTitle,
+        }}
+      />
+    </SettingsStack.Navigator>
   )
 }
 

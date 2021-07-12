@@ -23,8 +23,9 @@ const meditationSlice = createSlice({
         duration: 60000,
       }
     },
+    reset: () => initialState,
   },
 })
 
-export const { completed } = meditationSlice.actions
+export const { completed, reset } = meditationSlice.actions
 export default meditationSlice.reducer

@@ -4,22 +4,27 @@
  */
 
 export type RootStackParamList = {
-  Root: undefined;
-  NotFound: undefined;
-};
+  Root: undefined
+  NotFound: undefined
+}
 
 export type BottomTabParamList = {
-  Home: undefined;
-  Stats: undefined;
-};
+  Home: undefined
+  Stats: undefined
+  Settings: undefined
+}
 
 export type HomeParamList = {
-  HomeScreen: undefined;
+  HomeScreen: undefined
   PlayScreen: {
-    id: string;
-  };
-};
+    id: string
+  }
+}
 
 export type StatsParamList = {
-  StatsScreen: undefined;
-};
+  StatsScreen: undefined
+}
+
+export type SettingsParamList = {
+  SettingsScreen: undefined
+}

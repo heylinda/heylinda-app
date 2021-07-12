@@ -20,7 +20,6 @@ interface Props {
 export default function PlayScreen({ route }: Props) {
   const { id } = route.params
   const meditation = useMeditation(id)
-
   const [isLoadingAudio, setIsLoadingAudio] = React.useState(true)
   const [isPlaying, setIsPlaying] = React.useState(false)
   const [sound, setSound] = React.useState<Audio.Sound>()

@@ -18,7 +18,6 @@ const Settings = () => {
         },
         {
           text: 'Cancel',
-          style: 'cancel',
         },
       ]
     )

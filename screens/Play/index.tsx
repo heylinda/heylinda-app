@@ -23,8 +23,10 @@ export default function PlayScreen({ route }: Props) {
   const [isLoadingAudio, setIsLoadingAudio] = React.useState(true)
   const [isPlaying, setIsPlaying] = React.useState(false)
   const [sound, setSound] = React.useState<Audio.Sound>()
-  const [currentTime, setCurrentTime] = React.useState(0)
-  const time = useMsToTime(currentTime)
+  const [positionMillis, setPositionMillis] = React.useState(0)
+  const [durationMills, setDurationMills] = React.useState(0)
+  const durationTime = useMsToTime(durationMills - positionMillis)
+  const positionTime = useMsToTime(positionMillis)
   const dispatch = useAppDispatch()
   const uri = meditation?.uri || ''
 
@@ -72,7 +74,10 @@ export default function PlayScreen({ route }: Props) {
     } else {
       // Update your UI for the loaded state
       if (playbackStatus.positionMillis) {
-        setCurrentTime(playbackStatus.positionMillis)
+        setPositionMillis(playbackStatus.positionMillis)
+      }
+      if (playbackStatus.durationMillis) {
+        setDurationMills(playbackStatus.durationMillis)
       }
     }
   }
@@ -92,7 +97,13 @@ export default function PlayScreen({ route }: Props) {
       <Image source={image} style={styles.image} />
       <Text style={styles.title}>{title}</Text>
       <Text style={styles.subtitle}>{subtitle}</Text>
-      <PlayerControls isPlaying={isPlaying} play={play} pause={pause} time={time} />
+      <PlayerControls
+        isPlaying={isPlaying}
+        play={play}
+        pause={pause}
+        positionTime={positionTime}
+        durationTime={durationTime}
+      />
     </Screen>
   )
 }

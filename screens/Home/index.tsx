@@ -14,6 +14,31 @@ interface Props {
 }
 
 export default function Home({ navigation }: Props) {
+  const renderPopularCard = ({ item }: MeditationItem) => {
+    return (
+      <Card
+        elevation={1}
+        style={styles.card}
+        onPress={() =>
+          navigation.navigate('PlayScreen', {
+            id: item.id,
+          })
+        }
+      >
+        <Card.Cover style={[styles.cardImage, styles.popularImage]} source={item.image} />
+        <Card.Title
+          titleStyle={styles.cardTitle}
+          subtitleStyle={styles.cardSubtitle}
+          title={item.title}
+          subtitle={item.subtitle}
+        />
+        <Card.Content style={styles.cardContent}>
+          <Paragraph style={styles.cardParagraph}>{item.time} minutes</Paragraph>
+        </Card.Content>
+      </Card>
+    )
+  }
+
   const renderCard = ({ item }: MeditationItem) => {
     return (
       <Card
@@ -46,7 +71,7 @@ export default function Home({ navigation }: Props) {
         horizontal
         showsHorizontalScrollIndicator={false}
         data={meditations.three}
-        renderItem={renderCard}
+        renderItem={renderPopularCard}
         keyExtractor={({ id }) => id}
       />
       <Text style={styles.title}>ANXIETY</Text>
@@ -81,7 +106,10 @@ const styles = StyleSheet.create({
     color: Colors.light.gray900,
   },
   cardImage: {
-    height: 200,
+    height: 135,
+  },
+  popularImage: {
+    height: 250,
   },
   cardContent: {},
   cardSubtitle: {

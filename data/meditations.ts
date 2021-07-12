@@ -29,7 +29,7 @@ export const popular: Meditation[] = [
   {
     id: uuid(),
     order: 2,
-    title: 'Deep Breathing & Relax',
+    title: 'Deep Breathing',
     track: 2,
     subtitle: 'Just Breath',
     time: 5,
@@ -52,7 +52,7 @@ export const anxiety: Meditation[] = [
   {
     id: uuid(),
     order: 1,
-    title: 'Deep and Quick Relaxtion',
+    title: 'Deep and Quick Relaxation',
     track: 4,
     subtitle: 'Release Anxiety',
     time: 10,
@@ -63,7 +63,7 @@ export const anxiety: Meditation[] = [
     id: uuid(),
     order: 2,
     title: 'Calming Medition',
-    subtitle: 'Deep Relaxtion',
+    subtitle: 'Deep Relaxation',
     track: 7,
     time: 11,
     uri: 'https://goofy-ritchie-dd0c3d.netlify.app/meditations/7.mp3',
@@ -72,7 +72,7 @@ export const anxiety: Meditation[] = [
   {
     id: uuid(),
     order: 2,
-    title: 'Candle Relaxtion',
+    title: 'Candle Relaxation',
     subtitle: 'Get Some Rest',
     track: 8,
     time: 11,

@@ -29,13 +29,17 @@ export default function StatsScreen() {
         <Card style={styles.card}>
           <Card.Content>
             <Paragraph>Total Sessions</Paragraph>
-            <Title>{totalSessions} sessions</Title>
+            <Title>
+              {totalSessions} session{totalSessions === 1 ? '' : 's'}
+            </Title>
           </Card.Content>
         </Card>
         <Card style={styles.card}>
           <Card.Content>
             <Paragraph>Listened</Paragraph>
-            <Title>{totalMinutes} minutes</Title>
+            <Title>
+              {totalMinutes} minute{totalMinutes === 1 ? '' : 's'}
+            </Title>
           </Card.Content>
         </Card>
       </ScrollView>

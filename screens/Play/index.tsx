@@ -100,8 +100,7 @@ export default function PlayScreen({ route }: Props) {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    paddingTop: 66,
-    paddingBottom: 66,
+    justifyContent: 'center',
     paddingLeft: 31,
     paddingRight: 31,
   },

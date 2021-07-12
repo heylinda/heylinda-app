@@ -42,7 +42,7 @@ export default function BottomTabNavigator() {
 // You can explore the built-in icon families and icons on the web at:
 // https://icons.expo.fyi/
 function TabBarIcon(props: { name: React.ComponentProps<typeof Icon>['name']; color: string }) {
-  return <Icon size={25} style={{ marginBottom: -3 }} {...props} />
+  return <Icon size={25} style={styles.tabBarIcon} {...props} />
 }
 
 // Each tab has its own navigation stack, you can read more about this pattern here:
@@ -103,5 +103,8 @@ const styles = StyleSheet.create({
   },
   header: {
     backgroundColor: Colors.light.primary,
+  },
+  tabBarIcon: {
+    marginBottom: -3,
   },
 })

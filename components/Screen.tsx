@@ -7,7 +7,7 @@ interface Props extends ViewProps {
   style?: StyleProp<ViewStyle>
 }
 
-const Screen: React.FC<Props> = ({ scroll, style, children }) => {
+export const Screen: React.FC<Props> = ({ scroll, style, children }) => {
   const backgroundColor = useThemeColor({}, 'background')
 
   return scroll ? (

@@ -10,6 +10,8 @@ interface Props {
   isPlaying: boolean
   pause: () => void
   play: () => void
+  replay: () => void
+  forward: () => void
 }
 export default function PlayerControls({
   positionTime,
@@ -17,17 +19,19 @@ export default function PlayerControls({
   isPlaying,
   pause,
   play,
+  replay,
+  forward,
 }: Props) {
   return (
     <View style={styles.controls}>
       <Text>{positionTime}</Text>
-      <PlayerIcon name="stepbackward" onPress={() => {}} size={20} />
+      <PlayerIcon name="replay-10" onPress={replay} size={30} />
       {isPlaying ? (
-        <PlayerIcon name="pausecircle" onPress={pause} />
+        <PlayerIcon name="pause-circle-filled" onPress={pause} />
       ) : (
-        <PlayerIcon name="play" onPress={play} />
+        <PlayerIcon name="play-circle-filled" onPress={play} />
       )}
-      <PlayerIcon name="stepforward" onPress={() => {}} size={20} />
+      <PlayerIcon name="forward-10" onPress={forward} size={30} />
       <Text>{durationTime}</Text>
     </View>
   )

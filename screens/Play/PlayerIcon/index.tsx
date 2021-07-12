@@ -1,5 +1,5 @@
 import * as React from 'react'
-import { AntDesign as Icon } from '@expo/vector-icons'
+import { MaterialIcons as Icon } from '@expo/vector-icons'
 import { useThemeColor } from '../../../components/Themed'
 import { StyleSheet } from 'react-native'
 

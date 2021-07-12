@@ -53,6 +53,14 @@ export default function PlayScreen({ route }: Props) {
     }
   }, [uri])
 
+  const replay = async () => {
+    await sound?.setPositionAsync(positionMillis - 10 * 1000)
+  }
+
+  const forward = async () => {
+    await sound?.setPositionAsync(positionMillis + 10 * 1000)
+  }
+
   const play = async () => {
     if (sound) {
       await sound.playAsync()
@@ -101,6 +109,8 @@ export default function PlayScreen({ route }: Props) {
         isPlaying={isPlaying}
         play={play}
         pause={pause}
+        replay={replay}
+        forward={forward}
         positionTime={positionTime}
         durationTime={durationTime}
       />

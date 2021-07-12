@@ -26,7 +26,7 @@ export default function PlayScreen({ route }: Props) {
   const [sound, setSound] = React.useState<Audio.Sound>()
   const [positionMillis, setPositionMillis] = React.useState(0)
   const [durationMills, setDurationMills] = React.useState(0)
-  const durationTime = useMsToTime(durationMills - positionMillis)
+  const durationTime = useMsToTime(durationMills)
   const positionTime = useMsToTime(positionMillis)
   const dispatch = useAppDispatch()
   const uri = meditation?.uri || ''

@@ -45,6 +45,7 @@ export default function PlayScreen({ route }: Props) {
         }
         if (playbackStatus.didJustFinish) {
           dispatch(completed(playbackStatus.durationMillis || 0))
+          setIsPlaying(false)
         }
       }
     },

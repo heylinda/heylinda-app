@@ -65,6 +65,7 @@ export default function PlayScreen({ route }: Props) {
       setIsLoadingAudio(true)
       await Audio.setAudioModeAsync({
         playsInSilentModeIOS: true,
+        staysActiveInBackground: true,
       })
       const { sound: _sound } = await Audio.Sound.createAsync({ uri }, {}, onPlaybackStatusUpdate)
       setSound(_sound)

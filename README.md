@@ -1,8 +1,27 @@
-## Meditation
+# Hey Linda: Free Meditation, Sleep, Music
 
-### To run your project, navigate to the directory and run one of the following yarn commands.
+A free forever meditation app built with React Native
+
+## Features
+
+- meditate
+- track progress
+- dark mode
+- more than 100+ meditations
+- current streak
+- calendar activity
+- time listened
+
+## Install
+
+To install the project, navigate to the directory and run:
 
 - cd meditation
-- yarn start # you can open iOS, Android, or web from here, or run them directly with the commands below.
+- yarn install
+
+## Run
+
+To run the project, run the following commands:
+
 - yarn android
 - yarn ios

@@ -16,12 +16,12 @@ A free forever meditation app built with React Native
 
 To install the project, navigate to the directory and run:
 
-- cd meditation
-- yarn install
+- `cd meditation`
+- `yarn install`
 
 ## Run
 
 To run the project, run the following commands:
 
-- yarn android
-- yarn ios
+- `yarn android`
+- `yarn ios`

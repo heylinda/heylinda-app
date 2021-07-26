@@ -2,7 +2,7 @@
 
 A free forever meditation app built with React Native
 
-## Features
+### Features
 
 - meditate
 - track progress

@@ -1,6 +1,3 @@
-<p align="center">
-  <img src="https://avatars.githubusercontent.com/u/88053790" alt="logo" height="150"/>
-</p>
 <h3 align="center">
   🧘 Hey Linda
 </h3>

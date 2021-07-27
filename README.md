@@ -8,7 +8,7 @@
   A free forever meditation app built with React Native.
 </p>
 <p align="center">
-  <img src="https://user-images.githubusercontent.com/3059371/127217365-6d5adb49-c56a-4fdf-9473-a35cc6e12c60.jpg" alt="banner" />
+  <img src="https://user-images.githubusercontent.com/3059371/127218639-9b801064-97df-4eb6-9518-94b09c42e031.jpg" alt="banner" />
 </p>
 
 ## Features

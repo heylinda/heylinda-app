@@ -2,7 +2,7 @@
   <img src="https://avatars.githubusercontent.com/u/88053790" alt="logo" height="150"/>
 </p>
 <h3 align="center">
-  Hey Linda
+  🧘 Hey Linda
 </h3>
 <p align="center">
   A free forever meditation app built with React Native.

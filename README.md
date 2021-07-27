@@ -1,3 +1,7 @@
+<p align="center">
+  <img src="https://avatars.githubusercontent.com/u/88053790" alt="logo" height="150"/>
+</p>
+
 # Hey Linda: Free Meditation, Sleep, Music
 
 A free forever meditation app built with React Native
@@ -16,7 +20,6 @@ A free forever meditation app built with React Native
 
 To install the project, navigate to the directory and run:
 
-- `cd meditation`
 - `yarn install`
 
 ## Run

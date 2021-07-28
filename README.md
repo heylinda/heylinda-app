@@ -34,6 +34,10 @@ To run the project, run the following commands:
 - `yarn android`
 - `yarn ios`
 
+## Contribute
+
+You can contribute to Hey Linda by beta testing, recording, or submitting code. 
+
 ## Join Us On
 
 <a href="https://join.slack.com/t/heylinda/shared_invite/zt-to976i3o-qPBT6C~pU0QjyMeMgvMVYQ"><img src="docs/images/logos/slack.gif" height="50px"/></a>

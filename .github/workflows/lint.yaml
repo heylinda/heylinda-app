@@ -1,0 +1,25 @@
+name: Lint
+
+on: pull_request
+
+jobs:
+  run-linter:
+    name: Run Linter
+    runs-on: ubuntu-20.04
+    steps:
+      - uses: actions/checkout@v2
+
+      - uses: actions/cache@v2
+        with:
+          path: '**/node_modules'
+          key: ${{ runner.os }}-modules-${{ hashFiles('**/yarn.lock') }}
+
+      - uses: actions/setup-node@v1
+        with:
+          node-version: '14'
+
+      - name: Install packages
+        run: yarn install --frozen-lockfile
+
+      - name: Run linter
+        run: yarn lint

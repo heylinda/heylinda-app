@@ -9,7 +9,8 @@
     "test": "jest --watchAll",
     "prepare": "husky install",
     "prettier": "prettier --write",
-    "debug": "open 'rndebugger://set-debugger-loc?host=localhost&port=8081'"
+    "debug": "open 'rndebugger://set-debugger-loc?host=localhost&port=8081'",
+    "lint": "eslint --ext .js,.jsx,.ts,.tsx ./"
   },
   "jest": {
     "preset": "jest-expo"

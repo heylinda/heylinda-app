@@ -53,5 +53,5 @@ bug or feature. You can also join us on Slack to discuss ideas.
 
 Thanks to these awesome contributors who keep this project going
 
-<a href="https://github.com/helinda/heylinda-app/graphs/contributors"><img src="https://opencollective.com/heylinda/contributors.svg?width=890&button=false" /></a>
+<a href="https://github.com/heylinda/heylinda-app/graphs/contributors"><img src="https://opencollective.com/heylinda/contributors.svg?width=890&button=false" /></a>
 

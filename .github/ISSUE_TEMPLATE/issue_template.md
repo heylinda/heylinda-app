@@ -1,6 +1,7 @@
 ---
 name: 🐛 Bug Report
 about: Open a new issue here if something isn't working as expected.
+title: "[Bug]"
 labels: bug
 assignees: ''
 

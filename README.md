@@ -46,3 +46,12 @@ bug or feature. You can also join us on Slack to discuss ideas.
 <a href="https://join.slack.com/t/heylinda/shared_invite/zt-to976i3o-qPBT6C~pU0QjyMeMgvMVYQ"><img src="docs/images/logos/slack.gif" height="50px"/></a>
 <a href="https://www.facebook.com/heylindabot"><img src="docs/images/logos/facebook.png" height="50px"/></a>
 <a href="https://twitter.com/heylindahq"><img src="docs/images/logos/twitter.png" height="50px"/></a>
+
+## Credits
+
+### Github Contributors
+
+Thanks to these awesome contributors who keep this project going
+
+<a href="https://github.com/helinda/heylinda-app/graphs/contributors"><img src="https://opencollective.com/heylinda/contributors.svg?width=890&button=false" /></a>
+

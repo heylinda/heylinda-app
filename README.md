@@ -55,3 +55,16 @@ Thanks to these awesome contributors who keep this project going
 
 <a href="https://github.com/heylinda/heylinda-app/graphs/contributors"><img src="https://opencollective.com/heylinda/contributors.svg?width=890&button=false" /></a>
 
+### Sponsors
+
+Thank you to all our sponsors! 🙏
+
+<a href="https://opencollective.com/heylinda/sponsor/0/website" target="_blank"><img src="https://opencollective.com/heylinda/sponsor/0/avatar.svg"></a>
+<a href="https://opencollective.com/heylinda/sponsor/1/website" target="_blank"><img src="https://opencollective.com/heylinda/sponsor/1/avatar.svg"></a>
+<a href="https://opencollective.com/heylinda/sponsor/2/website" target="_blank"><img src="https://opencollective.com/heylinda/sponsor/2/avatar.svg"></a>
+
+### Backers
+
+Thank you to all our backers! 🙏
+
+<a href="https://opencollective.com/heylinda#backers" target="_blank"><img src="https://opencollective.com/heylinda/backers.svg?width=890"></a>

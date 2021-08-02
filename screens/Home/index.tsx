@@ -7,6 +7,7 @@ import Screen from '../../components/Screen'
 import { Text } from '../../components/Themed'
 import Colors from '../../constants/Colors'
 import { meditations, MeditationItem } from '../../data/meditations'
+import useColorScheme from '../../hooks/useColorScheme'
 import { HomeParamList } from '../../types'
 
 interface Props {
@@ -14,6 +15,8 @@ interface Props {
 }
 
 export default function Home({ navigation }: Props) {
+  const colorScheme = useColorScheme()
+
   const renderPopularCard = ({ item }: MeditationItem) => {
     return (
       <Card
@@ -27,7 +30,7 @@ export default function Home({ navigation }: Props) {
       >
         <Card.Cover style={[styles.cardImage, styles.popularImage]} source={item.image} />
         <Card.Title
-          titleStyle={styles.cardTitle}
+          titleStyle={colorScheme === 'light' ? styles.lightCardTitle : styles.darkCardTitle}
           subtitleStyle={styles.cardSubtitle}
           title={item.title}
           subtitle={item.subtitle}
@@ -51,7 +54,7 @@ export default function Home({ navigation }: Props) {
       >
         <Card.Cover style={styles.cardImage} source={item.image} />
         <Card.Title
-          titleStyle={styles.cardTitle}
+          titleStyle={colorScheme === 'light' ? styles.lightCardTitle : styles.darkCardTitle}
           subtitleStyle={styles.cardSubtitle}
           title={item.title}
           subtitle={item.subtitle}
@@ -101,9 +104,13 @@ const styles = StyleSheet.create({
     width: 250,
     marginRight: 10,
   },
-  cardTitle: {
+  lightCardTitle: {
     fontSize: 16,
     color: Colors.light.gray900,
+  },
+  darkCardTitle: {
+    fontSize: 16,
+    color: Colors.light.white,
   },
   cardImage: {
     height: 135,

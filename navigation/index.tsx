@@ -12,6 +12,7 @@ import NotFoundScreen from '../screens/NotFoundScreen'
 import { RootStackParamList } from '../types'
 import BottomTabNavigator from './BottomTabNavigator'
 import LinkingConfiguration from './LinkingConfiguration'
+import { StatusBar } from 'expo-status-bar'
 
 export default function Navigation({ colorScheme }: { colorScheme: ColorSchemeName }) {
   return (
@@ -19,6 +20,7 @@ export default function Navigation({ colorScheme }: { colorScheme: ColorSchemeNa
       linking={LinkingConfiguration}
       theme={colorScheme === 'dark' ? DarkTheme : DefaultTheme}
     >
+      <StatusBar style="light" />
       <RootNavigator />
     </NavigationContainer>
   )

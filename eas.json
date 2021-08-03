@@ -1,0 +1,9 @@
+{
+  "build": {
+    "release": {},
+    "development": {
+      "developmentClient": true,
+      "distribution": "internal"
+    }
+  }
+}

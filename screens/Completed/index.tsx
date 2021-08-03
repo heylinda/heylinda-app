@@ -36,8 +36,8 @@ const Completed = ({ navigation }: Props) => {
       </Button>
       <Button
         onPress={onPressSkip}
-        style={styles.button}
-        mode="contained"
+        style={[styles.button, styles.skipButton]}
+        mode="outlined"
         color={Colors.light.white}
       >
         Skip
@@ -75,6 +75,9 @@ const styles = StyleSheet.create({
     padding: 8,
     width: '100%',
     marginBottom: 20,
+  },
+  skipButton: {
+    borderColor: Colors.light.white,
   },
 })
 

@@ -8,7 +8,7 @@ export interface Meditation {
   title: string
   /* Description of the meditation */
   subtitle: string
-  /* How long is the meditation in milliseconds */
+  /* How long is the meditation in minutes */
   time: number
   /* The order of the meditation in the list */
   order: number
@@ -31,7 +31,7 @@ export const popular: Meditation[] = [
     track: 0,
     subtitle: 'Love and Peace',
     time: 2,
-    uri: 'https://goofy-ritchie-dd0c3d.netlify.app/meditations/1.mp3',
+    uri: 'https://goofy-ritchie-dd0c3d.netlify.app/meditations/17.mp3',
     image: require('../assets/images/meditate6.jpg'),
   },
   {

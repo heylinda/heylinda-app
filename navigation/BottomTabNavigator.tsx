@@ -6,6 +6,7 @@ import { StyleSheet } from 'react-native'
 
 import Colors from '../constants/Colors'
 import useColorScheme from '../hooks/useColorScheme'
+import CompletedScreen from '../screens/Completed'
 import HomeScreen from '../screens/Home'
 import PlayScreen from '../screens/Play'
 import SettingsScreen from '../screens/Settings'
@@ -76,6 +77,18 @@ function TabOneNavigator() {
         options={{
           headerBackTitle: 'Back',
           headerTitle: 'Play',
+          headerStyle: styles.header,
+          headerTitleStyle: styles.headerTitle,
+          headerTintColor: Colors.light.white,
+        }}
+      />
+      <HomeStack.Screen
+        name="CompletedScreen"
+        component={CompletedScreen}
+        options={{
+          headerShown: false,
+          headerBackTitle: 'Back',
+          headerTitle: 'Completed',
           headerStyle: styles.header,
           headerTitleStyle: styles.headerTitle,
           headerTintColor: Colors.light.white,

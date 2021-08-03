@@ -13,12 +13,14 @@ import { useMsToTime, useAppDispatch } from '../../hooks'
 import { completed } from '../../redux/meditationSlice'
 import { LoadingScreen } from '../../components'
 import { useCallback } from 'react'
+import { StackNavigationProp } from '@react-navigation/stack'
 
 type PlayRouteProp = RouteProp<HomeParamList, 'PlayScreen'>
 interface Props {
+  navigation: StackNavigationProp<HomeParamList, 'PlayScreen'>
   route: PlayRouteProp
 }
-export default function PlayScreen({ route }: Props) {
+export default function PlayScreen({ route, navigation }: Props) {
   const { id } = route.params
   const meditation = useMeditation(id)
   const [isLoadingAudio, setIsLoadingAudio] = React.useState(true)
@@ -46,10 +48,11 @@ export default function PlayScreen({ route }: Props) {
         if (playbackStatus.didJustFinish) {
           dispatch(completed(playbackStatus.durationMillis || 0))
           setIsPlaying(false)
+          navigation.replace('CompletedScreen')
         }
       }
     },
-    [dispatch]
+    [dispatch, navigation]
   )
 
   React.useEffect(() => {

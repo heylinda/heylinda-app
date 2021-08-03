@@ -18,7 +18,7 @@ interface Props {
 const Completed = ({ navigation }: Props) => {
   const totalSessions = useAppSelector(selectTotalSessions)
   const onPressDonate = () => {
-    Linking.openURL('https://opencollective.com/heylinda#category-CONTRIBUTE')
+    Linking.openURL('https://opencollective.com/heylinda/donate')
   }
   const onPressSkip = () => navigation.navigate('HomeScreen')
 

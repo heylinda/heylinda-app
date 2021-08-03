@@ -27,7 +27,8 @@ const Completed = ({ navigation }: Props) => {
       <Icon size={50} name="checkcircle" color={Colors.light.white} style={styles.checkMark} />
       <Text style={styles.title}> Congratulations!</Text>
       <Text style={styles.description}>
-        You have completed {totalSessions} meditations!{'\n'}Do you want to give a donation?
+        You have completed {totalSessions} meditation{totalSessions === 1 ? '' : 's'}!{'\n'}Do you
+        want to give a donation?
       </Text>
       <Button
         onPress={onPressDonate}

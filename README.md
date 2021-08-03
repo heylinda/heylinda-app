@@ -46,3 +46,25 @@ bug or feature. You can also join us on Slack to discuss ideas.
 <a href="https://join.slack.com/t/heylinda/shared_invite/zt-to976i3o-qPBT6C~pU0QjyMeMgvMVYQ"><img src="docs/images/logos/slack.gif" height="50px"/></a>
 <a href="https://www.facebook.com/heylindabot"><img src="docs/images/logos/facebook.png" height="50px"/></a>
 <a href="https://twitter.com/heylindahq"><img src="docs/images/logos/twitter.png" height="50px"/></a>
+
+## Credits
+
+### Github Contributors
+
+Thanks to these awesome contributors! 🧘
+
+<a href="https://github.com/heylinda/heylinda-app/graphs/contributors"><img src="https://opencollective.com/heylinda/contributors.svg?width=890&button=false" /></a>
+
+### Sponsors
+
+Thank you to all our sponsors! 🥇
+
+<a href="https://opencollective.com/heylinda/sponsor/0/website" target="_blank"><img src="https://opencollective.com/heylinda/sponsor/0/avatar.svg"></a>
+<a href="https://opencollective.com/heylinda/sponsor/1/website" target="_blank"><img src="https://opencollective.com/heylinda/sponsor/1/avatar.svg"></a>
+<a href="https://opencollective.com/heylinda/sponsor/2/website" target="_blank"><img src="https://opencollective.com/heylinda/sponsor/2/avatar.svg"></a>
+
+### Backers
+
+Thank you to all our backers! 🙏
+
+<a href="https://opencollective.com/heylinda#backers" target="_blank"><img src="https://opencollective.com/heylinda/backers.svg?width=890"></a>

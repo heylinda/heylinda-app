@@ -8,12 +8,15 @@ import { Screen, Text } from '../../components'
 import Colors from '../../constants/Colors'
 import { HomeParamList } from '../../types'
 import { Linking } from 'react-native'
+import { useAppSelector } from '../../hooks'
+import { selectTotalSessions } from '../../redux/selectors'
 
 interface Props {
   navigation: StackNavigationProp<HomeParamList, 'CompletedScreen'>
 }
 
 const Completed = ({ navigation }: Props) => {
+  const totalSessions = useAppSelector(selectTotalSessions)
   const onPressDonate = () => {
     Linking.openURL('https://opencollective.com/heylinda#category-CONTRIBUTE')
   }
@@ -22,9 +25,9 @@ const Completed = ({ navigation }: Props) => {
   return (
     <Screen style={styles.screen}>
       <Icon size={50} name="checkcircle" color={Colors.light.white} style={styles.checkMark} />
-      <Text style={styles.title}>Congratulations!</Text>
+      <Text style={styles.title}> Congratulations!</Text>
       <Text style={styles.description}>
-        You have completed the meditation.{'\n'}Do you want to give a donation?
+        You have completed {totalSessions} meditations!{'\n'}Do you want to give a donation?
       </Text>
       <Button
         onPress={onPressDonate}

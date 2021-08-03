@@ -12,6 +12,7 @@ export const Screen: React.FC<Props> = ({ scroll, style, children }) => {
 
   return scroll ? (
     <ScrollView
+      testID="scrollview-screen"
       contentContainerStyle={styles.contentContainer}
       style={[styles.container, { backgroundColor }, style]}
       showsVerticalScrollIndicator={false}
@@ -19,7 +20,9 @@ export const Screen: React.FC<Props> = ({ scroll, style, children }) => {
       {children}
     </ScrollView>
   ) : (
-    <View style={style}>{children}</View>
+    <View testID="view-screen" style={style}>
+      {children}
+    </View>
   )
 }
 export default Screen

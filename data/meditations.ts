@@ -2,13 +2,21 @@ import { ImageSourcePropType } from 'react-native'
 import { v4 as uuid } from 'uuid'
 
 export interface Meditation {
+  /* Unique id of the meditation */
   id: string
+  /* Title of the meditation */
   title: string
+  /* Description of the meditation */
   subtitle: string
+  /* How long is the meditation in milliseconds */
   time: number
+  /* The order of the meditation in the list */
   order: number
+  /* URL of the image to show */
   image: ImageSourcePropType
+  /* URI of the audio file */
   uri: string
+  /* Track ID from the back-end */
   track: number
 }
 export interface MeditationItem {
@@ -19,6 +27,16 @@ export const popular: Meditation[] = [
   {
     id: uuid(),
     order: 1,
+    title: 'Power of Love',
+    track: 0,
+    subtitle: 'Love and Peace',
+    time: 2,
+    uri: 'https://goofy-ritchie-dd0c3d.netlify.app/meditations/1.mp3',
+    image: require('../assets/images/meditate6.jpg'),
+  },
+  {
+    id: uuid(),
+    order: 2,
     title: 'Quick Powerful Meditation',
     track: 1,
     subtitle: 'Busy At Work',
@@ -28,7 +46,7 @@ export const popular: Meditation[] = [
   },
   {
     id: uuid(),
-    order: 2,
+    order: 3,
     title: 'Deep Breathing',
     track: 2,
     subtitle: 'Just Breath',
@@ -38,7 +56,7 @@ export const popular: Meditation[] = [
   },
   {
     id: uuid(),
-    order: 3,
+    order: 4,
     title: 'Yawn and Stretch',
     subtitle: 'Rise and Shine',
     track: 3,

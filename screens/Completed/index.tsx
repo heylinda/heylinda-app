@@ -17,7 +17,7 @@ const Completed = ({ navigation }: Props) => {
   const onPressDonate = () => {
     Linking.openURL('https://opencollective.com/heylinda#category-CONTRIBUTE')
   }
-  const onPressSkip = () => navigation.replace('HomeScreen')
+  const onPressSkip = () => navigation.navigate('HomeScreen')
 
   return (
     <Screen style={styles.screen}>

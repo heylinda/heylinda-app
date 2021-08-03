@@ -11,8 +11,7 @@ export default function Calendar() {
   const calendar = useAppSelector(selectCalendar)
   const white = useThemeColor({}, 'white')
   const primary = useThemeColor({}, 'primary')
-  const gray900 = useThemeColor({}, 'gray900')
-  const text = useThemeColor({}, 'text')
+  const textColor = useThemeColor({}, 'text')
   const today = dayjs().format('YYYY-MM-DD')
   const markedDates = {
     [today]: {
@@ -32,12 +31,12 @@ export default function Calendar() {
         selectedDayBackgroundColor: primary,
         selectedDayTextColor: white,
         todayTextColor: primary,
-        dayTextColor: text,
+        dayTextColor: textColor,
         textDisabledColor: '#d9e1e8',
         dotColor: primary,
         selectedDotColor: white,
-        arrowColor: gray900,
-        monthTextColor: text,
+        arrowColor: textColor,
+        monthTextColor: textColor,
         indicatorColor: 'blue',
         textDayFontWeight: '300',
         textMonthFontWeight: 'bold',

@@ -1,5 +1,6 @@
 {
   "expo": {
+    "owner": "heylinda",
     "name": "meditation",
     "slug": "meditation",
     "version": "1.0.0",
@@ -15,18 +16,24 @@
     "updates": {
       "fallbackToCacheTimeout": 0
     },
-    "assetBundlePatterns": ["**/*"],
+    "assetBundlePatterns": [
+      "**/*"
+    ],
     "ios": {
       "supportsTablet": true,
       "infoPlist": {
-        "UIBackgroundModes": ["audio"]
-      }
+        "UIBackgroundModes": [
+          "audio"
+        ]
+      },
+      "bundleIdentifier": "com.heylinda.meditation"
     },
     "android": {
       "adaptiveIcon": {
         "foregroundImage": "./assets/images/adaptive-icon.png",
         "backgroundColor": "#ffffff"
-      }
+      },
+      "package": "com.heylinda.meditation"
     },
     "web": {
       "favicon": "./assets/images/favicon.png"

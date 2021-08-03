@@ -4,10 +4,9 @@ import { StyleSheet, FlatList } from 'react-native'
 import { Card, Paragraph } from 'react-native-paper'
 import Screen from '../../components/Screen'
 
-import { Text } from '../../components/Themed'
+import { Text, useThemeColor } from '../../components/Themed'
 import Colors from '../../constants/Colors'
 import { meditations, MeditationItem } from '../../data/meditations'
-import useColorScheme from '../../hooks/useColorScheme'
 import { HomeParamList } from '../../types'
 
 interface Props {
@@ -15,7 +14,7 @@ interface Props {
 }
 
 export default function Home({ navigation }: Props) {
-  const colorScheme = useColorScheme()
+  const textColor = useThemeColor({}, 'text')
 
   const renderPopularCard = ({ item }: MeditationItem) => {
     return (
@@ -30,7 +29,7 @@ export default function Home({ navigation }: Props) {
       >
         <Card.Cover style={[styles.cardImage, styles.popularImage]} source={item.image} />
         <Card.Title
-          titleStyle={colorScheme === 'light' ? styles.lightCardTitle : styles.darkCardTitle}
+          titleStyle={[styles.cardTitle, { color: textColor }]}
           subtitleStyle={styles.cardSubtitle}
           title={item.title}
           subtitle={item.subtitle}
@@ -54,7 +53,7 @@ export default function Home({ navigation }: Props) {
       >
         <Card.Cover style={styles.cardImage} source={item.image} />
         <Card.Title
-          titleStyle={colorScheme === 'light' ? styles.lightCardTitle : styles.darkCardTitle}
+          titleStyle={[styles.cardTitle, { color: textColor }]}
           subtitleStyle={styles.cardSubtitle}
           title={item.title}
           subtitle={item.subtitle}
@@ -104,13 +103,8 @@ const styles = StyleSheet.create({
     width: 250,
     marginRight: 10,
   },
-  lightCardTitle: {
+  cardTitle: {
     fontSize: 16,
-    color: Colors.light.gray900,
-  },
-  darkCardTitle: {
-    fontSize: 16,
-    color: Colors.light.white,
   },
   cardImage: {
     height: 135,

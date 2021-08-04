@@ -3,30 +3,36 @@
  * https://reactnavigation.org/docs/typescript/
  */
 
+import { AppRoutes } from './navigation/AppRoutes'
+
 export type NO_PARAMS = undefined
 export type RootStackParamList = {
-  Root: NO_PARAMS
-  NotFound: NO_PARAMS
+  [AppRoutes.Root]: NO_PARAMS
+  [AppRoutes.NotFound]: NO_PARAMS
+}
+
+export type MainStackParamList = {
+  [AppRoutes.Main]: NO_PARAMS
+  [AppRoutes.CompletedScreen]: NO_PARAMS
 }
 
 export type BottomTabParamList = {
-  Home: NO_PARAMS
-  Stats: NO_PARAMS
-  Settings: NO_PARAMS
+  [AppRoutes.Home]: NO_PARAMS
+  [AppRoutes.Stats]: NO_PARAMS
+  [AppRoutes.Settings]: NO_PARAMS
 }
 
 export type HomeParamList = {
-  HomeScreen: NO_PARAMS
-  PlayScreen: {
+  [AppRoutes.HomeScreen]: NO_PARAMS
+  [AppRoutes.PlayScreen]: {
     id: string
   }
-  CompletedScreen: NO_PARAMS
 }
 
 export type StatsParamList = {
-  StatsScreen: NO_PARAMS
+  [AppRoutes.StatsScreen]: NO_PARAMS
 }
 
 export type SettingsParamList = {
-  SettingsScreen: NO_PARAMS
+  [AppRoutes.SettingsScreen]: NO_PARAMS
 }

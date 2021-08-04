@@ -6,13 +6,14 @@ import { Button } from 'react-native-paper'
 
 import { Screen, Text } from '../../components'
 import Colors from '../../constants/Colors'
-import { HomeParamList } from '../../types'
+import { MainStackParamList } from '../../types'
 import { Linking } from 'react-native'
 import { useAppSelector } from '../../hooks'
 import { selectTotalSessions } from '../../redux/selectors'
+import { AppRoutes } from '../../navigation/AppRoutes'
 
 interface Props {
-  navigation: StackNavigationProp<HomeParamList, 'CompletedScreen'>
+  navigation: StackNavigationProp<MainStackParamList, AppRoutes.CompletedScreen>
 }
 
 const Completed = ({ navigation }: Props) => {
@@ -20,7 +21,7 @@ const Completed = ({ navigation }: Props) => {
   const onPressDonate = () => {
     Linking.openURL('https://opencollective.com/heylinda/donate')
   }
-  const onPressSkip = () => navigation.navigate('HomeScreen')
+  const onPressSkip = () => navigation.navigate(AppRoutes.Main)
 
   return (
     <Screen style={styles.screen}>

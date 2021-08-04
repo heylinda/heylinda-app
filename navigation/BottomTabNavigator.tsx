@@ -6,12 +6,12 @@ import { StyleSheet } from 'react-native'
 
 import Colors from '../constants/Colors'
 import useColorScheme from '../hooks/useColorScheme'
-import CompletedScreen from '../screens/Completed'
 import HomeScreen from '../screens/Home'
 import PlayScreen from '../screens/Play'
 import SettingsScreen from '../screens/Settings'
 import StatsScreen from '../screens/Stats'
 import { BottomTabParamList, HomeParamList, SettingsParamList, StatsParamList } from '../types'
+import { AppRoutes } from './AppRoutes'
 
 const BottomTab = createBottomTabNavigator<BottomTabParamList>()
 
@@ -20,25 +20,25 @@ export default function BottomTabNavigator() {
 
   return (
     <BottomTab.Navigator
-      initialRouteName="Home"
+      initialRouteName={AppRoutes.Home}
       tabBarOptions={{ activeTintColor: Colors[colorScheme].tint }}
     >
       <BottomTab.Screen
-        name="Home"
+        name={AppRoutes.Home}
         component={TabOneNavigator}
         options={{
           tabBarIcon: ({ color }) => <TabBarIcon name="home" color={color} />,
         }}
       />
       <BottomTab.Screen
-        name="Stats"
+        name={AppRoutes.Stats}
         component={StatsNavigator}
         options={{
           tabBarIcon: ({ color }) => <TabBarIcon name="calendar" color={color} />,
         }}
       />
       <BottomTab.Screen
-        name="Settings"
+        name={AppRoutes.Settings}
         component={SettingsNavigator}
         options={{
           tabBarIcon: ({ color }) => <TabBarIcon name="setting" color={color} />,
@@ -62,7 +62,7 @@ function TabOneNavigator() {
   return (
     <HomeStack.Navigator>
       <HomeStack.Screen
-        name="HomeScreen"
+        name={AppRoutes.HomeScreen}
         component={HomeScreen}
         options={{
           headerTitle: 'Home',
@@ -72,23 +72,11 @@ function TabOneNavigator() {
         }}
       />
       <HomeStack.Screen
-        name="PlayScreen"
+        name={AppRoutes.PlayScreen}
         component={PlayScreen}
         options={{
           headerBackTitle: 'Back',
           headerTitle: 'Play',
-          headerStyle: styles.header,
-          headerTitleStyle: styles.headerTitle,
-          headerTintColor: Colors.light.white,
-        }}
-      />
-      <HomeStack.Screen
-        name="CompletedScreen"
-        component={CompletedScreen}
-        options={{
-          headerShown: false,
-          headerBackTitle: 'Back',
-          headerTitle: 'Completed',
           headerStyle: styles.header,
           headerTitleStyle: styles.headerTitle,
           headerTintColor: Colors.light.white,
@@ -104,7 +92,7 @@ function StatsNavigator() {
   return (
     <StatsStack.Navigator>
       <StatsStack.Screen
-        name="StatsScreen"
+        name={AppRoutes.StatsScreen}
         component={StatsScreen}
         options={{
           headerTitle: 'Stats',
@@ -122,7 +110,7 @@ function SettingsNavigator() {
   return (
     <SettingsStack.Navigator>
       <SettingsStack.Screen
-        name="SettingsScreen"
+        name={AppRoutes.SettingsScreen}
         component={SettingsScreen}
         options={{
           headerTitle: 'Settings',

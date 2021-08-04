@@ -1,44 +1,66 @@
-import * as React from 'react'
-import { Ionicons } from '@expo/vector-icons'
+import React, { useState } from 'react'
+import { AntDesign as Icon } from '@expo/vector-icons'
+import { useMeditation } from '../hooks'
+import * as FileSystem from 'expo-file-system'
 
-export default function DownloadButton() {
-  // Pass an 'id' prop to view that item's redux state
+export default function DownloadButton(props: any) {
+  const id = props.id
+  const meditation = useMeditation(id)
+  const uri = meditation?.uri || ''
+  const [downloaded, setDownloaded] = useState(false)
 
-  const audioDownloaded = () => {
-    // return true if meditation is downloaded - use props.id and see if the item filepath exists in redux-persist
-    return false
+  const filename = () => {
+    let filename = uri.split('/').pop()
+    if (!filename) {
+      return
+    }
+    return filename
   }
 
-  const removeAudioFile = () => {
-    // Remove .mp3 from filesystem and the filepath from redux-persist
+  const removeAudioFile = async () => {
+    let base = await FileSystem.documentDirectory
+    if (!base) {
+      return
+    }
+
+    FileSystem.deleteAsync(base + filename()).then(() => {
+      setDownloaded(false)
+      // Remove .mp3 from filesystem and the filepath from redux-persist
+    })
   }
 
-  const saveAudioFile = () => {
-    // Save .mp3 to filesystem using react-native-fs. Store the filepath using redux-persist
+  const saveAudioFile = async () => {
+    let base = await FileSystem.documentDirectory
+    if (!base) {
+      return
+    }
+
+    FileSystem.downloadAsync(uri, base + filename()).then((res) => {
+      if (res.status == 200) {
+        setDownloaded(true)
+        // Store the device filepath to the mp3 in redux-persist
+      }
+    })
   }
 
-  if (audioDownloaded()) {
+  if (downloaded) {
     return (
-      <Ionicons
-        name="md-checkmark-circle"
-        style={{ marginTop: 8 }}
-        size={32}
+      <Icon
+        name="checkcircleo"
+        style={{ marginTop: 10 }}
+        size={25}
         color="black"
-        onPress={() => {
-          removeAudioFile()
-        }}
+        onPress={removeAudioFile}
       />
     )
   } else {
     return (
-      <Ionicons
-        name="md-add"
-        style={{ marginTop: 8 }}
-        size={32}
+      <Icon
+        name="download"
+        style={{ marginTop: 10 }}
+        size={25}
         color="black"
-        onPress={() => {
-          saveAudioFile()
-        }}
+        onPress={saveAudioFile}
       />
     )
   }

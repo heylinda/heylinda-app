@@ -38,7 +38,7 @@ export default function Home({ navigation }: Props) {
         />
         <Card.Content style={styles.cardContent}>
           <Paragraph style={styles.cardParagraph}>{item.time} minutes</Paragraph>
-          <DownloadButton />
+          <DownloadButton id={item.id} />
         </Card.Content>
       </Card>
     )
@@ -63,7 +63,7 @@ export default function Home({ navigation }: Props) {
         />
         <Card.Content style={styles.cardContent}>
           <Paragraph style={styles.cardParagraph}>{item.time} minutes</Paragraph>
-          <DownloadButton />
+          <DownloadButton id={item.id} />
         </Card.Content>
       </Card>
     )

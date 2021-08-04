@@ -126,7 +126,7 @@ export default function PlayScreen({ route, navigation }: Props) {
         positionTime={positionTime}
         durationTime={durationTime}
       />
-      <DownloadButton />
+      <DownloadButton id={id} />
     </Screen>
   )
 }

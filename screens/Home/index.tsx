@@ -4,6 +4,8 @@ import { StyleSheet, FlatList } from 'react-native'
 import { Card, Paragraph } from 'react-native-paper'
 import Screen from '../../components/Screen'
 
+import DownloadButton from '../../components/DownloadButton'
+
 import { Text, useThemeColor } from '../../components/Themed'
 import Colors from '../../constants/Colors'
 import { meditations, MeditationItem } from '../../data/meditations'
@@ -36,6 +38,7 @@ export default function Home({ navigation }: Props) {
         />
         <Card.Content style={styles.cardContent}>
           <Paragraph style={styles.cardParagraph}>{item.time} minutes</Paragraph>
+          <DownloadButton />
         </Card.Content>
       </Card>
     )
@@ -60,6 +63,7 @@ export default function Home({ navigation }: Props) {
         />
         <Card.Content style={styles.cardContent}>
           <Paragraph style={styles.cardParagraph}>{item.time} minutes</Paragraph>
+          <DownloadButton />
         </Card.Content>
       </Card>
     )

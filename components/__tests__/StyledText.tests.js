@@ -3,8 +3,9 @@ import { render } from '@testing-library/react-native'
 
 import { MonoText } from '../StyledText'
 
-it('renders correctly', () => {
-  const tree = render(<MonoText>Snapshot test!</MonoText>).toJSON()
+it('renders MonoText correctly', () => {
+  const { getByTestId } = render(<MonoText>Snapshot test!</MonoText>)
+  const element = getByTestId('mono-text')
 
-  expect(tree).toMatchSnapshot()
+  expect(element.type).toBe('Text')
 })

@@ -4,12 +4,16 @@ import { Text, View } from '../Themed'
 
 describe('Themed component tests', () => {
   it('renders themed text correctly', () => {
-    const tree = render(<Text />).toJSON()
-    expect(tree).toMatchSnapshot()
+    const { getByTestId } = render(<Text />)
+    const element = getByTestId('themed-text')
+
+    expect(element.type).toBe('Text')
   })
 
   it('renders themed View correctly', () => {
-    const tree = render(<View />).toJSON()
-    expect(tree).toMatchSnapshot()
+    const { getByTestId } = render(<View />)
+    const element = getByTestId('themed-view')
+
+    expect(element.type).toBe('View')
   })
 })

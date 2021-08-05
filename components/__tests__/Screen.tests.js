@@ -3,11 +3,6 @@ import { render } from '@testing-library/react-native'
 import { Screen } from '../Screen'
 
 describe('screen template tests', () => {
-  it('renders correctly', () => {
-    const tree = render(<Screen />).toJSON()
-    expect(tree).toMatchSnapshot()
-  })
-
   it('given Screen component without props, it should return View component', () => {
     const { getByTestId } = render(<Screen />)
     const element = getByTestId('view-screen')

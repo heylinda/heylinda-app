@@ -1,3 +1,4 @@
+#!/bin/sh
 # .husky/pre-commit (v5)
 # ...
 yarn lint-staged

@@ -14,12 +14,11 @@ import { completed } from '../../redux/meditationSlice'
 import { LoadingScreen } from '../../components'
 import { useCallback } from 'react'
 import { StackNavigationProp } from '@react-navigation/stack'
-import { AppRoutes } from '../../navigation/AppRoutes'
 
-type PlayRouteProp = RouteProp<HomeParamList, AppRoutes.PlayScreen>
+type PlayRouteProp = RouteProp<HomeParamList, 'PlayScreen'>
 
 type PlayNavProp = CompositeNavigationProp<
-  StackNavigationProp<HomeParamList, AppRoutes.PlayScreen>,
+  StackNavigationProp<HomeParamList, 'PlayScreen'>,
   StackNavigationProp<MainStackParamList>
 >
 interface Props {
@@ -54,7 +53,7 @@ export default function PlayScreen({ route, navigation }: Props) {
         if (playbackStatus.didJustFinish) {
           dispatch(completed(playbackStatus.durationMillis || 0))
           setIsPlaying(false)
-          navigation.replace(AppRoutes.CompletedScreen)
+          navigation.replace('CompletedScreen')
         }
       }
     },

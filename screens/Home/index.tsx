@@ -7,11 +7,10 @@ import Screen from '../../components/Screen'
 import { Text, useThemeColor } from '../../components/Themed'
 import Colors from '../../constants/Colors'
 import { meditations, MeditationItem } from '../../data/meditations'
-import { AppRoutes } from '../../navigation/AppRoutes'
 import { HomeParamList } from '../../types'
 
 interface Props {
-  navigation: StackNavigationProp<HomeParamList, AppRoutes.HomeScreen>
+  navigation: StackNavigationProp<HomeParamList, 'HomeScreen'>
 }
 
 export default function Home({ navigation }: Props) {
@@ -23,7 +22,7 @@ export default function Home({ navigation }: Props) {
         elevation={1}
         style={styles.card}
         onPress={() =>
-          navigation.navigate(AppRoutes.PlayScreen, {
+          navigation.navigate('PlayScreen', {
             id: item.id,
           })
         }
@@ -47,7 +46,7 @@ export default function Home({ navigation }: Props) {
       <Card
         style={styles.card}
         onPress={() =>
-          navigation.navigate(AppRoutes.PlayScreen, {
+          navigation.navigate('PlayScreen', {
             id: item.id,
           })
         }

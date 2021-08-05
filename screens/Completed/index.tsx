@@ -10,10 +10,9 @@ import { MainStackParamList } from '../../types'
 import { Linking } from 'react-native'
 import { useAppSelector } from '../../hooks'
 import { selectTotalSessions } from '../../redux/selectors'
-import { AppRoutes } from '../../navigation/AppRoutes'
 
 interface Props {
-  navigation: StackNavigationProp<MainStackParamList, AppRoutes.CompletedScreen>
+  navigation: StackNavigationProp<MainStackParamList, 'CompletedScreen'>
 }
 
 const Completed = ({ navigation }: Props) => {
@@ -21,7 +20,7 @@ const Completed = ({ navigation }: Props) => {
   const onPressDonate = () => {
     Linking.openURL('https://opencollective.com/heylinda/donate')
   }
-  const onPressSkip = () => navigation.navigate(AppRoutes.Main)
+  const onPressSkip = () => navigation.navigate('Main')
 
   return (
     <Screen style={styles.screen}>

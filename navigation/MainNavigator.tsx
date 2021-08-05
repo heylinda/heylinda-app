@@ -5,16 +5,15 @@ import BottomTabNavigator from './BottomTabNavigator'
 import CompletedScreen from '../screens/Completed'
 import Colors from '../constants/Colors'
 import { MainStackParamList } from '../types'
-import { AppRoutes } from './AppRoutes'
 
 const Stack = createStackNavigator<MainStackParamList>()
 
 export default function MainNavigator() {
   return (
     <Stack.Navigator screenOptions={{ headerShown: false }}>
-      <Stack.Screen name={AppRoutes.Main} component={BottomTabNavigator} />
+      <Stack.Screen name="Main" component={BottomTabNavigator} />
       <Stack.Screen
-        name={AppRoutes.CompletedScreen}
+        name="CompletedScreen"
         component={CompletedScreen}
         options={{
           headerShown: false,

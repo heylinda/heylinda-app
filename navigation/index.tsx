@@ -13,7 +13,6 @@ import { RootStackParamList } from '../types'
 import MainNavigator from './MainNavigator'
 import LinkingConfiguration from './LinkingConfiguration'
 import { StatusBar } from 'expo-status-bar'
-import { AppRoutes } from './AppRoutes'
 
 export default function Navigation({ colorScheme }: { colorScheme: ColorSchemeName }) {
   return (
@@ -34,12 +33,8 @@ const Stack = createStackNavigator<RootStackParamList>()
 function RootNavigator() {
   return (
     <Stack.Navigator screenOptions={{ headerShown: false }}>
-      <Stack.Screen name={AppRoutes.Root} component={MainNavigator} />
-      <Stack.Screen
-        name={AppRoutes.NotFound}
-        component={NotFoundScreen}
-        options={{ title: 'Oops!' }}
-      />
+      <Stack.Screen name="Root" component={MainNavigator} />
+      <Stack.Screen name="NotFound" component={NotFoundScreen} options={{ title: 'Oops!' }} />
     </Stack.Navigator>
   )
 }

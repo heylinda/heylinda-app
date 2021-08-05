@@ -11,7 +11,6 @@ import PlayScreen from '../screens/Play'
 import SettingsScreen from '../screens/Settings'
 import StatsScreen from '../screens/Stats'
 import { BottomTabParamList, HomeParamList, SettingsParamList, StatsParamList } from '../types'
-import { AppRoutes } from './AppRoutes'
 
 const BottomTab = createBottomTabNavigator<BottomTabParamList>()
 
@@ -20,25 +19,25 @@ export default function BottomTabNavigator() {
 
   return (
     <BottomTab.Navigator
-      initialRouteName={AppRoutes.Home}
+      initialRouteName="Home"
       tabBarOptions={{ activeTintColor: Colors[colorScheme].tint }}
     >
       <BottomTab.Screen
-        name={AppRoutes.Home}
+        name="Home"
         component={TabOneNavigator}
         options={{
           tabBarIcon: ({ color }) => <TabBarIcon name="home" color={color} />,
         }}
       />
       <BottomTab.Screen
-        name={AppRoutes.Stats}
+        name="Stats"
         component={StatsNavigator}
         options={{
           tabBarIcon: ({ color }) => <TabBarIcon name="calendar" color={color} />,
         }}
       />
       <BottomTab.Screen
-        name={AppRoutes.Settings}
+        name="Settings"
         component={SettingsNavigator}
         options={{
           tabBarIcon: ({ color }) => <TabBarIcon name="setting" color={color} />,
@@ -62,7 +61,7 @@ function TabOneNavigator() {
   return (
     <HomeStack.Navigator>
       <HomeStack.Screen
-        name={AppRoutes.HomeScreen}
+        name="HomeScreen"
         component={HomeScreen}
         options={{
           headerTitle: 'Home',
@@ -72,7 +71,7 @@ function TabOneNavigator() {
         }}
       />
       <HomeStack.Screen
-        name={AppRoutes.PlayScreen}
+        name="PlayScreen"
         component={PlayScreen}
         options={{
           headerBackTitle: 'Back',
@@ -92,7 +91,7 @@ function StatsNavigator() {
   return (
     <StatsStack.Navigator>
       <StatsStack.Screen
-        name={AppRoutes.StatsScreen}
+        name="StatsScreen"
         component={StatsScreen}
         options={{
           headerTitle: 'Stats',
@@ -110,7 +109,7 @@ function SettingsNavigator() {
   return (
     <SettingsStack.Navigator>
       <SettingsStack.Screen
-        name={AppRoutes.SettingsScreen}
+        name="SettingsScreen"
         component={SettingsScreen}
         options={{
           headerTitle: 'Settings',

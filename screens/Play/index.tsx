@@ -7,8 +7,8 @@ import Screen from '../../components/Screen'
 import { Text } from '../../components/Themed'
 import { useMeditation } from '../../hooks'
 import NotFoundScreen from '../NotFoundScreen'
-import { HomeParamList } from '../../types'
-import { RouteProp } from '@react-navigation/native'
+import { HomeParamList, MainStackParamList } from '../../types'
+import { CompositeNavigationProp, RouteProp } from '@react-navigation/native'
 import { useMsToTime, useAppDispatch } from '../../hooks'
 import { completed } from '../../redux/meditationSlice'
 import { LoadingScreen } from '../../components'
@@ -16,8 +16,13 @@ import { useCallback } from 'react'
 import { StackNavigationProp } from '@react-navigation/stack'
 
 type PlayRouteProp = RouteProp<HomeParamList, 'PlayScreen'>
+
+type PlayNavProp = CompositeNavigationProp<
+  StackNavigationProp<HomeParamList, 'PlayScreen'>,
+  StackNavigationProp<MainStackParamList>
+>
 interface Props {
-  navigation: StackNavigationProp<HomeParamList, 'PlayScreen'>
+  navigation: PlayNavProp
   route: PlayRouteProp
 }
 export default function PlayScreen({ route, navigation }: Props) {

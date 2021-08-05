@@ -1,6 +1,6 @@
 import { useMsToMinutes } from '..'
 
-describe('useMsToMinutes unit test', () => {
+describe('useMsToMinutes unit tests', () => {
   it('given 0 ms, should return 0 minutes', () => {
     const minutes = useMsToMinutes(0)
     expect(minutes).toBe(0)

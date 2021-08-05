@@ -9,6 +9,11 @@ export type RootStackParamList = {
   NotFound: NO_PARAMS
 }
 
+export type MainStackParamList = {
+  Main: NO_PARAMS
+  CompletedScreen: NO_PARAMS
+}
+
 export type BottomTabParamList = {
   Home: NO_PARAMS
   Stats: NO_PARAMS
@@ -20,7 +25,6 @@ export type HomeParamList = {
   PlayScreen: {
     id: string
   }
-  CompletedScreen: NO_PARAMS
 }
 
 export type StatsParamList = {

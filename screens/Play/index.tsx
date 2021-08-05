@@ -15,6 +15,7 @@ import { completed } from '../../redux/meditationSlice'
 import { LoadingScreen } from '../../components'
 import { useCallback } from 'react'
 import { StackNavigationProp } from '@react-navigation/stack'
+import { store } from '../../redux/store'
 
 type PlayRouteProp = RouteProp<HomeParamList, 'PlayScreen'>
 
@@ -71,18 +72,31 @@ export default function PlayScreen({ route, navigation }: Props) {
 
   React.useEffect(() => {
     const loadAudio = async () => {
+      // See if file is downloaded, or to play from remote uri
+      let files = store.getState().meditation.filepaths
+      let filename = uri.split('/').pop() ?? ''
+
       setIsLoadingAudio(true)
-      await Audio.setAudioModeAsync({
-        playsInSilentModeIOS: true,
-        staysActiveInBackground: true,
-      })
-      const { sound: _sound } = await Audio.Sound.createAsync({ uri }, {}, onPlaybackStatusUpdate)
-      setSound(_sound)
+
+      if (files.includes(filename)) {
+        let path = files[files.findIndex((element) => element.includes(filename))]
+
+        console.log(path)
+        // let data = await FileSystem.readAsStringAsync(path)
+      } else {
+        // Load from remote URI
+        await Audio.setAudioModeAsync({
+          playsInSilentModeIOS: true,
+          staysActiveInBackground: true,
+        })
+        const { sound: _sound } = await Audio.Sound.createAsync({ uri }, {}, onPlaybackStatusUpdate)
+        setSound(_sound)
+      }
+
       setIsLoadingAudio(false)
     }
-    if (uri) {
-      loadAudio()
-    }
+
+    loadAudio()
   }, [onPlaybackStatusUpdate, uri])
 
   const replay = async () => {

@@ -8,10 +8,12 @@ export interface MeditationState {
   activity: {
     [key: string]: Activity
   }
+  filepaths: Array<string>
 }
 
 const initialState: MeditationState = {
   activity: {},
+  filepaths: [],
 }
 
 const meditationSlice = createSlice({
@@ -23,9 +25,12 @@ const meditationSlice = createSlice({
         duration: action.payload,
       }
     },
+    filepaths(state, action) {
+      state.filepaths = action.payload
+    },
     reset: () => initialState,
   },
 })
 
-export const { completed, reset } = meditationSlice.actions
+export const { completed, reset, filepaths } = meditationSlice.actions
 export default meditationSlice.reducer

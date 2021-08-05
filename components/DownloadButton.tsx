@@ -25,19 +25,14 @@ export default function DownloadButton(props: any) {
   }
 
   useEffect(() => {
-    if (audioFiles.length === 0) {
-      // Fill redux state .mp3 filepaths on device
-      files.then((paths) => {
-        dispatch(filepaths(paths))
-        let storedFiles = store.getState().meditation.filepaths
-        setAudioFiles(storedFiles)
-      })
-    }
+    let filepaths = store.getState().meditation.filepaths
 
-    if (!downloaded) {
-      if (meditation && audioFiles) {
-        let name = filename(meditation.uri) ?? ''
-        setDownloaded(audioFiles.includes(name))
+    // If there's any downloaded audio content in filepaths, set downloaded to true and set audioFiles
+    if (filepaths.length > 0 && meditation) {
+      setAudioFiles(filepaths)
+
+      if (audioFiles.includes(filename(meditation.uri) || '')) {
+        setDownloaded(true)
       }
     }
   }, [audioFiles, files, downloaded, dispatch, meditation])
@@ -48,7 +43,7 @@ export default function DownloadButton(props: any) {
       return
     }
 
-    const path = base + filename(meditation.uri)
+    const path = base + filename(meditation.uri) || ''
 
     FileSystem.downloadAsync(uri, path).then((res) => {
       if (res.status === 200) {

@@ -5,7 +5,6 @@ import { Audio, AVPlaybackStatus } from 'expo-av'
 import PlayerControls from './PlayerControls'
 import Screen from '../../components/Screen'
 import { Text } from '../../components/Themed'
-import DownloadButton from '../../components/DownloadButton'
 import { useAppSelector, useMeditation } from '../../hooks'
 import NotFoundScreen from '../NotFoundScreen'
 import { HomeParamList, MainStackParamList } from '../../types'
@@ -151,7 +150,6 @@ export default function PlayScreen({ route, navigation }: Props) {
         positionTime={positionTime}
         durationTime={durationTime}
       />
-      <DownloadButton id={id} />
     </Screen>
   )
 }

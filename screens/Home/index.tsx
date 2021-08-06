@@ -1,10 +1,11 @@
 import { StackNavigationProp } from '@react-navigation/stack'
 import * as React from 'react'
-import { StyleSheet, FlatList } from 'react-native'
+import { StyleSheet, FlatList, View } from 'react-native'
 import { Card, Paragraph } from 'react-native-paper'
 import Screen from '../../components/Screen'
 
 import DownloadButton from '../../components/DownloadButton'
+import SaveButton from '../../components/SaveButton'
 
 import { Text, useThemeColor } from '../../components/Themed'
 import Colors from '../../constants/Colors'
@@ -38,7 +39,10 @@ export default function Home({ navigation }: Props) {
         />
         <Card.Content style={styles.cardContent}>
           <Paragraph style={styles.cardParagraph}>{item.time} minutes</Paragraph>
-          <DownloadButton id={item.id} />
+          <View style={{ flexDirection: 'row', justifyContent: 'space-between' }}>
+            <DownloadButton id={item.id} />
+            <SaveButton id={item.id} />
+          </View>
         </Card.Content>
       </Card>
     )
@@ -63,7 +67,10 @@ export default function Home({ navigation }: Props) {
         />
         <Card.Content style={styles.cardContent}>
           <Paragraph style={styles.cardParagraph}>{item.time} minutes</Paragraph>
-          <DownloadButton id={item.id} />
+          <View style={{ flexDirection: 'row', justifyContent: 'space-between' }}>
+            <DownloadButton id={item.id} />
+            <SaveButton id={item.id} />
+          </View>
         </Card.Content>
       </Card>
     )

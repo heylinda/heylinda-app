@@ -9,11 +9,13 @@ export interface MeditationState {
     [key: string]: Activity
   }
   filepaths: string[]
+  favorites: string[]
 }
 
 const initialState: MeditationState = {
   activity: {},
   filepaths: [],
+  favorites: [],
 }
 
 const meditationSlice = createSlice({
@@ -28,9 +30,15 @@ const meditationSlice = createSlice({
     filepaths(state, action) {
       state.filepaths.push(action.payload)
     },
+    favorites(state, action) {
+      state.favorites.push(action.payload)
+    },
+    removeFavorite(state, action) {
+      state.favorites = state.favorites.filter((e) => e !== action.payload)
+    },
     reset: () => initialState,
   },
 })
 
-export const { completed, reset, filepaths } = meditationSlice.actions
+export const { completed, reset, filepaths, favorites, removeFavorite } = meditationSlice.actions
 export default meditationSlice.reducer

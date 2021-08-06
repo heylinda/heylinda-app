@@ -7,7 +7,7 @@ import { filepaths } from '../redux/meditationSlice'
 import { store } from '../redux/store'
 import { useFiles } from '../hooks/useFiles'
 
-export default function DownloadButton(props: any) {
+export default function DownloadButton(props: Props) {
   const id = props.id
   const meditation = useMeditation(id)
   const files = useFiles('.mp3')

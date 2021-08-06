@@ -25,12 +25,12 @@ const meditationSlice = createSlice({
         duration: action.payload,
       }
     },
-    filepaths(state, action) {
+    addFilePath(state, action) {
       state.filepaths.push(action.payload)
     },
     reset: () => initialState,
   },
 })
 
-export const { completed, reset, filepaths } = meditationSlice.actions
+export const { completed, reset, addFilePath } = meditationSlice.actions
 export default meditationSlice.reducer

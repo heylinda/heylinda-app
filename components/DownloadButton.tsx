@@ -3,9 +3,10 @@ import { AntDesign as Icon } from '@expo/vector-icons'
 import * as FileSystem from 'expo-file-system'
 
 import { useMeditation, useAppDispatch } from '../hooks'
-import { filepaths } from '../redux/meditationSlice'
-import { store } from '../redux/store'
+import { addFilePath } from '../redux/meditationSlice'
 import { useFiles } from '../hooks/useFiles'
+import { selectFilePaths } from '../redux/selectors'
+import { useAppSelector } from '../hooks'
 
 interface Props {
   id: string
@@ -19,6 +20,7 @@ export default function DownloadButton(props: Props) {
   const [audioFiles, setAudioFiles] = useState<string[]>([])
   const [downloaded, setDownloaded] = useState(false)
   const dispatch = useAppDispatch()
+  const filepaths = useAppSelector(selectFilePaths)
 
   const filename = (path: string) => {
     let filename = path.split('/').pop()
@@ -29,8 +31,6 @@ export default function DownloadButton(props: Props) {
   }
 
   useEffect(() => {
-    let filepaths = store.getState().meditation.filepaths
-
     // If there's any downloaded audio content in filepaths, set downloaded to true and set audioFiles
     if (filepaths.length > 0 && meditation) {
       setAudioFiles(filepaths)
@@ -42,7 +42,7 @@ export default function DownloadButton(props: Props) {
         setDownloaded(true)
       }
     }
-  }, [audioFiles, files, downloaded, dispatch, meditation])
+  }, [audioFiles, files, downloaded, dispatch, meditation, filepaths])
 
   const saveAudioFile = async () => {
     let base = await FileSystem.documentDirectory
@@ -62,7 +62,7 @@ export default function DownloadButton(props: Props) {
     console.log(downloadedFile)
 
     if (downloadedFile.status === 200) {
-      dispatch(filepaths(path))
+      dispatch(addFilePath(path))
       setDownloaded(true)
     }
   }

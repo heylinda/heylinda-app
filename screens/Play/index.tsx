@@ -6,7 +6,7 @@ import PlayerControls from './PlayerControls'
 import Screen from '../../components/Screen'
 import { Text } from '../../components/Themed'
 import DownloadButton from '../../components/DownloadButton'
-import { useMeditation } from '../../hooks'
+import { useAppSelector, useMeditation } from '../../hooks'
 import NotFoundScreen from '../NotFoundScreen'
 import { HomeParamList, MainStackParamList } from '../../types'
 import { CompositeNavigationProp, RouteProp } from '@react-navigation/native'
@@ -15,7 +15,7 @@ import { completed } from '../../redux/meditationSlice'
 import { LoadingScreen } from '../../components'
 import { useCallback } from 'react'
 import { StackNavigationProp } from '@react-navigation/stack'
-import { store } from '../../redux/store'
+import { selectFilePaths } from '../../redux/selectors'
 
 type PlayRouteProp = RouteProp<HomeParamList, 'PlayScreen'>
 
@@ -39,6 +39,7 @@ export default function PlayScreen({ route, navigation }: Props) {
   const positionTime = useMsToTime(positionMillis)
   const dispatch = useAppDispatch()
   const uri = meditation?.uri || ''
+  const filepaths = useAppSelector(selectFilePaths)
 
   const onPlaybackStatusUpdate = useCallback(
     (playbackStatus: AVPlaybackStatus) => {
@@ -72,10 +73,8 @@ export default function PlayScreen({ route, navigation }: Props) {
 
   React.useEffect(() => {
     const loadAudio = async () => {
-      // See if file is downloaded, or to play from remote uri
-      let files = store.getState().meditation.filepaths
       let filename = uri.split('/').pop() ?? ''
-      let filepath = files.find((file) => {
+      let filepath = filepaths.find((file) => {
         if (file.split('/').pop() === filename) {
           return file
         }
@@ -104,7 +103,7 @@ export default function PlayScreen({ route, navigation }: Props) {
     }
 
     loadAudio()
-  }, [onPlaybackStatusUpdate, uri])
+  }, [onPlaybackStatusUpdate, uri, filepaths])
 
   const replay = async () => {
     await sound?.setPositionAsync(positionMillis - 10 * 1000)

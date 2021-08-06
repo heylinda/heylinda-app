@@ -8,9 +8,16 @@ import Colors from '../constants/Colors'
 import useColorScheme from '../hooks/useColorScheme'
 import HomeScreen from '../screens/Home'
 import PlayScreen from '../screens/Play'
+import SavedScreen from '../screens/Saved'
 import SettingsScreen from '../screens/Settings'
 import StatsScreen from '../screens/Stats'
-import { BottomTabParamList, HomeParamList, SettingsParamList, StatsParamList } from '../types'
+import {
+  BottomTabParamList,
+  HomeParamList,
+  SettingsParamList,
+  StatsParamList,
+  SavedParamList,
+} from '../types'
 
 const BottomTab = createBottomTabNavigator<BottomTabParamList>()
 
@@ -27,6 +34,13 @@ export default function BottomTabNavigator() {
         component={TabOneNavigator}
         options={{
           tabBarIcon: ({ color }) => <TabBarIcon name="home" color={color} />,
+        }}
+      />
+      <BottomTab.Screen
+        name="Saved"
+        component={SavedNavigator}
+        options={{
+          tabBarIcon: ({ color }) => <TabBarIcon name="heart" color={color} />,
         }}
       />
       <BottomTab.Screen
@@ -100,6 +114,24 @@ function StatsNavigator() {
         }}
       />
     </StatsStack.Navigator>
+  )
+}
+
+const SavedStack = createStackNavigator<SavedParamList>()
+
+function SavedNavigator() {
+  return (
+    <SavedStack.Navigator>
+      <SavedStack.Screen
+        name="SavedScreen"
+        component={SavedScreen}
+        options={{
+          headerTitle: 'Saved',
+          headerStyle: styles.header,
+          headerTitleStyle: styles.headerTitle,
+        }}
+      />
+    </SavedStack.Navigator>
   )
 }
 

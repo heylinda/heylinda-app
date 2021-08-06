@@ -17,11 +17,19 @@ export type MainStackParamList = {
 export type BottomTabParamList = {
   Home: NO_PARAMS
   Stats: NO_PARAMS
+  Saved: NO_PARAMS
   Settings: NO_PARAMS
 }
 
 export type HomeParamList = {
   HomeScreen: NO_PARAMS
+  PlayScreen: {
+    id: string
+  }
+}
+
+export type SavedParamList = {
+  SavedScreen: NO_PARAMS
   PlayScreen: {
     id: string
   }

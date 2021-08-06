@@ -28,6 +28,9 @@ const meditationSlice = createSlice({
       }
     },
     addFilePath(state, action) {
+      if (!state.filepaths) {
+        state.filepaths = []
+      }
       state.filepaths.push(action.payload)
     },
     reset: () => initialState,

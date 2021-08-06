@@ -91,9 +91,9 @@ export default function PlayScreen({ route, navigation }: Props) {
       if (filepath) {
         // Load from downloaded audio file
         const _sound = new Audio.Sound()
-        sound.setOnPlaybackStatusUpdate(onPlaybackStatusUpdate)
-        await sound.loadAsync({ uri: filepath })
-        setSound(sound)
+        _sound.setOnPlaybackStatusUpdate(onPlaybackStatusUpdate)
+        await _sound.loadAsync({ uri: filepath })
+        setSound(_sound)
       } else {
         // Load from remote URI
         const { sound: _sound } = await Audio.Sound.createAsync({ uri }, {}, onPlaybackStatusUpdate)

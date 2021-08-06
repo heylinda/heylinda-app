@@ -7,6 +7,10 @@ import { filepaths } from '../redux/meditationSlice'
 import { store } from '../redux/store'
 import { useFiles } from '../hooks/useFiles'
 
+interface Props {
+  id: string
+}
+
 export default function DownloadButton(props: Props) {
   const id = props.id
   const meditation = useMeditation(id)

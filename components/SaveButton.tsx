@@ -14,9 +14,9 @@ export default function SaveButton(props: any) {
   useEffect(() => {
     // Load from state
     let saved = store.getState().meditation.favorites
-    let track = String(meditation?.track)
+    let track = meditation?.track
 
-    if (saved.includes(track)) {
+    if (saved.length > 0 && saved.includes(String(track))) {
       setSaved(true)
     }
   }, [setSaved, meditation])

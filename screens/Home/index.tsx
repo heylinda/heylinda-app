@@ -116,7 +116,11 @@ const styles = StyleSheet.create({
   popularImage: {
     height: 250,
   },
-  cardContent: {},
+  cardContent: {
+    flex: 1,
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+  },
   cardSubtitle: {
     color: Colors.light.gray800,
     fontSize: 14,

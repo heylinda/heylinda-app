@@ -5,9 +5,11 @@ export interface Activity {
   duration: number
 }
 export interface MeditationState {
+  // When the user meditated, the key is a date string, and the value is the Activity
   activity: {
     [key: string]: Activity
   }
+  // Local file paths to the audio files downloaded from the server
   filepaths: string[]
 }
 

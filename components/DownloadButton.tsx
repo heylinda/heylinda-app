@@ -57,7 +57,7 @@ export default function DownloadButton(props: any) {
 
     console.log(downloadedFile)
 
-    if (downloadedFile.status == 200) {
+    if (downloadedFile.status === 200) {
       dispatch(filepaths(path))
       setDownloaded(true)
     }

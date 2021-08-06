@@ -16,13 +16,13 @@ export default function SaveButton(props: any) {
     let saved = store.getState().meditation.favorites
     let track = meditation?.track
 
-    if (saved.length > 0 && saved.includes(String(track))) {
+    if (saved.includes(String(track))) {
       setSaved(true)
     }
   }, [setSaved, meditation])
 
   const saveItem = () => {
-    dispatch(favorites(meditation?.track))
+    dispatch(favorites(String(meditation?.track)))
     setSaved(true)
   }
 

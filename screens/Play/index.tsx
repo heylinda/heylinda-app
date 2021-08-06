@@ -83,18 +83,19 @@ export default function PlayScreen({ route, navigation }: Props) {
 
       setIsLoadingAudio(true)
 
+      await Audio.setAudioModeAsync({
+        playsInSilentModeIOS: true,
+        staysActiveInBackground: true,
+      })
+
       if (filepath) {
         // Load from downloaded audio file
         const sound = new Audio.Sound()
+        sound.setOnPlaybackStatusUpdate(onPlaybackStatusUpdate)
         await sound.loadAsync({ uri: filepath })
-        // let status = await sound.getStatusAsync() // contains duration info
         setSound(sound)
       } else {
         // Load from remote URI
-        await Audio.setAudioModeAsync({
-          playsInSilentModeIOS: true,
-          staysActiveInBackground: true,
-        })
         const { sound: _sound } = await Audio.Sound.createAsync({ uri }, {}, onPlaybackStatusUpdate)
         setSound(_sound)
       }

@@ -71,23 +71,24 @@ export default function PlayScreen({ route, navigation }: Props) {
   }, [sound])
 
   React.useEffect(() => {
-    console.log(store.getState())
-
     const loadAudio = async () => {
       // See if file is downloaded, or to play from remote uri
       let files = store.getState().meditation.filepaths
       let filename = uri.split('/').pop() ?? ''
+      let filepath = files.find((file) => {
+        if (file.split('/').pop() === filename) {
+          return file
+        }
+      })
 
       setIsLoadingAudio(true)
 
-      if (files.includes(filename)) {
-        let path = files[files.findIndex((element) => element.includes(filename))]
-
-        console.log(path)
-
-        // console.log( store.getState() )
-        // console.log(path)
-        // let data = await FileSystem.readAsStringAsync(path)
+      if (filepath) {
+        // Load from downloaded audio file
+        const sound = new Audio.Sound()
+        await sound.loadAsync({ uri: filepath })
+        // let status = await sound.getStatusAsync() // contains duration info
+        setSound(sound)
       } else {
         // Load from remote URI
         await Audio.setAudioModeAsync({

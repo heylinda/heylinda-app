@@ -31,7 +31,10 @@ export default function DownloadButton(props: any) {
     if (filepaths.length > 0 && meditation) {
       setAudioFiles(filepaths)
 
-      if (audioFiles.includes(filename(meditation.uri) || '')) {
+      let name = filename(meditation.uri) || ''
+      let isDownloaded = audioFiles.find((a) => filename(a) === name)
+
+      if (isDownloaded) {
         setDownloaded(true)
       }
     }
@@ -44,6 +47,8 @@ export default function DownloadButton(props: any) {
     }
 
     const path = base + filename(meditation.uri) || ''
+
+    console.log('Downloading ' + path)
 
     FileSystem.downloadAsync(uri, path).then((res) => {
       if (res.status === 200) {

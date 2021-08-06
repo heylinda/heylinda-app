@@ -8,7 +8,7 @@ export interface MeditationState {
   activity: {
     [key: string]: Activity
   }
-  filepaths: Array<string>
+  filepaths: string[]
 }
 
 const initialState: MeditationState = {
@@ -26,7 +26,7 @@ const meditationSlice = createSlice({
       }
     },
     filepaths(state, action) {
-      state.filepaths = action.payload
+      state.filepaths.push(action.payload)
     },
     reset: () => initialState,
   },

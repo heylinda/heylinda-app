@@ -50,12 +50,17 @@ export default function DownloadButton(props: any) {
 
     console.log('Downloading ' + path)
 
-    FileSystem.downloadAsync(uri, path).then((res) => {
-      if (res.status === 200) {
-        dispatch(filepaths(path))
-        setDownloaded(true)
-      }
-    })
+    const downloadedFile: FileSystem.FileSystemDownloadResult = await FileSystem.downloadAsync(
+      uri,
+      path
+    )
+
+    console.log(downloadedFile)
+
+    if (downloadedFile.status == 200) {
+      dispatch(filepaths(path))
+      setDownloaded(true)
+    }
   }
 
   if (downloaded) {

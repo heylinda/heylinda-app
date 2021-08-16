@@ -19,7 +19,7 @@ interface Props {
 
 export default function DownloadButton(props: Props) {
   const { id, style } = props
-  const [loading, setIsLoading] = useState(false)
+  const [downloading, setDownloading] = useState(false)
   const meditation = useMeditation(id)
   const files = useFiles('.mp3')
   const uri = meditation?.uri || ''
@@ -59,12 +59,12 @@ export default function DownloadButton(props: Props) {
 
     const path = base + filename(meditation.uri) || ''
 
-    setIsLoading(true)
+    setDownloading(true)
     const downloadedFile: FileSystem.FileSystemDownloadResult = await FileSystem.downloadAsync(
       uri,
       path
     )
-    setIsLoading(false)
+    setDownloading(false)
 
     if (downloadedFile.status === 200) {
       dispatch(addFilePath(path))
@@ -72,7 +72,7 @@ export default function DownloadButton(props: Props) {
     }
   }
 
-  if (loading) {
+  if (downloading) {
     return <ActivityIndicator color={primary} />
   } else if (downloaded) {
     return <Icon name="checkcircleo" style={[styles.icon, style]} size={15} color="black" />

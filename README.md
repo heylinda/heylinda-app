@@ -20,6 +20,7 @@
 - current streak
 - calendar activity
 - time listened
+- offline support
 
 ## Install
 

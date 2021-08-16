@@ -24,11 +24,11 @@ export default function DownloadButton(props: Props) {
   const filepaths = useAppSelector(selectFilePaths)
 
   const filename = (path: string) => {
-    let filename = path.split('/').pop()
-    if (!filename) {
+    let _filename = path.split('/').pop()
+    if (!_filename) {
       return
     }
-    return filename
+    return _filename
   }
 
   useEffect(() => {
@@ -53,14 +53,10 @@ export default function DownloadButton(props: Props) {
 
     const path = base + filename(meditation.uri) || ''
 
-    console.log('Downloading ' + path)
-
     const downloadedFile: FileSystem.FileSystemDownloadResult = await FileSystem.downloadAsync(
       uri,
       path
     )
-
-    console.log(downloadedFile)
 
     if (downloadedFile.status === 200) {
       dispatch(addFilePath(path))

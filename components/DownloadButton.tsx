@@ -9,6 +9,8 @@ import { useFiles } from '../hooks/useFiles'
 import { selectFilePaths } from '../redux/selectors'
 import { useAppSelector } from '../hooks'
 import { StyleProp } from 'react-native'
+import { ActivityIndicator } from 'react-native-paper'
+import { useThemeColor } from './Themed'
 
 interface Props {
   id: string
@@ -17,6 +19,7 @@ interface Props {
 
 export default function DownloadButton(props: Props) {
   const { id, style } = props
+  const [loading, setIsLoading] = useState(false)
   const meditation = useMeditation(id)
   const files = useFiles('.mp3')
   const uri = meditation?.uri || ''
@@ -24,6 +27,7 @@ export default function DownloadButton(props: Props) {
   const [downloaded, setDownloaded] = useState(false)
   const dispatch = useAppDispatch()
   const filepaths = useAppSelector(selectFilePaths)
+  const primary = useThemeColor({}, 'primary')
 
   const filename = (path: string) => {
     let _filename = path.split('/').pop()
@@ -55,10 +59,12 @@ export default function DownloadButton(props: Props) {
 
     const path = base + filename(meditation.uri) || ''
 
+    setIsLoading(true)
     const downloadedFile: FileSystem.FileSystemDownloadResult = await FileSystem.downloadAsync(
       uri,
       path
     )
+    setIsLoading(false)
 
     if (downloadedFile.status === 200) {
       dispatch(addFilePath(path))
@@ -66,7 +72,9 @@ export default function DownloadButton(props: Props) {
     }
   }
 
-  if (downloaded) {
+  if (loading) {
+    return <ActivityIndicator color={primary} />
+  } else if (downloaded) {
     return <Icon name="checkcircleo" style={[styles.icon, style]} size={15} color="black" />
   } else {
     return (

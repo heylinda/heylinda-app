@@ -132,7 +132,7 @@ const styles = StyleSheet.create({
   },
   downloadButton: {
     position: 'relative',
-    top: -5,
+    top: -6,
   },
   cards: {
     marginBottom: 30,

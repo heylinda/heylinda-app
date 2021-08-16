@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react'
-import { StyleSheet } from 'react-native'
+import { StyleSheet, TextStyle } from 'react-native'
 import { AntDesign as Icon } from '@expo/vector-icons'
 import * as FileSystem from 'expo-file-system'
 
@@ -8,13 +8,15 @@ import { addFilePath } from '../redux/meditationSlice'
 import { useFiles } from '../hooks/useFiles'
 import { selectFilePaths } from '../redux/selectors'
 import { useAppSelector } from '../hooks'
+import { StyleProp } from 'react-native'
 
 interface Props {
   id: string
+  style: StyleProp<TextStyle>
 }
 
 export default function DownloadButton(props: Props) {
-  const id = props.id
+  const { id, style } = props
   const meditation = useMeditation(id)
   const files = useFiles('.mp3')
   const uri = meditation?.uri || ''
@@ -65,10 +67,16 @@ export default function DownloadButton(props: Props) {
   }
 
   if (downloaded) {
-    return <Icon name="checkcircleo" style={styles.icon} size={15} color="black" />
+    return <Icon name="checkcircleo" style={[styles.icon, style]} size={15} color="black" />
   } else {
     return (
-      <Icon name="download" style={styles.icon} size={15} color="black" onPress={saveAudioFile} />
+      <Icon
+        name="download"
+        style={[styles.icon, style]}
+        size={15}
+        color="black"
+        onPress={saveAudioFile}
+      />
     )
   }
 }

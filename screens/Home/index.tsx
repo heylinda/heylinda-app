@@ -38,7 +38,7 @@ export default function Home({ navigation }: Props) {
         />
         <Card.Content style={styles.cardContent}>
           <Paragraph style={styles.cardParagraph}>{item.time} minutes</Paragraph>
-          <DownloadButton id={item.id} />
+          <DownloadButton id={item.id} style={styles.downloadButton} />
         </Card.Content>
       </Card>
     )
@@ -63,7 +63,7 @@ export default function Home({ navigation }: Props) {
         />
         <Card.Content style={styles.cardContent}>
           <Paragraph style={styles.cardParagraph}>{item.time} minutes</Paragraph>
-          <DownloadButton id={item.id} />
+          <DownloadButton id={item.id} style={styles.downloadButton} />
         </Card.Content>
       </Card>
     )
@@ -120,6 +120,7 @@ const styles = StyleSheet.create({
     flex: 1,
     flexDirection: 'row',
     justifyContent: 'space-between',
+    alignItems: 'flex-start',
   },
   cardSubtitle: {
     color: Colors.light.gray800,
@@ -128,6 +129,10 @@ const styles = StyleSheet.create({
   cardParagraph: {
     color: Colors.light.purple900,
     fontWeight: '600',
+  },
+  downloadButton: {
+    position: 'relative',
+    top: -5,
   },
   cards: {
     marginBottom: 30,

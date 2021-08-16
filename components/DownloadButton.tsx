@@ -28,7 +28,6 @@ export default function DownloadButton(props: Props) {
   const dispatch = useAppDispatch()
   const filepaths = useAppSelector(selectFilePaths)
   const primary = useThemeColor({}, 'primary')
-  const text = useThemeColor({}, 'text')
 
   const filename = (path: string) => {
     let _filename = path.split('/').pop()
@@ -76,14 +75,14 @@ export default function DownloadButton(props: Props) {
   if (downloading) {
     return <ActivityIndicator color={primary} />
   } else if (downloaded) {
-    return <Icon name="checkcircleo" style={[styles.icon, style]} size={15} color={text} />
+    return <Icon name="checkcircleo" style={[styles.icon, style]} size={15} color={primary} />
   } else {
     return (
       <Icon
         name="download"
         style={[styles.icon, style]}
         size={15}
-        color={text}
+        color={primary}
         onPress={saveAudioFile}
       />
     )

@@ -5,7 +5,7 @@ import { Audio, AVPlaybackStatus } from 'expo-av'
 import PlayerControls from './PlayerControls'
 import Screen from '../../components/Screen'
 import { Text } from '../../components/Themed'
-import { useMeditation } from '../../hooks'
+import { useAppSelector, useMeditation } from '../../hooks'
 import NotFoundScreen from '../NotFoundScreen'
 import { HomeParamList, MainStackParamList } from '../../types'
 import { CompositeNavigationProp, RouteProp } from '@react-navigation/native'
@@ -14,6 +14,7 @@ import { completed } from '../../redux/meditationSlice'
 import { LoadingScreen } from '../../components'
 import { useCallback } from 'react'
 import { StackNavigationProp } from '@react-navigation/stack'
+import { selectFilePaths } from '../../redux/selectors'
 
 type PlayRouteProp = RouteProp<HomeParamList, 'PlayScreen'>
 
@@ -37,6 +38,7 @@ export default function PlayScreen({ route, navigation }: Props) {
   const positionTime = useMsToTime(positionMillis)
   const dispatch = useAppDispatch()
   const uri = meditation?.uri || ''
+  const filepaths = useAppSelector(selectFilePaths)
 
   const onPlaybackStatusUpdate = useCallback(
     (playbackStatus: AVPlaybackStatus) => {
@@ -70,19 +72,37 @@ export default function PlayScreen({ route, navigation }: Props) {
 
   React.useEffect(() => {
     const loadAudio = async () => {
+      let filename = uri.split('/').pop() ?? ''
+      let filepath = filepaths.find((file) => {
+        if (file.split('/').pop() === filename) {
+          return file
+        }
+      })
+
       setIsLoadingAudio(true)
+
       await Audio.setAudioModeAsync({
         playsInSilentModeIOS: true,
         staysActiveInBackground: true,
       })
-      const { sound: _sound } = await Audio.Sound.createAsync({ uri }, {}, onPlaybackStatusUpdate)
-      setSound(_sound)
+
+      if (filepath) {
+        // Load from downloaded audio file
+        const _sound = new Audio.Sound()
+        _sound.setOnPlaybackStatusUpdate(onPlaybackStatusUpdate)
+        await _sound.loadAsync({ uri: filepath })
+        setSound(_sound)
+      } else {
+        // Load from remote URI
+        const { sound: _sound } = await Audio.Sound.createAsync({ uri }, {}, onPlaybackStatusUpdate)
+        setSound(_sound)
+      }
+
       setIsLoadingAudio(false)
     }
-    if (uri) {
-      loadAudio()
-    }
-  }, [onPlaybackStatusUpdate, uri])
+
+    loadAudio()
+  }, [onPlaybackStatusUpdate, uri, filepaths])
 
   const replay = async () => {
     await sound?.setPositionAsync(positionMillis - 10 * 1000)

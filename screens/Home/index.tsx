@@ -4,6 +4,8 @@ import { StyleSheet, FlatList } from 'react-native'
 import { Card, Paragraph } from 'react-native-paper'
 import Screen from '../../components/Screen'
 
+import DownloadButton from '../../components/DownloadButton'
+
 import { Text, useThemeColor } from '../../components/Themed'
 import Colors from '../../constants/Colors'
 import { meditations, MeditationItem } from '../../data/meditations'
@@ -36,6 +38,7 @@ export default function Home({ navigation }: Props) {
         />
         <Card.Content style={styles.cardContent}>
           <Paragraph style={styles.cardParagraph}>{item.time} minutes</Paragraph>
+          <DownloadButton id={item.id} style={styles.downloadButton} />
         </Card.Content>
       </Card>
     )
@@ -60,6 +63,7 @@ export default function Home({ navigation }: Props) {
         />
         <Card.Content style={styles.cardContent}>
           <Paragraph style={styles.cardParagraph}>{item.time} minutes</Paragraph>
+          <DownloadButton id={item.id} style={styles.downloadButton} />
         </Card.Content>
       </Card>
     )
@@ -112,7 +116,12 @@ const styles = StyleSheet.create({
   popularImage: {
     height: 250,
   },
-  cardContent: {},
+  cardContent: {
+    flex: 1,
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+    alignItems: 'flex-start',
+  },
   cardSubtitle: {
     color: Colors.light.gray800,
     fontSize: 14,
@@ -120,6 +129,10 @@ const styles = StyleSheet.create({
   cardParagraph: {
     color: Colors.light.purple900,
     fontWeight: '600',
+  },
+  downloadButton: {
+    position: 'relative',
+    top: -6,
   },
   cards: {
     marginBottom: 30,

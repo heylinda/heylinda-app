@@ -6,6 +6,7 @@ interface Calendar {
     selected: boolean
   }
 }
+export const selectFilePaths = (state: RootState) => state.meditation.filepaths || []
 export const selectActivity = (state: RootState) => state.meditation.activity
 export const selectTotalSessions = (state: RootState) =>
   Object.keys(state.meditation.activity).length || 0

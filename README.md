@@ -54,7 +54,10 @@ bug or feature. You can also join us on Slack to discuss ideas.
 
 Thanks to these awesome contributors! 🧘
 
-<a href="https://github.com/heylinda/heylinda-app/graphs/contributors"><img src="https://opencollective.com/heylinda/contributors.svg?width=890&button=false" /></a>
+[![](https://github.com/trentmercer.png?size=50)](https://github.com/trentmercer)
+[![](https://github.com/watadarkstar.png?size=50)](https://github.com/watadarkstar)
+[![](https://github.com/AliNisarAhmed.png?size=50)](https://github.com/AliNisarAhmed)
+[![](https://github.com/lsmacedo.png?size=50)](https://github.com/lsmacedo)
 
 ### Sponsors
 

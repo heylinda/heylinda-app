@@ -66,6 +66,7 @@ Thank you to all our sponsors! 🥇
 <a href="https://opencollective.com/heylinda/sponsor/0/website" target="_blank"><img src="https://opencollective.com/heylinda/sponsor/0/avatar.svg"></a>
 <a href="https://opencollective.com/heylinda/sponsor/1/website" target="_blank"><img src="https://opencollective.com/heylinda/sponsor/1/avatar.svg"></a>
 <a href="https://opencollective.com/heylinda/sponsor/2/website" target="_blank"><img src="https://opencollective.com/heylinda/sponsor/2/avatar.svg"></a>
+<a href="https://opencollective.com/heylinda/sponsor/3/website" target="_blank"><img src="https://opencollective.com/heylinda/sponsor/3/avatar.svg"></a>
 
 ### Backers
 

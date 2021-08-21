@@ -27,6 +27,24 @@ const meditationSlice = createSlice({
         duration: action.payload,
       }
     },
+    manualEntry(
+      state,
+      action: PayloadAction<{
+        timestamp: number
+        duration: number
+      }>
+    ) {
+      const { duration, timestamp } = action.payload
+
+      if (duration === 0) {
+        delete state.activity[timestamp]
+        return
+      }
+
+      state.activity[timestamp] = {
+        duration,
+      }
+    },
     addFilePath(state, action) {
       if (!state.filepaths) {
         state.filepaths = []
@@ -37,5 +55,5 @@ const meditationSlice = createSlice({
   },
 })
 
-export const { completed, reset, addFilePath } = meditationSlice.actions
+export const { completed, manualEntry, reset, addFilePath } = meditationSlice.actions
 export default meditationSlice.reducer

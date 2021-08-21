@@ -1,13 +1,24 @@
 import * as React from 'react'
-import { StyleSheet } from 'react-native'
+import { Alert, StyleSheet } from 'react-native'
 import dayjs from 'dayjs'
 
-import { useAppSelector } from '../../../hooks'
+import { useAppDispatch, useAppSelector } from '../../../hooks'
 import { selectCalendar } from '../../../redux/selectors'
-import { Calendar as DefaultCalendar } from 'react-native-calendars'
+import {
+  Calendar as _DefaultCalendar,
+  CalendarBaseProps,
+  DateObject,
+  DotMarkingProps,
+} from 'react-native-calendars'
 import { useThemeColor } from '../../../components/Themed'
+import { manualEntry } from '../../../redux/meditationSlice'
+
+// Workaround for tsc using CustomMarkingProps
+type DefaultCalendarProps = DotMarkingProps & CalendarBaseProps & { testID: string }
+const DefaultCalendar = _DefaultCalendar as unknown as React.ComponentClass<DefaultCalendarProps>
 
 export default function Calendar() {
+  const dispatch = useAppDispatch()
   const calendar = useAppSelector(selectCalendar)
   const white = useThemeColor({}, 'white')
   const primary = useThemeColor({}, 'primary')
@@ -20,10 +31,55 @@ export default function Calendar() {
     ...calendar,
   }
 
+  const addManualInput = (timestamp: number, value: string | number = NaN) => {
+    const duration = Number(value)
+
+    if (value === '' || Number.isNaN(duration) || duration < 0 || duration > 60 * 24) {
+      Alert.alert('Invalid amount of time', 'Please enter how long you meditated for in minutes.')
+      return
+    }
+
+    dispatch(
+      manualEntry({
+        timestamp,
+        duration,
+      })
+    )
+  }
+
+  const onManualInput = ({ day, month, year }: DateObject) => {
+    const timestamp = new Date(year, month - 1, day).getTime()
+
+    if (timestamp > Date.now()) {
+      return
+    }
+
+    Alert.prompt(
+      'Manual entry',
+      'Enter how long you meditated for in minutes.',
+      [
+        {
+          style: 'cancel',
+          text: 'Cancel',
+        },
+        {
+          style: 'default',
+          text: 'Submit',
+          onPress: (value) => addManualInput(timestamp, value),
+        },
+      ],
+      'plain-text',
+      '',
+      'number-pad'
+    )
+  }
+
   return (
     <DefaultCalendar
+      testID="default-calendar"
       style={styles.calendar}
       markedDates={markedDates}
+      onDayPress={onManualInput}
       theme={{
         backgroundColor: white,
         calendarBackground: white,

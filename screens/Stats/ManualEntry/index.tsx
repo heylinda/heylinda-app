@@ -18,7 +18,11 @@ const ManualEntry = ({ timestamp, onDismiss }: Props) => {
   const [defaultValue, setDefaultValue] = React.useState('')
 
   React.useEffect(() => {
-    const newDuration = (timestamp && activity[timestamp]?.duration) || -1
+    if (!timestamp) {
+      return
+    }
+
+    const newDuration = activity[timestamp]?.duration || -1
     setDuration(newDuration)
     setDefaultValue(newDuration === -1 ? '' : newDuration.toString())
   }, [activity, timestamp])

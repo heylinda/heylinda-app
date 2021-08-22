@@ -34,6 +34,7 @@ export default function Calendar({ setManualEntryTimestamp }: Props) {
   }
 
   const onManualInput = ({ day, month, year }: DateObject) => {
+    // DateObject months go from 1 to 12, Date months go from 0 to 11
     const newTimestamp = new Date(year, month - 1, day).getTime()
 
     if (newTimestamp < Date.now()) {

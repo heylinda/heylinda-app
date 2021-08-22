@@ -1,7 +1,7 @@
 import * as React from 'react'
 import { StyleSheet } from 'react-native'
 import { Button, Paragraph, Dialog, Portal, Provider, TextInput } from 'react-native-paper'
-import { msPerMinute } from '../../../constants/Units'
+import { MS_PER_MINUTE } from '../../../constants/Units'
 import { useAppDispatch, useAppSelector } from '../../../hooks'
 import { manualEntry } from '../../../redux/meditationSlice'
 import { selectActivity } from '../../../redux/selectors'
@@ -25,7 +25,7 @@ const ManualEntry = ({ timestamp, onDismiss }: Props) => {
 
     const newDuration = activity[timestamp]?.duration || -1
     setDuration(newDuration)
-    setDefaultValue(newDuration === -1 ? '' : Math.floor(newDuration / msPerMinute).toString())
+    setDefaultValue(newDuration === -1 ? '' : Math.floor(newDuration / MS_PER_MINUTE).toString())
   }, [activity, timestamp])
 
   const onChangeText = (text: string) => {
@@ -36,7 +36,7 @@ const ManualEntry = ({ timestamp, onDismiss }: Props) => {
       return
     }
 
-    setDuration(value * msPerMinute)
+    setDuration(value * MS_PER_MINUTE)
   }
 
   const onSubmit = () => {

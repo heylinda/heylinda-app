@@ -36,6 +36,7 @@ const meditationSlice = createSlice({
     ) {
       const { duration, timestamp } = action.payload
 
+      // Delete sessions with 0 duration since a single activity is used for manual
       if (duration === 0) {
         delete state.activity[timestamp]
         return

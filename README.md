@@ -21,6 +21,7 @@
 - calendar activity
 - time listened
 - offline support
+- manually enter meditation
 
 ## Install
 

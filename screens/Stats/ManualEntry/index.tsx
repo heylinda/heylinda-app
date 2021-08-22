@@ -10,6 +10,8 @@ interface Props {
   onDismiss: () => void
 }
 
+const msPerMinute = 60000
+
 const ManualEntry = ({ timestamp, onDismiss }: Props) => {
   const visible = Boolean(timestamp)
   const dispatch = useAppDispatch()
@@ -24,7 +26,7 @@ const ManualEntry = ({ timestamp, onDismiss }: Props) => {
 
     const newDuration = activity[timestamp]?.duration || -1
     setDuration(newDuration)
-    setDefaultValue(newDuration === -1 ? '' : newDuration.toString())
+    setDefaultValue(newDuration === -1 ? '' : Math.floor(newDuration / msPerMinute).toString())
   }, [activity, timestamp])
 
   const onChangeText = (text: string) => {
@@ -35,7 +37,7 @@ const ManualEntry = ({ timestamp, onDismiss }: Props) => {
       return
     }
 
-    setDuration(value)
+    setDuration(value * msPerMinute)
   }
 
   const onSubmit = () => {

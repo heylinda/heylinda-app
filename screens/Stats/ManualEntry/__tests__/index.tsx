@@ -2,6 +2,7 @@ import * as React from 'react'
 import { act, render } from '@testing-library/react-native'
 import ManualEntry from '..'
 import { useAppSelector as realUseAppSelector } from '../../../../hooks'
+import { msPerMinute } from '../../../../constants/Units'
 
 const DialogMock = 'Dialog' as unknown as React.FC<{ testID: string }>
 const Dialog = (props: React.PropsWithChildren<{}>) => <DialogMock testID="dialog" {...props} />
@@ -42,7 +43,7 @@ describe('tests for ManualEntry component', () => {
 
   it('should render visible with default value and enabled submit button', () => {
     useAppSelector.mockReturnValue({
-      '1': { duration: 30 },
+      '1': { duration: 30 * msPerMinute },
     })
     const { getByTestId } = render(<ManualEntry timestamp={1} onDismiss={() => {}} />)
 
@@ -50,7 +51,7 @@ describe('tests for ManualEntry component', () => {
     expect(dialog.props.visible).toBe(true)
 
     const input = getByTestId('input')
-    expect(input.props.defaultValue).toBe('30')
+    expect(input.props.defaultValue).toBe('30 *')
 
     const submitBtn = getByTestId('submit-btn')
     expect(submitBtn.props.disabled).toBe(false)

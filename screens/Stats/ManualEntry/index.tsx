@@ -1,6 +1,7 @@
 import * as React from 'react'
 import { StyleSheet } from 'react-native'
 import { Button, Paragraph, Dialog, Portal, Provider, TextInput } from 'react-native-paper'
+import { msPerMinute } from '../../../constants/Units'
 import { useAppDispatch, useAppSelector } from '../../../hooks'
 import { manualEntry } from '../../../redux/meditationSlice'
 import { selectActivity } from '../../../redux/selectors'
@@ -9,8 +10,6 @@ interface Props {
   timestamp?: number
   onDismiss: () => void
 }
-
-const msPerMinute = 60000
 
 const ManualEntry = ({ timestamp, onDismiss }: Props) => {
   const visible = Boolean(timestamp)

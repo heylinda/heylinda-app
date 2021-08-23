@@ -59,6 +59,7 @@ Thanks to these awesome contributors! 🧘
 [![](https://github.com/watadarkstar.png?size=50)](https://github.com/watadarkstar)
 [![](https://github.com/AliNisarAhmed.png?size=50)](https://github.com/AliNisarAhmed)
 [![](https://github.com/lsmacedo.png?size=50)](https://github.com/lsmacedo)
+[![](https://github.com/alexandrvicente.png?size=50)](https://github.com/alexandrvicente)
 
 ### Sponsors
 

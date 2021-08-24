@@ -33,7 +33,7 @@ const Settings = () => {
       <List.Item title="Clear Data" onPress={clearData} />
       <Divider />
       <List.Item
-        title="Set Notification"
+        title="Set Daily Reminder"
         onPress={() => toggleShowNotification(!showNotification)}
       />
       {showNotification && <NotificationSetter />}

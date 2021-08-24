@@ -3,12 +3,12 @@ import { StyleSheet, Text, View, TouchableOpacity } from 'react-native'
 import { useThemeColor } from '../components/Themed'
 interface Props {
   weekdays: number[]
-  setWeekdays: any
+  setWeekdays: React.Dispatch<React.SetStateAction<number[]>>
 }
 export default function DayPicker({ weekdays, setWeekdays }: Props) {
   function daysIO(v: number) {
     if (weekdays.includes(v)) {
-      const weekdayRemoved = weekdays.filter((element) => element != v)
+      const weekdayRemoved = weekdays.filter((element) => element !== v)
       setWeekdays(weekdayRemoved)
     } else {
       setWeekdays([...weekdays, v])

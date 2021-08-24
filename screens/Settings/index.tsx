@@ -1,12 +1,12 @@
 import * as React from 'react'
 import { Alert } from 'react-native'
-import { Divider, List} from 'react-native-paper'
+import { Divider, List } from 'react-native-paper'
 import { useAppDispatch } from '../../hooks'
 import { reset } from '../../redux/meditationSlice'
 
-import Toast from 'react-native-simple-toast';
-import NotificationSetter from './notificationSetter';
-import Notify from './notificationHandler';
+import Toast from 'react-native-simple-toast'
+import NotificationSetter from './notificationSetter'
+import Notify from './notificationHandler'
 
 const Settings = () => {
   const dispatch = useAppDispatch()
@@ -27,23 +27,24 @@ const Settings = () => {
       ]
     )
   }
-  
+
   return (
     <>
       <List.Item title="Clear Data" onPress={clearData} />
       <Divider />
-      <List.Item title="Set Notification"></List.Item>
-      <NotificationSetter/>
-      <Divider/>
-      <List.Item title="Clear All Notifications" 
-      onPress={()=>{
-      Notify.deleteNotification();
-      Toast.show('Deleted Notifiers');
-      }} />
-      <Divider/>
+      <List.Item title="Set Notification" />
+      <NotificationSetter />
+      <Divider />
+      <List.Item
+        title="Clear All Notifications"
+        onPress={() => {
+          Notify.deleteNotification()
+          Toast.show('Deleted Notifiers')
+        }}
+      />
+      <Divider />
     </>
   )
 }
-
 
 export default Settings

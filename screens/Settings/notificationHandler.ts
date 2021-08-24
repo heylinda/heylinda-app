@@ -20,10 +20,10 @@ const deleteNotifications = async () => {
 }
 
 const iosScheduler = (weekday: number[], time: Date) => {
-  if (weekday != [-1]) {
+  if (weekday !== [-1]) {
     Notifications.cancelAllScheduledNotificationsAsync()
     weekday.forEach((v) => {
-      if (v != -1) {
+      if (v !== -1) {
         Notifications.scheduleNotificationAsync({
           content: {
             title: 'Practice your meditation today  🙇‍♂️',
@@ -41,9 +41,9 @@ const iosScheduler = (weekday: number[], time: Date) => {
 
 const AndroidSchedular = (weekday: number[], time: Date) => {
   Notifications.cancelAllScheduledNotificationsAsync()
-  if (weekday != [-1]) {
+  if (weekday !== [-1]) {
     weekday.forEach((v) => {
-      if (v != -1) {
+      if (v !== -1) {
         Notifications.scheduleNotificationAsync({
           content: {
             title: 'Practice your meditation today 🙇‍♂️',
@@ -61,10 +61,10 @@ const AndroidSchedular = (weekday: number[], time: Date) => {
 }
 
 const PlatformScheduler = (weekday: number[], time: Date) => {
-  if (Platform.OS == 'android') {
+  if (Platform.OS === 'android') {
     AndroidSchedular(weekday, time)
   }
-  if (Platform.OS == 'ios') {
+  if (Platform.OS === 'ios') {
     iosScheduler(weekday, time)
   }
 }

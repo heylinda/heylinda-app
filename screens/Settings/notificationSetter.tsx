@@ -27,15 +27,11 @@ const NotificationSetter = () => {
     const timeHours = timeSet.getHours()
     const timeMinutes = timeSet.getMinutes()
     const hours =
-      timeHours === 0
-        ? '00'
-        : timeHours.toString().length === 1
-        ? '0' + timeHours.toString()
-        : timeHours.toString()
+      timeHours === 0 ? '00' : timeHours <= 9 ? '0' + timeHours.toString() : timeHours.toString()
     const minutes =
       timeMinutes === 0
         ? '00'
-        : timeHours.toString().length === 1
+        : timeMinutes <= 9
         ? '0' + timeMinutes.toString()
         : timeMinutes.toString()
     return hours + ' : ' + minutes
@@ -45,6 +41,12 @@ const NotificationSetter = () => {
     <>
       <WeekdayPicker weekdays={weekdays} setWeekdays={setWeekdays} />
       <View style={styles.buttonContainer}>
+        <TouchableOpacity onPress={() => setShow(!show)}>
+          <View style={[styles.pickTime, { backgroundColor: useThemeColor({}, 'primary') }]}>
+            <Text style={styles.pickTimeText}>PICK TIME</Text>
+          </View>
+        </TouchableOpacity>
+        {pickedTime && <Text style={styles.selectedTime}>At {timeString(time)} </Text>}
         <TouchableOpacity
           onPress={() => {
             if (weekdays.length !== 1 && pickedTime) {
@@ -58,13 +60,6 @@ const NotificationSetter = () => {
         >
           <View style={[styles.pickTime, { backgroundColor: useThemeColor({}, 'primary') }]}>
             <Text style={styles.pickTimeText}>NOTIFY</Text>
-          </View>
-        </TouchableOpacity>
-        {pickedTime && <Text style={styles.selectedTime}>At {timeString(time)} </Text>}
-
-        <TouchableOpacity onPress={() => setShow(!show)}>
-          <View style={[styles.pickTime, { backgroundColor: useThemeColor({}, 'primary') }]}>
-            <Text style={styles.pickTimeText}>PICK TIME</Text>
           </View>
         </TouchableOpacity>
       </View>

@@ -39,7 +39,7 @@ const Settings = () => {
       {showNotification && <NotificationSetter />}
       <Divider />
       <List.Item
-        title="Clear All Notifications"
+        title="Clear All Reminders"
         onPress={() => {
           Notify.deleteNotification()
           Toast.show('Deleted Notifiers')

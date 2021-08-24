@@ -3,7 +3,7 @@ import { Platform, StyleSheet, View, TouchableOpacity, Text } from 'react-native
 import { useThemeColor } from '../../components/Themed'
 
 import DateTimePicker from '@react-native-community/datetimepicker'
-import Notify from './notificationHandler'
+import Notify from '../../notifications/notificationHandler'
 import WeekdayPicker from '../../components/WeekdayPicker'
 import Toast from 'react-native-simple-toast'
 
@@ -37,16 +37,21 @@ const NotificationSetter = () => {
     return hours + ' : ' + minutes
   }
 
+  const textColor = useThemeColor({}, 'text')
+  const textWhite = useThemeColor({}, 'white')
+
   return (
     <>
       <WeekdayPicker weekdays={weekdays} setWeekdays={setWeekdays} />
       <View style={styles.buttonContainer}>
         <TouchableOpacity onPress={() => setShow(!show)}>
           <View style={[styles.pickTime, { backgroundColor: useThemeColor({}, 'primary') }]}>
-            <Text style={styles.pickTimeText}>PICK TIME</Text>
+            <Text style={{ color: textWhite }}>PICK TIME</Text>
           </View>
         </TouchableOpacity>
-        {pickedTime && <Text style={styles.selectedTime}>At {timeString(time)} </Text>}
+        {pickedTime && (
+          <Text style={[styles.selectedTime, { color: textColor }]}>At {timeString(time)} </Text>
+        )}
         <TouchableOpacity
           onPress={() => {
             if (weekdays.length !== 1 && pickedTime) {
@@ -59,7 +64,7 @@ const NotificationSetter = () => {
           }}
         >
           <View style={[styles.pickTime, { backgroundColor: useThemeColor({}, 'primary') }]}>
-            <Text style={styles.pickTimeText}>NOTIFY</Text>
+            <Text style={{ color: textWhite }}>NOTIFY</Text>
           </View>
         </TouchableOpacity>
       </View>
@@ -84,16 +89,13 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     borderRadius: 10,
   },
-  pickTimeText: {
-    color: 'white',
-  },
   selectedTime: {
     fontSize: 20,
   },
   buttonContainer: {
     flexDirection: 'row',
     justifyContent: 'space-between',
-    marginHorizontal: 10,
+    marginHorizontal: 1,
   },
 })
 

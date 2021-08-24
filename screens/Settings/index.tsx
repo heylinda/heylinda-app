@@ -1,12 +1,12 @@
 import * as React from 'react'
 import { Alert } from 'react-native'
-import { Divider, List } from 'react-native-paper'
+import { Divider, List, Dialog, Button } from 'react-native-paper'
 import { useAppDispatch } from '../../hooks'
 import { reset } from '../../redux/meditationSlice'
 
 import Toast from 'react-native-simple-toast'
 import NotificationSetter from './notificationSetter'
-import Notify from './notificationHandler'
+import Notify from '../../notifications/notificationHandler'
 
 const Settings = () => {
   const dispatch = useAppDispatch()
@@ -36,7 +36,21 @@ const Settings = () => {
         title="Set Daily Reminder"
         onPress={() => toggleShowNotification(!showNotification)}
       />
-      {showNotification && <NotificationSetter />}
+      <Dialog
+        visible={showNotification}
+        onDismiss={() => {
+          toggleShowNotification(!showNotification)
+        }}
+        dismissable={true}
+      >
+        <Dialog.Title>Alert</Dialog.Title>
+        <Dialog.Content>
+          <NotificationSetter />
+        </Dialog.Content>
+        <Dialog.Actions>
+          <Button onPress={() => toggleShowNotification(!showNotification)}>CANCEL</Button>
+        </Dialog.Actions>
+      </Dialog>
       <Divider />
       <List.Item
         title="Clear All Reminders"

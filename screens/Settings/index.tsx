@@ -10,7 +10,7 @@ import Notify from './notificationHandler'
 
 const Settings = () => {
   const dispatch = useAppDispatch()
-
+  const [showNotification, toggleShowNotification] = React.useState(false)
   const clearData = () => {
     Alert.alert(
       'Clear Data',
@@ -32,8 +32,11 @@ const Settings = () => {
     <>
       <List.Item title="Clear Data" onPress={clearData} />
       <Divider />
-      <List.Item title="Set Notification" />
-      <NotificationSetter />
+      <List.Item
+        title="Set Notification"
+        onPress={() => toggleShowNotification(!showNotification)}
+      />
+      {showNotification && <NotificationSetter />}
       <Divider />
       <List.Item
         title="Clear All Notifications"

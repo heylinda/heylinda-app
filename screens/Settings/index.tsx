@@ -42,7 +42,7 @@ const Settings = () => {
         title="Clear All Reminders"
         onPress={() => {
           Notify.deleteNotification()
-          Toast.show('Deleted Notifiers')
+          Toast.show('Deleted Reminders')
         }}
       />
       <Divider />

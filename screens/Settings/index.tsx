@@ -43,7 +43,7 @@ const Settings = () => {
         }}
         dismissable={true}
       >
-        <Dialog.Title>Alert</Dialog.Title>
+        <Dialog.Title>Set Reminders</Dialog.Title>
         <Dialog.Content>
           <NotificationSetter />
         </Dialog.Content>

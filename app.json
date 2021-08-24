@@ -33,6 +33,7 @@
         "foregroundImage": "./assets/images/adaptive-icon.png",
         "backgroundColor": "#ffffff"
       },
+      "useNextNotificationsApi": true,
       "package": "com.heylinda.meditation"
     },
     "web": {

@@ -9,7 +9,6 @@ import NotificationSetter from './notificationSetter'
 import Notify from '../../notifications/notificationHandler'
 
 const Settings = () => {
-  Notify.askPermission()
   const dispatch = useAppDispatch()
   const [showNotification, toggleShowNotification] = React.useState(false)
   const clearData = () => {

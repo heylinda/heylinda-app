@@ -10,14 +10,15 @@ import { Text, useThemeColor } from '../../components/Themed'
 import Colors from '../../constants/Colors'
 import { meditations, MeditationItem } from '../../data/meditations'
 import { HomeParamList } from '../../types'
+import Notify from '../../notifications/notificationHandler'
 
 interface Props {
   navigation: StackNavigationProp<HomeParamList, 'HomeScreen'>
 }
 
 export default function Home({ navigation }: Props) {
+  Notify.askPermission()
   const textColor = useThemeColor({}, 'text')
-
   const renderPopularCard = ({ item }: MeditationItem) => {
     return (
       <Card

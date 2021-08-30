@@ -1,6 +1,7 @@
 const primary = '#463FB0'
 const purples = {
   purple900: '#4A5784',
+  purple500: '#6F69C9',
 }
 const grays = {
   white: '#fff',
@@ -20,6 +21,8 @@ export default {
     tabIconDefault: '#ccc',
     ...purples,
     ...grays,
+    completedBackground: primary,
+    completedPrimary: grays.white,
   },
   dark: {
     primary,
@@ -30,5 +33,7 @@ export default {
     ...purples,
     ...grays,
     white: grays.gray950,
+    completedBackground: grays.gray900,
+    completedPrimary: purples.purple500,
   },
 }

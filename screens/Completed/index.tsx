@@ -4,7 +4,7 @@ import { StyleSheet } from 'react-native'
 import { AntDesign as Icon } from '@expo/vector-icons'
 import { Button } from 'react-native-paper'
 
-import { Screen, Text } from '../../components'
+import { Screen, Text, useThemeColor } from '../../components'
 import Colors from '../../constants/Colors'
 import { MainStackParamList } from '../../types'
 import { Linking } from 'react-native'
@@ -17,25 +17,22 @@ interface Props {
 
 const Completed = ({ navigation }: Props) => {
   const totalSessions = useAppSelector(selectTotalSessions)
+  const backgroundColor = useThemeColor({}, 'completedBackground')
+  const primaryColor = useThemeColor({}, 'completedPrimary')
   const onPressDonate = () => {
     Linking.openURL('https://opencollective.com/heylinda/donate')
   }
   const onPressSkip = () => navigation.replace('Main')
 
   return (
-    <Screen style={styles.screen}>
-      <Icon size={50} name="checkcircle" color={Colors.light.white} style={styles.checkMark} />
+    <Screen style={[styles.screen, { backgroundColor }]}>
+      <Icon size={50} name="checkcircle" color={primaryColor} style={styles.checkMark} />
       <Text style={styles.title}> Congratulations!</Text>
       <Text style={styles.description}>
         You have completed {totalSessions} meditation{totalSessions === 1 ? '' : 's'}!{'\n'}Do you
         want to give a donation?
       </Text>
-      <Button
-        onPress={onPressDonate}
-        style={styles.button}
-        mode="contained"
-        color={Colors.light.white}
-      >
+      <Button onPress={onPressDonate} style={styles.button} mode="contained" color={primaryColor}>
         Donate
       </Button>
       <Button

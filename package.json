@@ -61,7 +61,7 @@
     "@types/uuid": "^8.3.1",
     "eslint": "^7.32.0",
     "eslint-plugin-prettier": "^3.4.0",
-    "eslint-plugin-react": "^7.24.0",
+    "eslint-plugin-react": "^7.25.1",
     "eslint-plugin-react-native": "^3.11.0",
     "husky": "^7.0.0",
     "jest-expo": "^42.0.0",

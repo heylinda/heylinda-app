@@ -14,7 +14,6 @@ const NotificationSetter = () => {
   const [show, setShow] = React.useState(false)
   const changeTimeHandler = (event: Event, value?: Date) => {
     setShow(Platform.OS === 'ios')
-    console.log(value?.getHours(), value?.getMinutes(), value?.getSeconds())
     if (value) {
       setPickedTime(true)
     } else {

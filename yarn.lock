@@ -7592,11 +7592,6 @@ react-native-paper@^4.9.2:
     color "^3.1.2"
     react-native-iphone-x-helper "^1.3.1"
 
-react-native-push-notification@^8.0.0:
-  version "8.0.0"
-  resolved "https://registry.yarnpkg.com/react-native-push-notification/-/react-native-push-notification-8.0.0.tgz#0dcdcaf467271aa4e37b6e0550d72fb051137d74"
-  integrity sha512-k9wEjpxtl0rEVNKG9ONinw45Ox5To4XsBo5Sc7AKXV0c26YHtz+Wn+Lz2B5y1zf5yu7CMt51nGnycukLt170Fg==
-
 react-native-reanimated@~2.2.0:
   version "2.2.0"
   resolved "https://registry.yarnpkg.com/react-native-reanimated/-/react-native-reanimated-2.2.0.tgz#a6412c56b4e591d1f00fac949f62d0c72c357c78"
@@ -7618,11 +7613,6 @@ react-native-screens@~3.4.0:
   integrity sha512-cg+q9MRnVdeOcJyvJtqffoXLur/C2wHA/7IO2+FAipzTlgHbbM1mTuSM7qG+SeiQjoIs4mHOEf7A0ziPKW04sA==
   dependencies:
     warn-once "^0.1.0"
-
-react-native-simple-toast@^1.1.3:
-  version "1.1.3"
-  resolved "https://registry.yarnpkg.com/react-native-simple-toast/-/react-native-simple-toast-1.1.3.tgz#4d0835891fe5c9342341fc4a88ed01ebb1a34bd5"
-  integrity sha512-bkZy25axqlU4L6IoTysSl5KOQA7qdxzivbXz/L/yAw9g9fENxjzYvUUtv5wWtgq7mzOe5HiJ7GCQrOl3MhIevQ==
 
 react-native-swipe-gestures@^1.0.5:
   version "1.0.5"

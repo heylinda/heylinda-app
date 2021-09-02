@@ -4,7 +4,6 @@ import { Platform } from 'react-native'
 const askPermissions = async () => {
   Notifications.getPermissionsAsync().then((status) => {
     if (!status.granted) {
-      console.log('Requesting Permission')
       Notifications.requestPermissionsAsync()
     }
   })
@@ -34,7 +33,7 @@ const iosScheduler = (weekday: number[], time: Date) => {
   }
 }
 
-const AndroidSchedular = (weekday: number[], time: Date) => {
+const androidSchedular = (weekday: number[], time: Date) => {
   Notifications.cancelAllScheduledNotificationsAsync()
   if (weekday !== [-1]) {
     weekday.forEach((v) => {
@@ -55,9 +54,9 @@ const AndroidSchedular = (weekday: number[], time: Date) => {
   }
 }
 
-const PlatformScheduler = (weekday: number[], time: Date) => {
+const platformScheduler = (weekday: number[], time: Date) => {
   if (Platform.OS === 'android') {
-    AndroidSchedular(weekday, time)
+    androidSchedular(weekday, time)
   }
   if (Platform.OS === 'ios') {
     iosScheduler(weekday, time)
@@ -66,6 +65,6 @@ const PlatformScheduler = (weekday: number[], time: Date) => {
 
 export default {
   askPermission: askPermissions,
-  testSchedular: PlatformScheduler,
+  testSchedular: platformScheduler,
   deleteNotification: deleteNotifications,
 }

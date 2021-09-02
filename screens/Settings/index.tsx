@@ -4,13 +4,15 @@ import { Divider, List, Dialog, Button } from 'react-native-paper'
 import { useAppDispatch } from '../../hooks'
 import { reset } from '../../redux/meditationSlice'
 
-import Toast from 'react-native-simple-toast'
+import Toast from '../../components/ToastSnackBar'
 import NotificationSetter from './notificationSetter'
 import Notify from '../../notifications/notificationHandler'
 
 const Settings = () => {
   const dispatch = useAppDispatch()
   const [showNotification, toggleShowNotification] = React.useState(false)
+  const [toastShow, setToastShow] = React.useState(false)
+  const [toastMessage, setToastMessage] = React.useState('')
   const clearData = () => {
     Alert.alert(
       'Clear Data',
@@ -45,7 +47,7 @@ const Settings = () => {
       >
         <Dialog.Title>Set Reminders</Dialog.Title>
         <Dialog.Content>
-          <NotificationSetter />
+          <NotificationSetter setToastMessage={setToastMessage} setToastShow={setToastShow} />
         </Dialog.Content>
         <Dialog.Actions>
           <Button onPress={() => toggleShowNotification(!showNotification)}>CANCEL</Button>
@@ -56,10 +58,12 @@ const Settings = () => {
         title="Clear All Reminders"
         onPress={() => {
           Notify.deleteNotification()
-          Toast.show('Deleted Reminders')
+          setToastMessage('All Reminders Cleared')
+          setToastShow(true)
         }}
       />
       <Divider />
+      <Toast message={toastMessage} show={toastShow} changeShow={setToastShow} />
     </>
   )
 }

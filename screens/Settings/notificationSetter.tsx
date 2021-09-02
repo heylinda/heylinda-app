@@ -5,9 +5,13 @@ import { useThemeColor } from '../../components/Themed'
 import DateTimePicker from '@react-native-community/datetimepicker'
 import Notify from '../../notifications/notificationHandler'
 import WeekdayPicker from '../../components/WeekdayPicker'
-import Toast from 'react-native-simple-toast'
 
-const NotificationSetter = () => {
+interface Props {
+  setToastMessage: React.Dispatch<React.SetStateAction<string>>
+  setToastShow: React.Dispatch<React.SetStateAction<boolean>>
+}
+
+const NotificationSetter = ({ setToastMessage, setToastShow }: Props) => {
   const [time, setTime] = React.useState(new Date())
   const [pickedTime, setPickedTime] = React.useState(false)
   const [weekdays, setWeekdays] = React.useState([-1])
@@ -55,9 +59,11 @@ const NotificationSetter = () => {
           onPress={() => {
             if (weekdays.length !== 1 && pickedTime) {
               Notify.testSchedular(weekdays, time)
-              Toast.show('Reminders Set')
+              setToastMessage('Reminders Set')
+              setToastShow(true)
             } else {
-              Toast.show('Please Set Timing and Weekdays')
+              setToastMessage('Please Pick Day and Time')
+              setToastShow(true)
             }
           }}
         >

@@ -56,7 +56,6 @@ const NotificationSetter = () => {
             if (weekdays.length !== 1 && pickedTime) {
               Notify.testSchedular(weekdays, time)
               Toast.show('Reminders Set')
-              console.log(weekdays.toString())
             } else {
               Toast.show('Please Set Timing and Weekdays')
             }

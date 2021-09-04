@@ -10,6 +10,7 @@ import HomeScreen from '../screens/Home'
 import PlayScreen from '../screens/Play'
 import SettingsScreen from '../screens/Settings'
 import StatsScreen from '../screens/Stats'
+import SavedScreen from '../screens/Saved'
 import { BottomTabParamList, HomeParamList, SettingsParamList, StatsParamList } from '../types'
 
 const BottomTab = createBottomTabNavigator<BottomTabParamList>()
@@ -34,6 +35,13 @@ export default function BottomTabNavigator() {
         component={StatsNavigator}
         options={{
           tabBarIcon: ({ color }) => <TabBarIcon name="calendar" color={color} />,
+        }}
+      />
+      <BottomTab.Screen
+        name="Saved"
+        component={SavedScreen}
+        options={{
+          tabBarIcon: ({ color }) => <TabBarIcon name="hearto" color={color} />,
         }}
       />
       <BottomTab.Screen

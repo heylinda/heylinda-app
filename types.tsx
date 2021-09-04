@@ -17,6 +17,7 @@ export type MainStackParamList = {
 export type BottomTabParamList = {
   Home: NO_PARAMS
   Stats: NO_PARAMS
+  Saved: NO_PARAMS
   Settings: NO_PARAMS
 }
 

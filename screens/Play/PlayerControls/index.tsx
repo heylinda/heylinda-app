@@ -33,6 +33,7 @@ export default function PlayerControls({
       )}
       <PlayerIcon name="forward-10" onPress={forward} size={30} />
       <Text>{durationTime}</Text>
+      <PlayerIcon name="favorite-outline" onPress={() => {}} size={30} />
     </View>
   )
 }

@@ -8,19 +8,23 @@ interface Props {
   positionTime: string
   durationTime: string
   isPlaying: boolean
+  isFavorite: boolean
   pause: () => void
   play: () => void
   replay: () => void
   forward: () => void
+  toggleFavorite: () => void
 }
 export default function PlayerControls({
   positionTime,
   durationTime,
   isPlaying,
+  isFavorite,
   pause,
   play,
   replay,
   forward,
+  toggleFavorite,
 }: Props) {
   return (
     <View style={styles.controls}>
@@ -33,7 +37,11 @@ export default function PlayerControls({
       )}
       <PlayerIcon name="forward-10" onPress={forward} size={30} />
       <Text>{durationTime}</Text>
-      <PlayerIcon name="favorite-outline" onPress={() => {}} size={30} />
+      {isFavorite ? (
+        <PlayerIcon name="favorite" onPress={toggleFavorite} size={30} />
+      ) : (
+        <PlayerIcon name="favorite-outline" onPress={toggleFavorite} size={30} />
+      )}
     </View>
   )
 }

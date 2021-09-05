@@ -48,3 +48,5 @@ export const selectStreak = (state: RootState) => {
 
   return streak
 }
+
+export const selectFavorites = (state: RootState) => state.favorite.favorites

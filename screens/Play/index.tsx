@@ -15,6 +15,8 @@ import { LoadingScreen } from '../../components'
 import { useCallback } from 'react'
 import { StackNavigationProp } from '@react-navigation/stack'
 import { selectFilePaths } from '../../redux/selectors'
+import { markAsFavorite, removeFromFavorites } from '../../redux/favoriteSlice'
+import { selectFavorites } from '../../redux/selectors'
 
 type PlayRouteProp = RouteProp<HomeParamList, 'PlayScreen'>
 
@@ -39,6 +41,7 @@ export default function PlayScreen({ route, navigation }: Props) {
   const dispatch = useAppDispatch()
   const uri = meditation?.uri || ''
   const filepaths = useAppSelector(selectFilePaths)
+  const favorites = useAppSelector(selectFavorites)
 
   const onPlaybackStatusUpdate = useCallback(
     (playbackStatus: AVPlaybackStatus) => {
@@ -130,7 +133,16 @@ export default function PlayScreen({ route, navigation }: Props) {
     return <NotFoundScreen />
   }
 
+  const toggleFavorite = () => {
+    if (isFavorite) {
+      dispatch(removeFromFavorites(meditation.id))
+    } else {
+      dispatch(markAsFavorite(meditation.id))
+    }
+  }
+
   const { title, subtitle, image } = meditation
+  const isFavorite = favorites.includes(meditation.id)
 
   if (isLoadingAudio) {
     return <LoadingScreen loading={isLoadingAudio} />
@@ -143,12 +155,14 @@ export default function PlayScreen({ route, navigation }: Props) {
       <Text style={styles.subtitle}>{subtitle}</Text>
       <PlayerControls
         isPlaying={isPlaying}
+        isFavorite={isFavorite}
         play={play}
         pause={pause}
         replay={replay}
         forward={forward}
         positionTime={positionTime}
         durationTime={durationTime}
+        toggleFavorite={toggleFavorite}
       />
     </Screen>
   )

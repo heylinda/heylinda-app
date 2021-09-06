@@ -1,4 +1,5 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit'
+import { Meditation } from '../data/meditations'
 
 export interface Activity {
   // in miliseconds
@@ -11,11 +12,14 @@ export interface MeditationState {
   }
   // Local file paths to the audio files downloaded from the server
   filepaths: string[]
+
+  favourites: Meditation[]
 }
 
 const initialState: MeditationState = {
   activity: {},
   filepaths: [],
+  favourites: [],
 }
 
 const meditationSlice = createSlice({
@@ -53,8 +57,23 @@ const meditationSlice = createSlice({
       state.filepaths.push(action.payload)
     },
     reset: () => initialState,
+    updateFavourite: (state, action) => {
+      if (!state.favourites) {
+        state.favourites = []
+      }
+      const meditation = action.payload
+      const meditationIndex = state.favourites.findIndex((item) => item.id === meditation.id)
+      const meditationAlreadyFavourited = meditationIndex !== -1
+
+      if (meditationAlreadyFavourited) {
+        state.favourites.splice(meditationIndex, 1)
+      } else {
+        state.favourites.push(meditation)
+      }
+    },
   },
 })
 
-export const { completed, manualEntry, reset, addFilePath } = meditationSlice.actions
+export const { completed, manualEntry, reset, addFilePath, updateFavourite } =
+  meditationSlice.actions
 export default meditationSlice.reducer

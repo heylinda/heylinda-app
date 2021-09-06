@@ -10,6 +10,8 @@ import { Text, useThemeColor } from '../../components/Themed'
 import Colors from '../../constants/Colors'
 import { meditations, MeditationItem } from '../../data/meditations'
 import { HomeParamList } from '../../types'
+import { useAppSelector } from '../../hooks'
+import { selectFavourites } from '../../redux/selectors'
 
 interface Props {
   navigation: StackNavigationProp<HomeParamList, 'HomeScreen'>
@@ -17,6 +19,8 @@ interface Props {
 
 export default function Home({ navigation }: Props) {
   const textColor = useThemeColor({}, 'text')
+
+  const favourites = useAppSelector(selectFavourites)
 
   const renderPopularCard = ({ item }: MeditationItem) => {
     return (
@@ -98,6 +102,19 @@ export default function Home({ navigation }: Props) {
         renderItem={renderCard}
         keyExtractor={({ id }) => id}
       />
+      {favourites.length > 0 && (
+        <>
+          <Text style={styles.title}>FAVOURITE</Text>
+          <FlatList
+            style={styles.cards}
+            horizontal
+            showsHorizontalScrollIndicator={false}
+            data={favourites}
+            renderItem={renderCard}
+            keyExtractor={({ id }) => id}
+          />
+        </>
+      )}
     </Screen>
   )
 }

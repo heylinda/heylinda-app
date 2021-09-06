@@ -10,11 +10,13 @@ import NotFoundScreen from '../NotFoundScreen'
 import { HomeParamList, MainStackParamList } from '../../types'
 import { CompositeNavigationProp, RouteProp } from '@react-navigation/native'
 import { useMsToTime, useAppDispatch } from '../../hooks'
-import { completed } from '../../redux/meditationSlice'
+import { completed, updateFavourite } from '../../redux/meditationSlice'
 import { LoadingScreen } from '../../components'
 import { useCallback } from 'react'
 import { StackNavigationProp } from '@react-navigation/stack'
-import { selectFilePaths } from '../../redux/selectors'
+import { selectFavourites, selectFilePaths } from '../../redux/selectors'
+import FavouriteButton from '../../components/FavouriteButton'
+import { Meditation } from '../../data/meditations'
 
 type PlayRouteProp = RouteProp<HomeParamList, 'PlayScreen'>
 
@@ -29,16 +31,27 @@ interface Props {
 export default function PlayScreen({ route, navigation }: Props) {
   const { id } = route.params
   const meditation = useMeditation(id)
+  const favourites = useAppSelector(selectFavourites)
   const [isLoadingAudio, setIsLoadingAudio] = React.useState(true)
   const [isPlaying, setIsPlaying] = React.useState(false)
   const [sound, setSound] = React.useState<Audio.Sound>()
   const [positionMillis, setPositionMillis] = React.useState(0)
   const [durationMills, setDurationMills] = React.useState(0)
+  const [isfavourited, setIsFavourited] = React.useState(false)
   const durationTime = useMsToTime(durationMills)
   const positionTime = useMsToTime(positionMillis)
   const dispatch = useAppDispatch()
   const uri = meditation?.uri || ''
   const filepaths = useAppSelector(selectFilePaths)
+
+  React.useEffect(() => {
+    setIsFavourited(favourites.findIndex((item: Meditation) => item.id === meditation?.id) !== -1)
+  }, [favourites, meditation?.id])
+
+  const onFavourite = () => {
+    setIsFavourited(!isfavourited)
+    dispatch(updateFavourite(meditation))
+  }
 
   const onPlaybackStatusUpdate = useCallback(
     (playbackStatus: AVPlaybackStatus) => {
@@ -138,6 +151,7 @@ export default function PlayScreen({ route, navigation }: Props) {
 
   return (
     <Screen style={styles.container}>
+      <FavouriteButton isFavourited={isfavourited} style={styles.favourite} onPress={onFavourite} />
       <Image source={image} style={styles.image} />
       <Text style={styles.title}>{title}</Text>
       <Text style={styles.subtitle}>{subtitle}</Text>
@@ -180,5 +194,10 @@ const styles = StyleSheet.create({
     marginBottom: 30,
     borderRadius: 10,
     alignSelf: 'center',
+  },
+  favourite: {
+    position: 'absolute',
+    top: 10,
+    right: 10,
   },
 })

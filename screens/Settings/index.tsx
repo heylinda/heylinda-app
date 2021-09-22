@@ -91,6 +91,7 @@ const Settings = () => {
           AsyncStorage.removeItem('heylindaNotificationTime')
           setToastMessage('All Reminders Cleared')
           setToastShow(true)
+          toggleShowNotificationSetter(false)
         }}
       />
       <Divider />

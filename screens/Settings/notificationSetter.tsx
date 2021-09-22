@@ -1,6 +1,7 @@
 import * as React from 'react'
 import { Platform, StyleSheet, View, TouchableOpacity, Text } from 'react-native'
 import { useThemeColor } from '../../components/Themed'
+import AsyncStorage from '@react-native-async-storage/async-storage'
 
 import DateTimePicker from '@react-native-community/datetimepicker'
 import Notify from '../../notifications/notificationHandler'
@@ -16,10 +17,23 @@ const NotificationSetter = ({ setToastMessage, setToastShow }: Props) => {
   const [pickedTime, setPickedTime] = React.useState(false)
   const [weekdays, setWeekdays] = React.useState([-1])
   const [show, setShow] = React.useState(false)
+  const [previousNotificationTime, setPreviousNotificationTime] = React.useState('')
+  const getNotificationTime = async () => {
+    try {
+      const value = await AsyncStorage.getItem('heylindaNotificationTime')
+      if (value !== null) {
+        setPreviousNotificationTime(value)
+      }
+    } catch (e) {
+      setPreviousNotificationTime('\0')
+    }
+  }
+  getNotificationTime()
   const changeTimeHandler = (event: Event, value?: Date) => {
     setShow(Platform.OS === 'ios')
     if (value) {
       setPickedTime(true)
+      AsyncStorage.setItem('heylindaNotificationTime', timeString(value))
     } else {
       setPickedTime(false)
     }
@@ -40,21 +54,13 @@ const NotificationSetter = ({ setToastMessage, setToastShow }: Props) => {
     return hours + ' : ' + minutes
   }
 
-  const textColor = useThemeColor({}, 'text')
   const textWhite = useThemeColor({}, 'white')
+  const primaryColor = useThemeColor({}, 'primary')
 
   return (
     <>
       <WeekdayPicker weekdays={weekdays} setWeekdays={setWeekdays} />
       <View style={styles.buttonContainer}>
-        <TouchableOpacity onPress={() => setShow(!show)}>
-          <View style={[styles.pickTime, { backgroundColor: useThemeColor({}, 'primary') }]}>
-            <Text style={{ color: textWhite }}>PICK TIME</Text>
-          </View>
-        </TouchableOpacity>
-        {pickedTime && (
-          <Text style={[styles.selectedTime, { color: textColor }]}>At {timeString(time)} </Text>
-        )}
         <TouchableOpacity
           onPress={() => {
             if (weekdays.length !== 1 && pickedTime) {
@@ -71,8 +77,25 @@ const NotificationSetter = ({ setToastMessage, setToastShow }: Props) => {
             <Text style={{ color: textWhite }}>NOTIFY</Text>
           </View>
         </TouchableOpacity>
+        {show && Platform.OS === 'ios' ? (
+          <DateTimePicker
+            value={time}
+            mode="time"
+            is24Hour={true}
+            display="clock"
+            onChange={changeTimeHandler}
+          />
+        ) : (
+          <TouchableOpacity onPress={() => setShow(!show)}>
+            <View style={[styles.pickTime, { backgroundColor: primaryColor }]}>
+              <Text style={[styles.selectedTime, { color: textWhite }]}>
+                {previousNotificationTime !== '\0' ? previousNotificationTime : timeString(time)}{' '}
+              </Text>
+            </View>
+          </TouchableOpacity>
+        )}
       </View>
-      {show && (
+      {show && Platform.OS === 'android' && (
         <DateTimePicker
           value={time}
           mode="time"
@@ -87,7 +110,7 @@ const NotificationSetter = ({ setToastMessage, setToastShow }: Props) => {
 
 const styles = StyleSheet.create({
   pickTime: {
-    width: 90,
+    width: 100,
     height: 25,
     justifyContent: 'center',
     alignItems: 'center',

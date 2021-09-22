@@ -45,12 +45,12 @@ const styles = StyleSheet.create({
     borderRadius: 20,
     justifyContent: 'center',
     alignItems: 'center',
-    marginVertical: 30,
+    marginBottom: 20,
   },
   boxContainer: {
     flexDirection: 'row',
-    justifyContent: 'space-evenly',
+    justifyContent: 'space-between',
     alignItems: 'center',
-    marginTop: 20,
+    width: 310,
   },
 })

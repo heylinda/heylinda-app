@@ -1,19 +1,42 @@
 import * as React from 'react'
-import { Alert } from 'react-native'
-import { Divider, List, Dialog, Button } from 'react-native-paper'
+import { Alert, StyleSheet } from 'react-native'
+import { Divider, List, Dialog } from 'react-native-paper'
 import { useAppDispatch } from '../../hooks'
 import { reset } from '../../redux/meditationSlice'
+import { Ionicons } from '@expo/vector-icons'
 
 import Toast from '../../components/ToastSnackBar'
 import NotificationSetter from './notificationSetter'
 import Notify from '../../notifications/notificationHandler'
 import AsyncStorage from '@react-native-async-storage/async-storage'
+import { useThemeColor } from '../../components'
 
 const Settings = () => {
   const dispatch = useAppDispatch()
-  const [showNotification, toggleShowNotification] = React.useState(false)
+  const [showNotificationSetter, toggleShowNotificationSetter] = React.useState(false)
   const [toastShow, setToastShow] = React.useState(false)
   const [toastMessage, setToastMessage] = React.useState('')
+  const [notificationSet, setNotificationSet] = React.useState(false)
+  const primaryColor = useThemeColor({}, 'primary')
+  const getNotificationStatus = async () => {
+    try {
+      const value = await AsyncStorage.getItem('heylindaNotificationTime')
+      if (value !== null) {
+        if (value === '\0') {
+          setNotificationSet(false)
+        } else {
+          setNotificationSet(true)
+        }
+      } else {
+        setNotificationSet(false)
+      }
+    } catch (e) {
+      setNotificationSet(false)
+    }
+  }
+  React.useEffect(() => {
+    getNotificationStatus()
+  }, [toastShow])
   const clearData = () => {
     Alert.alert(
       'Clear Data',
@@ -37,22 +60,28 @@ const Settings = () => {
       <Divider />
       <List.Item
         title="Set Daily Reminder"
-        onPress={() => toggleShowNotification(!showNotification)}
+        onPress={() => toggleShowNotificationSetter(!showNotificationSetter)}
+        right={() => (
+          <Ionicons
+            name={notificationSet ? 'notifications' : 'notifications-off'}
+            color={primaryColor}
+            style={styles.iconStyle}
+            size={25}
+          />
+        )}
       />
       <Dialog
-        visible={showNotification}
+        visible={showNotificationSetter}
         onDismiss={() => {
-          toggleShowNotification(!showNotification)
+          toggleShowNotificationSetter(!showNotificationSetter)
         }}
         dismissable={true}
+        style={[styles.dialogStyle, { borderColor: useThemeColor({}, 'primary') }]}
       >
         <Dialog.Title>Set Reminders</Dialog.Title>
         <Dialog.Content>
           <NotificationSetter setToastMessage={setToastMessage} setToastShow={setToastShow} />
         </Dialog.Content>
-        <Dialog.Actions>
-          <Button onPress={() => toggleShowNotification(!showNotification)}>CANCEL</Button>
-        </Dialog.Actions>
       </Dialog>
       <Divider />
       <List.Item
@@ -70,4 +99,15 @@ const Settings = () => {
   )
 }
 
+const styles = StyleSheet.create({
+  dialogStyle: {
+    width: 350,
+    borderWidth: 1,
+    borderRadius: 10,
+    justifyContent: 'center',
+  },
+  iconStyle: {
+    alignSelf: 'center',
+  },
+})
 export default Settings

@@ -7,6 +7,7 @@ import { reset } from '../../redux/meditationSlice'
 import Toast from '../../components/ToastSnackBar'
 import NotificationSetter from './notificationSetter'
 import Notify from '../../notifications/notificationHandler'
+import AsyncStorage from '@react-native-async-storage/async-storage'
 
 const Settings = () => {
   const dispatch = useAppDispatch()
@@ -58,6 +59,7 @@ const Settings = () => {
         title="Clear All Reminders"
         onPress={() => {
           Notify.deleteNotification()
+          AsyncStorage.removeItem('heylindaNotificationTime')
           setToastMessage('All Reminders Cleared')
           setToastShow(true)
         }}

@@ -98,7 +98,7 @@ const Settings = () => {
         }}
       />
       <Divider />
-      <Toast message={toastMessage} show={toastShow} changeShow={setToastShow} />
+      <Toast message={toastMessage} show={toastShow} setShow={setToastShow} />
     </>
   )
 }

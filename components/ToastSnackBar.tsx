@@ -5,11 +5,11 @@ import { Text, useThemeColor } from '../components/Themed'
 interface Props {
   message: string
   show: boolean
-  changeShow: React.Dispatch<React.SetStateAction<boolean>>
+  setShow: React.Dispatch<React.SetStateAction<boolean>>
 }
 
-export default function ToastBar({ message, show, changeShow }: Props) {
-  const onDismissSnackBar = () => changeShow(false)
+export default function ToastBar({ message, show, setShow }: Props) {
+  const onDismissSnackBar = () => setShow(false)
   return (
     <Snackbar
       visible={show}

@@ -10,9 +10,10 @@ import WeekdayPicker from '../../components/WeekdayPicker'
 interface Props {
   setToastMessage: React.Dispatch<React.SetStateAction<string>>
   setToastShow: React.Dispatch<React.SetStateAction<boolean>>
+  setNotificationSetter: React.Dispatch<React.SetStateAction<boolean>>
 }
 
-const NotificationSetter = ({ setToastMessage, setToastShow }: Props) => {
+const NotificationSetter = ({ setToastMessage, setToastShow, setNotificationSetter }: Props) => {
   const [time, setTime] = React.useState(new Date())
   const [pickedTime, setPickedTime] = React.useState(false)
   const [weekdays, setWeekdays] = React.useState([-1])
@@ -90,6 +91,7 @@ const NotificationSetter = ({ setToastMessage, setToastShow }: Props) => {
               Notify.testSchedular(weekdays, time)
               setToastMessage('Reminders Set')
               setToastShow(true)
+              setNotificationSetter(false)
             } else {
               setToastMessage('Please Pick Day and Time')
               setToastShow(true)

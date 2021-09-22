@@ -80,7 +80,11 @@ const Settings = () => {
       >
         <Dialog.Title>Set Reminders</Dialog.Title>
         <Dialog.Content>
-          <NotificationSetter setToastMessage={setToastMessage} setToastShow={setToastShow} />
+          <NotificationSetter
+            setToastMessage={setToastMessage}
+            setToastShow={setToastShow}
+            setNotificationSetter={toggleShowNotificationSetter}
+          />
         </Dialog.Content>
       </Dialog>
       <Divider />
@@ -91,7 +95,6 @@ const Settings = () => {
           AsyncStorage.removeItem('heylindaNotificationTime')
           setToastMessage('All Reminders Cleared')
           setToastShow(true)
-          toggleShowNotificationSetter(false)
         }}
       />
       <Divider />

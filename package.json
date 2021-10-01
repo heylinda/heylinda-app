@@ -44,7 +44,7 @@
     "react-native-paper": "^4.9.2",
     "react-native-reanimated": "~2.2.0",
     "react-native-safe-area-context": "3.2.0",
-    "react-native-screens": "~3.4.0",
+    "react-native-screens": "~3.8.0",
     "react-native-web": "~0.13.12",
     "react-redux": "^7.2.4",
     "redux-persist": "^6.0.0",

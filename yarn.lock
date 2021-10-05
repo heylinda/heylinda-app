@@ -4123,7 +4123,7 @@ expo-web-browser@~9.2.0:
   dependencies:
     compare-urls "^2.0.0"
 
-expo@^42.0.0:
+expo@^42.0.4:
   version "42.0.4"
   resolved "https://registry.yarnpkg.com/expo/-/expo-42.0.4.tgz#07b0e044e43f7cb366e2082850b41b8bb5117a21"
   integrity sha512-i1QvMb3cIXdsx7OQh0/N0KJHkPwFlBGEGsXRr/IF2DJFHMWd/J4DR8IaAnTAhx0ifborWHmENgXj5hgWJgirog==

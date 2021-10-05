@@ -4,17 +4,9 @@ import dayjs from 'dayjs'
 
 import { useAppSelector } from '../../../hooks'
 import { selectCalendar } from '../../../redux/selectors'
-import {
-  Calendar as _DefaultCalendar,
-  CalendarBaseProps,
-  DateObject,
-  DotMarkingProps,
-} from 'react-native-calendars'
+import { Calendar as DefaultCalendar } from 'react-native-calendars'
 import { useThemeColor } from '../../../components/Themed'
-
-// Workaround for tsc using CustomMarkingProps
-type DefaultCalendarProps = DotMarkingProps & CalendarBaseProps
-const DefaultCalendar = _DefaultCalendar as unknown as React.ComponentClass<DefaultCalendarProps>
+import { DateData } from 'react-native-calendars/src/types'
 
 interface Props {
   setManualEntryTimestamp: (value: number) => void
@@ -33,7 +25,7 @@ export default function Calendar({ setManualEntryTimestamp }: Props) {
     ...calendar,
   }
 
-  const onManualInput = ({ day, month, year }: DateObject) => {
+  const onManualInput = ({ day, month, year }: DateData) => {
     // DateObject months go from 1 to 12, Date months go from 0 to 11
     const newTimestamp = new Date(year, month - 1, day).getTime()
 

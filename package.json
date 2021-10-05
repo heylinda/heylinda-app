@@ -77,10 +77,5 @@
       "bash -c tsc -p tsconfig.json --noEmit"
     ]
   },
-  "husky": {
-    "hooks": {
-      "pre-commit": "pretty-quick --staged"
-    }
-  },
   "private": true
 }

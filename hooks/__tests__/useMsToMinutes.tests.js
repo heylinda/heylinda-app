@@ -15,4 +15,14 @@ describe('useMsToMinutes unit tests', () => {
     const minutes = useMsToMinutes(180000)
     expect(minutes).toBe(3)
   })
+
+  it('given 3600000 ms, should return 60 minutes', () => {
+    const minutes = useMsToMinutes(3600000)
+    expect(minutes).toBe(60)
+  })
+
+  it('given 4500000 ms, should return 75 minutes', () => {
+    const minutes = useMsToMinutes(4500000)
+    expect(minutes).toBe(75)
+  })
 })

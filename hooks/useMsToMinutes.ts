@@ -1,9 +1,5 @@
-export function useMsToMinutes(s: number) {
-  const ms = s % 1000
-  s = (s - ms) / 1000
-  const secs = s % 60
-  s = (s - secs) / 60
-  const mins = s % 60
+export function useMsToMinutes(ms: number) {
+  const minutes = Math.floor(ms / 60000)
 
-  return mins
+  return minutes
 }

@@ -24,7 +24,7 @@
     "@react-navigation/stack": "~5.12.8",
     "@reduxjs/toolkit": "^1.6.1",
     "dayjs": "^1.10.6",
-    "expo": "^42.0.0",
+    "expo": "^42.0.4",
     "expo-asset": "~8.3.3",
     "expo-av": "~9.2.3",
     "expo-blur": "~9.0.3",

@@ -9,5 +9,5 @@ updates:
     # Check the yarn registry for updates every month
     schedule:
       interval: 'monthly'
-    # Allow up to 10 open pull requests for npm dependencies
-    open-pull-requests-limit: 10
+    # Allow up to 1 open pull requests for npm dependencies
+    open-pull-requests-limit: 1

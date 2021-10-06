@@ -20,7 +20,7 @@ export default function BottomTabNavigator() {
   return (
     <BottomTab.Navigator
       initialRouteName="Home"
-      tabBarOptions={{ activeTintColor: Colors[colorScheme].tint }}
+      screenOptions={{ tabBarActiveTintColor: Colors[colorScheme].tint, headerShown: false }}
     >
       <BottomTab.Screen
         name="Home"
@@ -60,27 +60,29 @@ const HomeStack = createStackNavigator<HomeParamList>()
 function TabOneNavigator() {
   return (
     <HomeStack.Navigator>
-      <HomeStack.Screen
-        name="HomeScreen"
-        component={HomeScreen}
-        options={{
-          headerTitle: 'Home',
+      <HomeStack.Group
+        screenOptions={{
           headerStyle: styles.header,
           headerTitleStyle: styles.headerTitle,
           headerTintColor: Colors.light.white,
         }}
-      />
-      <HomeStack.Screen
-        name="PlayScreen"
-        component={PlayScreen}
-        options={{
-          headerBackTitle: 'Back',
-          headerTitle: 'Play',
-          headerStyle: styles.header,
-          headerTitleStyle: styles.headerTitle,
-          headerTintColor: Colors.light.white,
-        }}
-      />
+      >
+        <HomeStack.Screen
+          name="HomeScreen"
+          component={HomeScreen}
+          options={{
+            headerTitle: 'Home',
+          }}
+        />
+        <HomeStack.Screen
+          name="PlayScreen"
+          component={PlayScreen}
+          options={{
+            headerBackTitle: 'Back',
+            headerTitle: 'Play',
+          }}
+        />
+      </HomeStack.Group>
     </HomeStack.Navigator>
   )
 }

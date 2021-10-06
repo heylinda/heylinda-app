@@ -4,9 +4,10 @@
  * https://reactnavigation.org/docs/configuring-links
  */
 
+import { LinkingOptions } from '@react-navigation/native'
 import * as Linking from 'expo-linking'
 
-export default {
+const LinkingConfiguration: LinkingOptions<{}> = {
   prefixes: [Linking.makeUrl('/')],
   config: {
     screens: {
@@ -28,3 +29,5 @@ export default {
     },
   },
 }
+
+export default LinkingConfiguration

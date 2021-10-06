@@ -14,7 +14,15 @@ export default function StatsScreen() {
   const totalDuration = useAppSelector(selectTotalDuration)
   const streak = useAppSelector(selectStreak)
   const totalMinutes = useMsToMinutes(totalDuration)
+
   const [manualEntryTimestamp, setManualEntryTimestamp] = React.useState<number>()
+
+  const getListenedStatString = React.useCallback(() => {
+    const hours = Math.floor(totalMinutes / 60)
+    const minutes = totalMinutes % 60
+
+    return `${hours}h${minutes}m`
+  }, [totalMinutes])
 
   return (
     <>
@@ -40,9 +48,7 @@ export default function StatsScreen() {
           <Card style={styles.card}>
             <Card.Content>
               <Paragraph>Listened</Paragraph>
-              <Title>
-                {totalMinutes} minute{totalMinutes === 1 ? '' : 's'}
-              </Title>
+              <Title>{getListenedStatString()}</Title>
             </Card.Content>
           </Card>
         </ScrollView>

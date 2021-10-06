@@ -22,7 +22,7 @@
     "@react-navigation/bottom-tabs": "6.0.7",
     "@react-navigation/native": "~6.0.4",
     "@react-navigation/stack": "~6.0.9",
-    "@reduxjs/toolkit": "^1.6.1",
+    "@reduxjs/toolkit": "^1.6.2",
     "dayjs": "^1.10.6",
     "expo": "^42.0.4",
     "expo-asset": "~8.3.3",
@@ -46,7 +46,7 @@
     "react-native-safe-area-context": "3.2.0",
     "react-native-screens": "~3.4.0",
     "react-native-web": "~0.13.12",
-    "react-redux": "^7.2.4",
+    "react-redux": "^7.2.5",
     "redux-persist": "^6.0.0",
     "uuid": "^8.3.2"
   },

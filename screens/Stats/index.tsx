@@ -5,7 +5,7 @@ import { Card, Title, Paragraph } from 'react-native-paper'
 import Calendar from './Calendar'
 import { Text } from '../../components/Themed'
 import Screen from '../../components/Screen'
-import { useAppSelector, useMsToMinutes } from '../../hooks'
+import { useAppSelector, useMinutesToStatsTime, useMsToMinutes } from '../../hooks'
 import { selectStreak, selectTotalDuration, selectTotalSessions } from '../../redux/selectors'
 import ManualEntry from './ManualEntry'
 
@@ -14,15 +14,9 @@ export default function StatsScreen() {
   const totalDuration = useAppSelector(selectTotalDuration)
   const streak = useAppSelector(selectStreak)
   const totalMinutes = useMsToMinutes(totalDuration)
+  const listenedStat = useMinutesToStatsTime(totalMinutes)
 
   const [manualEntryTimestamp, setManualEntryTimestamp] = React.useState<number>()
-
-  const getListenedStatString = React.useCallback(() => {
-    const hours = Math.floor(totalMinutes / 60)
-    const minutes = totalMinutes % 60
-
-    return `${hours}h${minutes}m`
-  }, [totalMinutes])
 
   return (
     <>
@@ -48,7 +42,7 @@ export default function StatsScreen() {
           <Card style={styles.card}>
             <Card.Content>
               <Paragraph>Listened</Paragraph>
-              <Title>{getListenedStatString()}</Title>
+              <Title>{listenedStat}</Title>
             </Card.Content>
           </Card>
         </ScrollView>

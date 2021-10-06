@@ -19,9 +19,9 @@
     "@expo/vector-icons": "^12.0.0",
     "@react-native-async-storage/async-storage": "~1.15.0",
     "@react-native-community/masked-view": "0.1.10",
-    "@react-navigation/bottom-tabs": "5.11.2",
-    "@react-navigation/native": "~5.8.10",
-    "@react-navigation/stack": "~5.12.8",
+    "@react-navigation/bottom-tabs": "6.0.7",
+    "@react-navigation/native": "~6.0.4",
+    "@react-navigation/stack": "~6.0.9",
     "@reduxjs/toolkit": "^1.6.1",
     "dayjs": "^1.10.6",
     "expo": "^42.0.4",
@@ -38,7 +38,7 @@
     "react": "16.13.1",
     "react-dom": "16.13.1",
     "react-native": "https://github.com/expo/react-native/archive/sdk-42.0.0.tar.gz",
-    "react-native-calendars": "^1.1264.0",
+    "react-native-calendars": "^1.1267.0",
     "react-native-gesture-handler": "~1.10.2",
     "react-native-get-random-values": "~1.7.0",
     "react-native-paper": "^4.9.2",
@@ -63,10 +63,10 @@
     "eslint-plugin-prettier": "^3.4.0",
     "eslint-plugin-react": "^7.24.0",
     "eslint-plugin-react-native": "^3.11.0",
-    "husky": "^7.0.0",
+    "husky": "^7.0.2",
     "jest-expo": "^42.0.0",
-    "lint-staged": "^11.1.1",
-    "typescript": "~4.3.5"
+    "lint-staged": "^11.2.0",
+    "typescript": "~4.4.3"
   },
   "lint-staged": {
     "*.{js,jsx,ts,tsx}": [

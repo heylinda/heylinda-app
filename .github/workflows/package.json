@@ -1,0 +1,23 @@
+{
+  "scripts": {
+    "detox-setup": "detox clean-framework-cache && detox build-framework-cache"
+  },
+  "detox": {
+    "configurations": {
+      "ios.sim.debug": {
+        "binaryPath": "ios/build/Build/Products/Debug-iphonesimulator/App.app",
+        "build": "xcodebuild -workspace ios/app.xcworkspace -scheme app -configuration Debug -sdk iphonesimulator -derivedDataPath ios/build",
+        "type": "ios.simulator",
+        "name": "iPhone 8"
+      },
+      "ios.sim.release": {
+        "binaryPath": "ios/build/Build/Products/Release-iphonesimulator/App.app",
+        "build": "xcodebuild -workspace ios/app.xcworkspace -scheme app -configuration Release -sdk iphonesimulator -derivedDataPath ios/build",
+        "type": "ios.simulator",
+        "name": "iPhone 8"
+      }
+    },
+    "test-runner": "jest",
+    "specs": "e2e"
+  }
+}

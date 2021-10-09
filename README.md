@@ -25,6 +25,11 @@
 
 ## Install
 
+- [Web](https://6161e24491405c0007022486--blissful-bartik-f90911.netlify.app/)
+- Coming soon for iOS and Android.
+
+## Install (dev)
+
 To install the project, navigate to the directory and run:
 
 - `yarn global add expo-cli`

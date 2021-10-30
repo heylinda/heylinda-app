@@ -1,5 +1,5 @@
 describe('HomeScreen', () => {
-  it('loads mediations', () => {
+  it('loads default mediations', () => {
     cy.visit('/')
 
     cy.contains('Home')
@@ -19,7 +19,7 @@ describe('HomeScreen', () => {
     cy.contains('Rise and Shine')
   })
 
-  it('can save favourite meditations', () => {
+  it('can save favourite meditations to home screen', () => {
     cy.visit('/')
 
     cy.contains('Power of Love').click()

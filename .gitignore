@@ -17,3 +17,4 @@ web-build/
 
 # other files
 NOTES.md
+cypress/videos/

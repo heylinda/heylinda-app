@@ -3,5 +3,6 @@
   "compilerOptions": {
     "lib": ["es2019"],
     "strict": true
-  }
+  },
+  "exclude": ["./cypress/*"]
 }

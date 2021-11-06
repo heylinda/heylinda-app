@@ -1,0 +1,17 @@
+name: Cypress
+
+on: pull_request
+
+jobs:
+  cypress-run:
+    name: Run Cypress Tests
+    runs-on: ubuntu-20.04
+    steps:
+      - uses: actions/checkout@v2
+
+      - name: Run cypress
+        uses: cypress-io/github-action@v2
+        with:
+          install-command: yarn --frozen-lockfile
+          start: yarn web
+          wait-on: 'http://localhost:19006'

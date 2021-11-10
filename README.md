@@ -25,7 +25,7 @@
 
 ## Install
 
-- [Web](https://6161e24491405c0007022486--blissful-bartik-f90911.netlify.app/)
+- [Web](https://web.heylinda.app/)
 - Coming soon for iOS and Android.
 
 ## Install (dev)

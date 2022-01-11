@@ -2,6 +2,7 @@ import * as React from 'react'
 import { StyleSheet, ScrollView, View } from 'react-native'
 import { Card, Title, Paragraph } from 'react-native-paper'
 
+import useColorScheme from '../../hooks/useColorScheme'
 import Calendar from './Calendar'
 import { Text } from '../../components/Themed'
 import Screen from '../../components/Screen'
@@ -10,6 +11,8 @@ import { selectStreak, selectTotalDuration, selectTotalSessions } from '../../re
 import ManualEntry from './ManualEntry'
 
 export default function StatsScreen() {
+  //Component key will redraw calendars color switch issue.
+  const colorScheme = useColorScheme()
   const totalSessions = useAppSelector(selectTotalSessions)
   const totalDuration = useAppSelector(selectTotalDuration)
   const streak = useAppSelector(selectStreak)
@@ -47,7 +50,7 @@ export default function StatsScreen() {
           </Card>
         </ScrollView>
         <Text style={styles.title}>YOUR ACTIVITY</Text>
-        <Calendar setManualEntryTimestamp={setManualEntryTimestamp} />
+        <Calendar key={colorScheme} setManualEntryTimestamp={setManualEntryTimestamp} />
       </Screen>
       <View pointerEvents="box-none" style={StyleSheet.absoluteFill}>
         <ManualEntry

@@ -29,6 +29,7 @@
       "bundleIdentifier": "com.heylinda.meditation"
     },
     "android": {
+      "userInterfaceStyle": "automatic",
       "adaptiveIcon": {
         "foregroundImage": "./assets/images/adaptive-icon.png",
         "backgroundColor": "#ffffff"

@@ -58,13 +58,16 @@ bug or feature. You can also join us on Slack to discuss ideas.
 
 ### Github Contributors
 
-Thanks to these awesome contributors! 🧘
+Thanks to these awesome contributors and many more! 🧘
 
 [![](https://github.com/trentmercer.png?size=50)](https://github.com/trentmercer)
 [![](https://github.com/watadarkstar.png?size=50)](https://github.com/watadarkstar)
 [![](https://github.com/AliNisarAhmed.png?size=50)](https://github.com/AliNisarAhmed)
 [![](https://github.com/lsmacedo.png?size=50)](https://github.com/lsmacedo)
 [![](https://github.com/alexandrvicente.png?size=50)](https://github.com/alexandrvicente)
+[![](https://github.com/pedpess.png?size=50)](https://github.com/pedpess)
+[![](https://github.com/orama254.png?size=50)](https://github.com/orama254)
+[![](https://github.com/Kevan-Y.png?size=50)](https://github.com/Kevan-Y)
 
 ### Sponsors
 

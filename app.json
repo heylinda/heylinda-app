@@ -23,7 +23,7 @@
       "infoPlist": {
         "UIBackgroundModes": ["audio"]
       },
-      "bundleIdentifier": "com.heylinda.meditation"
+      "bundleIdentifier": "com.heylinda.app"
     },
     "android": {
       "userInterfaceStyle": "automatic",
@@ -31,7 +31,7 @@
         "foregroundImage": "./assets/images/adaptive-icon.png",
         "backgroundColor": "#ffffff"
       },
-      "package": "com.heylinda.meditation",
+      "package": "com.heylinda.app",
       "versionCode": 1
     },
     "web": {

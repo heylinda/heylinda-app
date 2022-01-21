@@ -1,8 +1,8 @@
 {
   "expo": {
     "owner": "heylinda",
-    "name": "meditation",
-    "slug": "meditation",
+    "name": "Hey Linda",
+    "slug": "hey-linda",
     "version": "1.0.0",
     "orientation": "portrait",
     "icon": "./assets/images/icon.png",
@@ -16,15 +16,12 @@
     "updates": {
       "fallbackToCacheTimeout": 0
     },
-    "assetBundlePatterns": [
-      "**/*"
-    ],
+    "assetBundlePatterns": ["**/*"],
     "ios": {
       "supportsTablet": true,
+      "buildNumber": "1.0.0",
       "infoPlist": {
-        "UIBackgroundModes": [
-          "audio"
-        ]
+        "UIBackgroundModes": ["audio"]
       },
       "bundleIdentifier": "com.heylinda.meditation"
     },
@@ -34,7 +31,8 @@
         "foregroundImage": "./assets/images/adaptive-icon.png",
         "backgroundColor": "#ffffff"
       },
-      "package": "com.heylinda.meditation"
+      "package": "com.heylinda.meditation",
+      "versionCode": 1
     },
     "web": {
       "favicon": "./assets/images/favicon.png"

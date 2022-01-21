@@ -1,9 +1,15 @@
 {
   "build": {
-    "release": {},
+    "production": {},
+    "preview": {
+      "distribution": "internal"
+    },
     "development": {
       "developmentClient": true,
       "distribution": "internal"
     }
+  },
+  "cli": {
+    "version": ">= 0.45.1"
   }
 }

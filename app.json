@@ -32,7 +32,7 @@
         "backgroundColor": "#ffffff"
       },
       "package": "com.meditation.heylinda",
-      "versionCode": 2
+      "versionCode": 3
     },
     "web": {
       "favicon": "./assets/images/favicon.png"

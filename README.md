@@ -16,7 +16,6 @@
 - meditate
 - track progress
 - dark mode
-- more than 100+ meditations
 - current streak
 - calendar activity
 - time listened

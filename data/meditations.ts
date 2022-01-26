@@ -31,7 +31,9 @@ export const popular: Meditation[] = [
     subtitle: 'Love and Peace',
     time: 2,
     uri: 'https://goofy-ritchie-dd0c3d.netlify.app/meditations/17.mp3',
-    image: require('../assets/images/meditate6.jpg'),
+    image: {
+      uri: 'https://goofy-ritchie-dd0c3d.netlify.app/images/meditate6.jpg',
+    },
   },
   {
     id: 'ff171f80-5960-41e7-965c-1f9bcf31e02d',
@@ -41,7 +43,9 @@ export const popular: Meditation[] = [
     subtitle: 'Busy At Work',
     time: 5,
     uri: 'https://goofy-ritchie-dd0c3d.netlify.app/meditations/1.mp3',
-    image: require('../assets/images/meditate1.jpg'),
+    image: {
+      uri: 'https://goofy-ritchie-dd0c3d.netlify.app/images/meditate1.jpg',
+    },
   },
   {
     id: 'ff171f80-5960-41e7-965c-1f9bcf31e02e',
@@ -51,7 +55,9 @@ export const popular: Meditation[] = [
     subtitle: 'Just Breath',
     time: 5,
     uri: 'https://goofy-ritchie-dd0c3d.netlify.app/meditations/2.mp3',
-    image: require('../assets/images/meditate2.jpg'),
+    image: {
+      uri: 'https://goofy-ritchie-dd0c3d.netlify.app/images/meditate2.jpg',
+    },
   },
   {
     id: 'ff171f80-5960-41e7-965c-1f9bcf31e02f',
@@ -61,7 +67,9 @@ export const popular: Meditation[] = [
     track: 3,
     time: 5,
     uri: 'https://goofy-ritchie-dd0c3d.netlify.app/meditations/3.mp3',
-    image: require('../assets/images/meditate5.jpg'),
+    image: {
+      uri: 'https://goofy-ritchie-dd0c3d.netlify.app/images/meditate5.jpg',
+    },
   },
 ]
 
@@ -74,7 +82,9 @@ export const anxiety: Meditation[] = [
     subtitle: 'Release Anxiety',
     time: 10,
     uri: 'https://goofy-ritchie-dd0c3d.netlify.app/meditations/4.mp3',
-    image: require('../assets/images/meditate3.jpg'),
+    image: {
+      uri: 'https://goofy-ritchie-dd0c3d.netlify.app/images/meditate3.jpg',
+    },
   },
   {
     id: 'ff171f80-5960-41e7-965c-1f9bcf31e031',
@@ -84,7 +94,9 @@ export const anxiety: Meditation[] = [
     track: 7,
     time: 11,
     uri: 'https://goofy-ritchie-dd0c3d.netlify.app/meditations/7.mp3',
-    image: require('../assets/images/meditate4.jpg'),
+    image: {
+      uri: 'https://goofy-ritchie-dd0c3d.netlify.app/images/meditate4.jpg',
+    },
   },
   {
     id: 'ff171f80-5960-41e7-965c-1f9bcf31e032',
@@ -94,7 +106,9 @@ export const anxiety: Meditation[] = [
     track: 8,
     time: 11,
     uri: 'https://goofy-ritchie-dd0c3d.netlify.app/meditations/8.mp3',
-    image: require('../assets/images/rocks.jpg'),
+    image: {
+      uri: 'https://goofy-ritchie-dd0c3d.netlify.app/images/rocks.jpg',
+    },
   },
 ]
 
@@ -107,7 +121,9 @@ export const sleep: Meditation[] = [
     track: 5,
     time: 8,
     uri: 'https://goofy-ritchie-dd0c3d.netlify.app/meditations/5.mp3',
-    image: require('../assets/images/tea.jpg'),
+    image: {
+      uri: 'https://goofy-ritchie-dd0c3d.netlify.app/images/tea.jpg',
+    },
   },
   {
     id: 'ff171f80-5960-41e7-965c-1f9bcf31e034',
@@ -117,7 +133,9 @@ export const sleep: Meditation[] = [
     track: 6,
     time: 28,
     uri: 'https://goofy-ritchie-dd0c3d.netlify.app/meditations/6.mp3',
-    image: require('../assets/images/sleep.jpg'),
+    image: {
+      uri: 'https://goofy-ritchie-dd0c3d.netlify.app/images/sleep.jpg',
+    },
   },
   {
     id: 'ff171f80-5960-41e7-965c-1f9bcf31e035',
@@ -127,7 +145,9 @@ export const sleep: Meditation[] = [
     subtitle: 'Drift Off To Sleep',
     time: 15,
     uri: 'https://goofy-ritchie-dd0c3d.netlify.app/meditations/12.mp3',
-    image: require('../assets/images/sleep2.jpg'),
+    image: {
+      uri: 'https://goofy-ritchie-dd0c3d.netlify.app/images/sleep2.jpg',
+    },
   },
 ]
 

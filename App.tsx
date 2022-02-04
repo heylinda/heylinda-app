@@ -11,8 +11,9 @@ import useColorScheme from './hooks/useColorScheme'
 import Navigation from './navigation'
 import { store, persistor } from './redux/store'
 import { PersistGate } from 'redux-persist/integration/react'
+import { gestureHandlerRootHOC } from 'react-native-gesture-handler'
 
-export default function App() {
+const App = () => {
   const isLoadingComplete = useCachedResources()
   const colorScheme = useColorScheme()
 
@@ -33,3 +34,5 @@ export default function App() {
     )
   }
 }
+
+export default gestureHandlerRootHOC(App)

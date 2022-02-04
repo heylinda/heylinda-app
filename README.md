@@ -2,10 +2,10 @@
   <img src="https://avatars.githubusercontent.com/u/88053790" alt="logo" height="150"/>
 </p>
 <h3 align="center">
-  🧘 Hey Linda
+  Hey Linda
 </h3>
 <p align="center">
-  The open source and free meditation alternative for everyone. <br />Built with React Native and Expo.
+  The open source and free meditation app alternative for everyone. <br />Built with React Native and Expo.
 </p>
 <p align="center">
   <img src="https://user-images.githubusercontent.com/3059371/127218639-9b801064-97df-4eb6-9518-94b09c42e031.jpg" alt="banner" />

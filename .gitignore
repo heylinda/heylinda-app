@@ -19,3 +19,6 @@ web-build/
 NOTES.md
 cypress/videos/
 app-store/
+
+# Local Netlify folder
+.netlify

@@ -5,7 +5,7 @@
   🧘 Hey Linda
 </h3>
 <p align="center">
-  A free forever meditation app built with React Native.
+  The open source and free meditation alternative for everyone. Built with React Native and Expo.
 </p>
 <p align="center">
   <img src="https://user-images.githubusercontent.com/3059371/127218639-9b801064-97df-4eb6-9518-94b09c42e031.jpg" alt="banner" />

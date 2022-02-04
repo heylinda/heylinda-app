@@ -12,10 +12,12 @@ import Navigation from './navigation'
 import { store, persistor } from './redux/store'
 import { PersistGate } from 'redux-persist/integration/react'
 import { gestureHandlerRootHOC } from 'react-native-gesture-handler'
+import useSetNavigationBarColor from './hooks/useSetNavigationBarColor'
 
 const App = () => {
   const isLoadingComplete = useCachedResources()
   const colorScheme = useColorScheme()
+  useSetNavigationBarColor()
 
   if (!isLoadingComplete) {
     return null

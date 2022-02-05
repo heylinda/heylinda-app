@@ -37,6 +37,7 @@
     "expo-navigation-bar": "~1.1.1",
     "expo-splash-screen": "~0.14.1",
     "expo-status-bar": "~1.2.0",
+    "expo-system-ui": "~1.1.0",
     "expo-web-browser": "~10.1.0",
     "jest": "^26.6.3",
     "react": "17.0.1",

@@ -8,6 +8,22 @@
     "icon": "./assets/images/icon.png",
     "scheme": "myapp",
     "userInterfaceStyle": "automatic",
+
+    "plugins": [
+      [
+        "expo-splash-screen",
+        {
+          "splash": {
+            "image": "./assets/images/splash.png",
+            "resizeMode": "contain",
+            "backgroundColor": "#fff",
+            "dark": {
+              "backgroundColor": "#121212"
+            }
+          }
+        }
+      ]
+    ],
     "splash": {
       "image": "./assets/images/splash.png",
       "resizeMode": "contain",

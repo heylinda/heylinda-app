@@ -18,6 +18,8 @@
             "resizeMode": "contain",
             "backgroundColor": "#fff",
             "dark": {
+              "image": "./assets/images/splash.png",
+              "resizeMode": "contain",
               "backgroundColor": "#121212"
             }
           }

@@ -44,8 +44,8 @@ To run the project, run the following commands:
 ## Contribute
 
 You can contribute to Hey Linda by beta testing, recording meditations, or submitting code.
-If you plan to make a contribution please open an issue first to discuss the
-bug or feature. You can also join us on Slack to discuss ideas.
+
+See the [contribution guide](CONTRIBUTING.md) for more info.
 
 ## Join Us On
 

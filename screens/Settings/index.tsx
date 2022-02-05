@@ -3,9 +3,17 @@ import { Alert } from 'react-native'
 import { Divider, List } from 'react-native-paper'
 import { useAppDispatch } from '../../hooks'
 import { reset } from '../../redux/meditationSlice'
+import { openURL } from '../../utils'
 
 const Settings = () => {
   const dispatch = useAppDispatch()
+  const opnePrivacyPolicy = () => {
+    try {
+      openURL('https://www.heylinda.app/privacy')
+    } catch (error) {
+      console.error(error)
+    }
+  }
   const clearData = () => {
     Alert.alert(
       'Clear Data',
@@ -25,6 +33,7 @@ const Settings = () => {
   return (
     <>
       <List.Item title="Clear Data" onPress={clearData} />
+      <List.Item title="Privacy Policy" onPress={opnePrivacyPolicy} />
       <Divider />
     </>
   )

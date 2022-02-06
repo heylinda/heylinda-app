@@ -8,24 +8,6 @@
     "icon": "./assets/images/icon.png",
     "scheme": "myapp",
     "userInterfaceStyle": "automatic",
-
-    "plugins": [
-      [
-        "expo-splash-screen",
-        {
-          "splash": {
-            "image": "./assets/images/splash.png",
-            "resizeMode": "contain",
-            "backgroundColor": "#fff",
-            "dark": {
-              "image": "./assets/images/splash.png",
-              "resizeMode": "contain",
-              "backgroundColor": "#121212"
-            }
-          }
-        }
-      ]
-    ],
     "splash": {
       "image": "./assets/images/splash.png",
       "resizeMode": "contain",
@@ -41,7 +23,17 @@
       "infoPlist": {
         "UIBackgroundModes": ["audio"]
       },
-      "bundleIdentifier": "com.meditation.heylinda"
+      "bundleIdentifier": "com.meditation.heylinda",
+      "splash": {
+        "image": "./assets/images/splash.png",
+        "resizeMode": "contain",
+        "backgroundColor": "#fff",
+        "dark": {
+          "image": "./assets/images/splash.png",
+          "resizeMode": "contain",
+          "backgroundColor": "#121212"
+        }
+      }
     },
     "android": {
       "userInterfaceStyle": "automatic",
@@ -50,7 +42,17 @@
         "backgroundColor": "#ffffff"
       },
       "package": "com.meditation.heylinda",
-      "versionCode": 8
+      "versionCode": 8,
+      "splash": {
+        "image": "./assets/images/splash.png",
+        "resizeMode": "contain",
+        "backgroundColor": "#fff",
+        "dark": {
+          "image": "./assets/images/splash.png",
+          "resizeMode": "contain",
+          "backgroundColor": "#121212"
+        }
+      }
     },
     "web": {
       "favicon": "./assets/images/favicon.png"

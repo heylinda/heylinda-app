@@ -6900,6 +6900,13 @@ expect@^26.6.2:
     jest-message-util "^26.6.2"
     jest-regex-util "^26.0.0"
 
+expo-analytics@^1.0.18:
+  version "1.0.18"
+  resolved "https://registry.yarnpkg.com/expo-analytics/-/expo-analytics-1.0.18.tgz#7379d25482140f154a473f523f4a0155defad922"
+  integrity sha512-sLhtOc3ZmypCzqsQ9vLThVyWrTLDuIDdbbJX9kxw0rek/mr5g+kCfH8KHfw4KBjBnzPYgAjFXCioevpc3ISEOw==
+  dependencies:
+    expo-constants "^12.1.2"
+
 expo-application@~4.0.2:
   version "4.0.2"
   resolved "https://registry.yarnpkg.com/expo-application/-/expo-application-4.0.2.tgz#860dbd12132a56de7cf75fe7b5146b6cd97ed30e"
@@ -6994,6 +7001,14 @@ expo-cli@^4.12.1:
     uuid "^8.0.0"
     wrap-ansi "^7.0.0"
     xdl "59.2.1"
+
+expo-constants@^12.1.2:
+  version "12.2.0"
+  resolved "https://registry.yarnpkg.com/expo-constants/-/expo-constants-12.2.0.tgz#cf81db0d38b439ac185c84f4207eaee9bf1d1ca6"
+  integrity sha512-RVUOq4WUeejoNftai21Dm5RG0LKiEcWRC1Y+E8WiVtLz97MBlLv8k0Bjv1SD4LByH3frrkNsHBGfBAPLkGSGUQ==
+  dependencies:
+    "@expo/config" "^6.0.6"
+    uuid "^3.3.2"
 
 expo-constants@~13.0.0, expo-constants@~13.0.1, expo-constants@~13.0.2:
   version "13.0.2"

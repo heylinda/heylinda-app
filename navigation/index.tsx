@@ -3,7 +3,12 @@
  * https://reactnavigation.org/docs/getting-started
  *
  */
-import { NavigationContainer, DefaultTheme, DarkTheme } from '@react-navigation/native'
+import {
+  NavigationContainer,
+  DefaultTheme,
+  DarkTheme,
+  NavigationContainerRef,
+} from '@react-navigation/native'
 import { createStackNavigator } from '@react-navigation/stack'
 import * as React from 'react'
 import { ColorSchemeName } from 'react-native'
@@ -13,12 +18,27 @@ import { RootStackParamList } from '../types'
 import MainNavigator from './MainNavigator'
 import LinkingConfiguration from './LinkingConfiguration'
 import { StatusBar } from 'expo-status-bar'
+import { PageHit } from 'expo-analytics'
+import analytics from '../utils/analytics'
 
 export default function Navigation({ colorScheme }: { colorScheme: ColorSchemeName }) {
+  const navigationContainerRef = React.useRef<NavigationContainerRef<any>>(null)
+
+  const handleNavigationStateChange = async () => {
+    const currentRouteName = navigationContainerRef?.current?.getCurrentRoute()?.name
+    try {
+      await analytics.hit(new PageHit(currentRouteName || 'Unknown'))
+    } catch (e) {
+      console.error(e)
+    }
+  }
+
   return (
     <NavigationContainer
       linking={LinkingConfiguration}
       theme={colorScheme === 'dark' ? DarkTheme : DefaultTheme}
+      onStateChange={handleNavigationStateChange}
+      ref={navigationContainerRef}
     >
       <StatusBar style="light" />
       <RootNavigator />

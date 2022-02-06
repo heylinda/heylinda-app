@@ -4,10 +4,17 @@ import { Divider, List } from 'react-native-paper'
 import { useAppDispatch } from '../../hooks'
 import { reset } from '../../redux/meditationSlice'
 import { openURL } from '../../utils'
+import { StackNavigationProp } from '@react-navigation/stack'
+import { SettingsParamList } from '../../types'
 
-const Settings = () => {
+interface Props {
+  navigation: StackNavigationProp<SettingsParamList, 'SettingsScreen'>
+}
+
+const Settings = ({ navigation }: Props) => {
   const dispatch = useAppDispatch()
-  const opnePrivacyPolicy = () => {
+
+  const openPrivacyPolicy = () => {
     try {
       openURL('https://www.heylinda.app/privacy')
     } catch (error) {
@@ -33,7 +40,10 @@ const Settings = () => {
   return (
     <>
       <List.Item title="Clear Data" onPress={clearData} />
-      <List.Item title="Privacy Policy" onPress={opnePrivacyPolicy} />
+      <Divider />
+      <List.Item title="Privacy Policy" onPress={openPrivacyPolicy} />
+      <Divider />
+      <List.Item title="About" onPress={() => navigation.navigate('AboutScreen')} />
       <Divider />
     </>
   )

@@ -22,3 +22,6 @@ app-store/
 
 # Local Netlify folder
 .netlify
+
+# ide
+.idea

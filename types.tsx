@@ -33,4 +33,5 @@ export type StatsParamList = {
 
 export type SettingsParamList = {
   SettingsScreen: NO_PARAMS
+  AboutScreen: NO_PARAMS
 }

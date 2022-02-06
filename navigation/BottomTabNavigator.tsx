@@ -10,6 +10,7 @@ import HomeScreen from '../screens/Home'
 import PlayScreen from '../screens/Play'
 import SettingsScreen from '../screens/Settings'
 import StatsScreen from '../screens/Stats'
+import AboutPage from '../screens/Settings/About'
 import { BottomTabParamList, HomeParamList, SettingsParamList, StatsParamList } from '../types'
 
 const BottomTab = createBottomTabNavigator<BottomTabParamList>()
@@ -115,6 +116,17 @@ function SettingsNavigator() {
         component={SettingsScreen}
         options={{
           headerTitle: 'Settings',
+          headerStyle: styles.header,
+          headerTitleStyle: styles.headerTitle,
+        }}
+      />
+      <SettingsStack.Screen
+        name="AboutScreen"
+        component={AboutPage}
+        options={{
+          headerTintColor: Colors.light.white,
+          headerBackTitle: 'Back',
+          headerTitle: 'About',
           headerStyle: styles.header,
           headerTitleStyle: styles.headerTitle,
         }}

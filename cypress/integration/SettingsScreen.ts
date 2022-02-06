@@ -22,7 +22,7 @@ describe('SettingsScreen', () => {
     cy.contains('Application Version')
     cy.contains('Build Version')
 
-    cy.contains('Back').click()
+    cy.get('[data-testid=headerBack]').click()
 
     cy.contains('Settings')
   })

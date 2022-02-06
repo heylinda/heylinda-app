@@ -124,6 +124,7 @@ function SettingsNavigator() {
         name="AboutScreen"
         component={AboutPage}
         options={{
+          headerBackTestID: 'headerBack',
           headerTintColor: Colors.light.white,
           headerBackTitle: 'Back',
           headerTitle: 'About',

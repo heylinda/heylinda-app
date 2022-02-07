@@ -29,6 +29,7 @@
     "dayjs": "^1.10.6",
     "expo": "^44.0.0",
     "expo-analytics": "^1.0.18",
+    "expo-analytics-amplitude": "~11.1.0",
     "expo-asset": "~8.4.6",
     "expo-av": "~10.2.0",
     "expo-blur": "~11.0.0",

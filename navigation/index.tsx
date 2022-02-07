@@ -1,8 +1,3 @@
-/**
- * If you are not familiar with React Navigation, check out the "Fundamentals" guide:
- * https://reactnavigation.org/docs/getting-started
- *
- */
 import {
   NavigationContainer,
   DefaultTheme,
@@ -18,16 +13,26 @@ import { RootStackParamList } from '../types'
 import MainNavigator from './MainNavigator'
 import LinkingConfiguration from './LinkingConfiguration'
 import { StatusBar } from 'expo-status-bar'
-import { PageHit } from 'expo-analytics'
-import analytics from '../utils/analytics'
+import { initializeAnalytics, logEvent } from '../utils/analytics'
 
 export default function Navigation({ colorScheme }: { colorScheme: ColorSchemeName }) {
   const navigationContainerRef = React.useRef<NavigationContainerRef<any>>(null)
 
+  React.useEffect(() => {
+    async function initialize() {
+      try {
+        await initializeAnalytics()
+      } catch (e) {
+        console.error(e)
+      }
+    }
+    initialize()
+  }, [])
+
   const handleNavigationStateChange = async () => {
     const currentRouteName = navigationContainerRef?.current?.getCurrentRoute()?.name
     try {
-      await analytics.hit(new PageHit(currentRouteName || 'Unknown'))
+      await logEvent(`Screen:${currentRouteName}` || 'Screen:Unknown')
     } catch (e) {
       console.error(e)
     }

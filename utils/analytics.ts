@@ -1,5 +1,9 @@
-import { Analytics } from 'expo-analytics'
+import * as Amplitude from 'expo-analytics-amplitude'
 
-const analytics = new Analytics('UA-219496436-2')
+export const initializeAnalytics = async () => {
+  await Amplitude.initializeAsync('c53c4e54414340dc1e6feeb7fd95293c')
+}
 
-export default analytics
+export const logEvent = async (eventName: string) => {
+  await Amplitude.logEventAsync(eventName)
+}

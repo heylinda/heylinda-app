@@ -1,6 +1,7 @@
 import * as React from 'react'
 import * as Application from 'expo-application'
 import { Caption, Divider, List } from 'react-native-paper'
+import { StyleSheet } from 'react-native'
 
 const About = () => {
   return (
@@ -8,17 +9,23 @@ const About = () => {
       <List.Item
         title="Application Version"
         right={() => (
-          <Caption style={{ marginTop: 5 }}>{Application.nativeApplicationVersion}</Caption>
+          <Caption style={styles.caption}>{Application.nativeApplicationVersion}</Caption>
         )}
       />
       <Divider />
       <List.Item
         title="Build Version"
-        right={() => <Caption style={{ marginTop: 5 }}>{Application.nativeBuildVersion}</Caption>}
+        right={() => <Caption style={styles.caption}>{Application.nativeBuildVersion}</Caption>}
       />
       <Divider />
     </>
   )
 }
+
+const styles = StyleSheet.create({
+  caption: {
+    marginTop: 5,
+  },
+})
 
 export default About

@@ -86,5 +86,5 @@ Thank you to all our backers! 🙏
 ## License
 
 - [GGNU Affero General Public License v3.0](https://github.com/heylinda/heylinda-app/blob/main/LICENSE)
-- The meditations used in the app are licensed by the author(s). You must abide to
-  the license set out by the author.
+- [Meditation
+  Contributors](https://github.com/heylinda/heylinda-app/blob/main/CONTRIBUTORS)

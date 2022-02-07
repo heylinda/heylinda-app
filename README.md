@@ -82,3 +82,9 @@ Thank you to all our sponsors! 🥇
 Thank you to all our backers! 🙏
 
 <a href="https://opencollective.com/heylinda#backers" target="_blank"><img src="https://opencollective.com/heylinda/backers.svg?width=890"></a>
+
+## License
+
+- [GGNU Affero General Public License v3.0](https://github.com/heylinda/heylinda-app/blob/main/LICENSE)
+- [Meditation
+  Contributors](https://github.com/heylinda/heylinda-app/blob/main/MEDITATIONS)

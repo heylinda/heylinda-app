@@ -87,4 +87,4 @@ Thank you to all our backers! 🙏
 
 - [GGNU Affero General Public License v3.0](https://github.com/heylinda/heylinda-app/blob/main/LICENSE)
 - [Meditation
-  Contributors](https://github.com/heylinda/heylinda-app/blob/main/CONTRIBUTORS)
+  Contributors](https://github.com/heylinda/heylinda-app/blob/main/MEDITATIONS)

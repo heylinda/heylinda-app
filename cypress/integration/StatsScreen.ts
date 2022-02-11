@@ -12,7 +12,7 @@ describe('StatsScreen', () => {
     cy.contains('Total Sessions')
     cy.contains('0 sessions')
 
-    cy.contains('Listened')
+    cy.contains('Time Meditating')
     cy.contains('0 minutes')
   })
 })

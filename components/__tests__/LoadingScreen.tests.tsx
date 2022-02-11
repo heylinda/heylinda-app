@@ -1,5 +1,6 @@
 import * as React from 'react'
 import { render } from '@testing-library/react-native'
+
 import LoadingScreen from '../LoadingScreen'
 
 describe('tests for LoadingScreen component', () => {

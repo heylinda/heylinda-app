@@ -4,9 +4,9 @@ import { ActivityIndicator } from 'react-native-paper'
 import { useThemeColor } from './Themed'
 
 interface Props {
-  loading: boolean
+  loading?: boolean
 }
-export const LoadingScreen: React.FC<Props> = ({ loading }) => {
+export const LoadingScreen: React.FC<Props> = ({ loading = false }) => {
   const primary = useThemeColor({}, 'primary')
 
   if (loading) {

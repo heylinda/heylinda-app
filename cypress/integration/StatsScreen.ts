@@ -6,8 +6,6 @@ describe('StatsScreen', () => {
 
     cy.contains('Stats')
 
-    cy.contains('QUICK STATS')
-
     cy.contains('Current Streak')
     cy.contains('0 days')
 

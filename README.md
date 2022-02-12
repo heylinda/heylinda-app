@@ -25,7 +25,8 @@
 ## Install
 
 - [Web](https://web.heylinda.app/)
-- Coming soon for iOS and Android.
+- [Android (beta)](https://play.google.com/store/apps/details?id=com.meditation.heylinda)
+- Coming soon for iOS
 
 ## Install (dev)
 

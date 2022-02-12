@@ -52,7 +52,7 @@ See the [contribution guide](CONTRIBUTING.md) for more info.
 
 <a href="https://join.slack.com/t/heylinda/shared_invite/zt-1262koff6-1D7BjNHbFgRhR5FKJoCF0g"><img src="docs/images/logos/slack.gif" height="50px"/></a>
 <a href="https://www.facebook.com/heylindabot"><img src="docs/images/logos/facebook.png" height="50px"/></a>
-<a href="https://twitter.com/heylindahq"><img src="docs/images/logos/twitter.png" height="50px"/></a>
+<a href="https://twitter.com/heylinda_app"><img src="docs/images/logos/twitter.png" height="50px"/></a>
 
 ## Credits
 

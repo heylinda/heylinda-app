@@ -1,4 +1,4 @@
-# Contributing to Heylinda App
+# Contributing to the Hey Linda App
 
 You can contribute to Hey Linda by beta testing, recording meditations, or submitting code.
 If you plan to make a contribution please do so through [our detailed contribution workflow.](#contribution-steps). You can also join us on Slack to discuss ideas.

@@ -1,0 +1,94 @@
+# Just place this file in your repo under the .github/workflows folder. 
+# You set all of the secrets in the setting of the repo
+
+name: Deploy to Testflight
+
+# When a pull request is closed...
+#   This is because this action commits back to the repository
+#   so setting this on a push would cause an infinite loop of commits
+#   unless you pragmatically check the contents of the repo or something
+
+on:
+  pull_request:
+
+# Everything is in one job, I don't really understand how to
+# and compose jobs yet
+
+jobs:
+  build:
+  
+    # You got to run it on the mac in order to get xCode and the xcrun command
+
+    runs-on: macos-latest
+    steps:
+      # Check out the repo from github
+      - uses: actions/checkout@v1
+
+        # If the pull request was not merged, then we will stop here
+        # we only want to deploy merged pull requests
+
+        if: github.event.pull_request.merged
+        with:
+          ref: refs/heads/master
+
+        # I'm using React Native, so I need node to install
+        # my dependencies. This app uses private npms
+        # so I need to privide the token to run the install
+        
+      - uses: actions/setup-node@v1
+        with:
+          node-version: 14.x
+      - name: Install Dependencies
+        run: npm install
+
+        # Letting this github know who I am
+        
+      - name: Setup Github Credentials
+        run: |
+          git config user.name $GITHUB_ACTOR
+          git config user.email gh-actions-${GITHUB_ACTOR}@github.com
+        # Semantic Versioning, bumping and tagging
+        
+      - name: Bump Version Numbers
+        run: npm run release
+
+        # Pushing all of the bumped files and changelog.md back to the repo
+        # Also pushing the brand new tag
+        
+      - name: Push Changelog
+        uses: ad-m/github-push-action@master
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          tags: true
+
+        # I use a tool and a service called expo to build my iOS and android apps
+        # Setting up the expo CLI and providing my expo credentials for the service
+        
+      - uses: expo/expo-github-action@v5
+        with:
+          expo-packager: npm
+          expo-username: "${{ secrets.EXPO_USER }}"
+          expo-password: "${{ secrets.EXPO_PASSWORD }}"
+          expo-cache: true
+
+        # Telling the service to build me an iOS App
+        # expo handles provisioning and certificates all I need to do is provide my apple credentials
+        
+      # - name: Build iOS App
+      #   run: expo build:ios --non-interactive
+      #   env:
+      #     EXPO_APPLE_ID: ${{secrets.YOUR_APPLE_ACCOUNT_ID}}
+      #     EXPO_APPLE_PASSWORD: ${{secrets.YOUR_APPLE_ACCOUNT_PASSWORD}}
+
+        # Download the build from expo servers, the expo url:ipa give me the url of the ipa artifact that expo just built
+
+      # - name: Download Artifact from expo
+      #   run: mkdir build_artifacts; export EXPO_ARTIFACT_URL=$(expo url:ipa); cURL $EXPO_ARTIFACT_URL --output ./build_artifacts/$(basename $EXPO_ARTIFACT_URL);
+
+        # Upload the ipa to Testflight using xcrun. I need to provide the ipa file, apple user id, and app specific password to prevent 2FA problems.
+
+    #  - name: Upload Artifact to Testflight
+    #     run: xcrun altool --upload-app --type ios --file ./build_artifacts/$(basename $(expo url:ipa)) --username $APPLE_USER_NAME --password $APPLE_APP_SPECIFIC_PASSWORD
+    #     env:
+    #       APPLE_USER_NAME: ${{secrets.YOUR_APPLE_ACCOUNT_ID}}
+    #       APPLE_APP_SPECIFIC_PASSWORD: ${{secrets.YOUR_APP_SPECIFIC_PASSWORD}}

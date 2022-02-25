@@ -80,6 +80,10 @@ Thank you to all our sponsors! 🥇
 <a href="https://opencollective.com/heylinda/sponsor/2/website" target="_blank"><img src="https://opencollective.com/heylinda/sponsor/2/avatar.svg"></a>
 <a href="https://opencollective.com/heylinda/sponsor/3/website" target="_blank"><img src="https://opencollective.com/heylinda/sponsor/3/avatar.svg"></a>
 
+<a href="https://www.netlify.com">
+  <img src="https://www.netlify.com/img/global/badges/netlify-color-accent.svg" alt="Deploys by Netlify" />
+</a>
+
 ### Backers
 
 Thank you to all our backers! 🙏

@@ -19,7 +19,7 @@
     "assetBundlePatterns": ["**/*"],
     "ios": {
       "supportsTablet": true,
-      "buildNumber": "16",
+      "buildNumber": "17",
       "infoPlist": {
         "UIBackgroundModes": ["audio"]
       },
@@ -32,7 +32,7 @@
         "backgroundColor": "#ffffff"
       },
       "package": "com.meditation.heylinda",
-      "versionCode": 16
+      "versionCode": 17
     },
     "web": {
       "favicon": "./assets/images/favicon.png"

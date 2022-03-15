@@ -1,4 +1,5 @@
 import { ImageSourcePropType } from 'react-native'
+import { API_URL } from 'react-native-dotenv'
 
 export interface Meditation {
   /* Unique id of the meditation */
@@ -30,7 +31,7 @@ export const popular: Meditation[] = [
     track: 0,
     subtitle: 'Love and Peace',
     time: 2,
-    uri: 'https://goofy-ritchie-dd0c3d.netlify.app/meditations/17.mp3',
+    uri: `${API_URL}/meditations/17.mp3`,
     image: require('../assets/images/meditate6.jpg'),
   },
   {
@@ -40,7 +41,7 @@ export const popular: Meditation[] = [
     track: 1,
     subtitle: 'Busy At Work',
     time: 5,
-    uri: 'https://goofy-ritchie-dd0c3d.netlify.app/meditations/1.mp3',
+    uri: `${API_URL}/meditations/1.mp3`,
     image: require('../assets/images/meditate1.jpg'),
   },
   {
@@ -50,7 +51,7 @@ export const popular: Meditation[] = [
     track: 2,
     subtitle: 'Just Breath',
     time: 5,
-    uri: 'https://goofy-ritchie-dd0c3d.netlify.app/meditations/2.mp3',
+    uri: `${API_URL}/meditations/2.mp3`,
     image: require('../assets/images/meditate2.jpg'),
   },
   {
@@ -60,7 +61,7 @@ export const popular: Meditation[] = [
     subtitle: 'Rise and Shine',
     track: 3,
     time: 5,
-    uri: 'https://goofy-ritchie-dd0c3d.netlify.app/meditations/3.mp3',
+    uri: `${API_URL}/meditations/3.mp3`,
     image: require('../assets/images/meditate5.jpg'),
   },
 ]
@@ -73,7 +74,7 @@ export const anxiety: Meditation[] = [
     track: 4,
     subtitle: 'Release Anxiety',
     time: 10,
-    uri: 'https://goofy-ritchie-dd0c3d.netlify.app/meditations/4.mp3',
+    uri: `${API_URL}/meditations/4.mp3`,
     image: require('../assets/images/meditate3.jpg'),
   },
   {
@@ -83,7 +84,7 @@ export const anxiety: Meditation[] = [
     subtitle: 'Deep Relaxation',
     track: 7,
     time: 11,
-    uri: 'https://goofy-ritchie-dd0c3d.netlify.app/meditations/7.mp3',
+    uri: `${API_URL}/meditations/7.mp3`,
     image: require('../assets/images/meditate4.jpg'),
   },
   {
@@ -93,7 +94,7 @@ export const anxiety: Meditation[] = [
     subtitle: 'Get Some Rest',
     track: 8,
     time: 11,
-    uri: 'https://goofy-ritchie-dd0c3d.netlify.app/meditations/8.mp3',
+    uri: `${API_URL}/meditations/8.mp3`,
     image: require('../assets/images/rocks.jpg'),
   },
 ]
@@ -106,7 +107,7 @@ export const sleep: Meditation[] = [
     subtitle: 'Wake Up Refreshed',
     track: 5,
     time: 8,
-    uri: 'https://goofy-ritchie-dd0c3d.netlify.app/meditations/5.mp3',
+    uri: `${API_URL}/meditations/5.mp3`,
     image: require('../assets/images/tea.jpg'),
   },
   {
@@ -116,7 +117,7 @@ export const sleep: Meditation[] = [
     subtitle: 'For Taking a Nap',
     track: 6,
     time: 28,
-    uri: 'https://goofy-ritchie-dd0c3d.netlify.app/meditations/6.mp3',
+    uri: `${API_URL}/meditations/6.mp3`,
     image: require('../assets/images/sleep.jpg'),
   },
   {
@@ -126,7 +127,7 @@ export const sleep: Meditation[] = [
     track: 12,
     subtitle: 'Drift Off To Sleep',
     time: 15,
-    uri: 'https://goofy-ritchie-dd0c3d.netlify.app/meditations/12.mp3',
+    uri: `${API_URL}/meditations/12.mp3`,
     image: require('../assets/images/sleep2.jpg'),
   },
 ]

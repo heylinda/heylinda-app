@@ -41,7 +41,7 @@
       [
         "expo-tracking-transparency",
         {
-          "userTrackingPermission": "This identifier will be used to improve the user experience."
+          "userTrackingPermission": "This identifier will be used to deliver personalized ads to you."
         }
       ]
     ]

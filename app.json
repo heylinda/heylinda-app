@@ -20,9 +20,7 @@
     "ios": {
       "supportsTablet": true,
       "buildNumber": "19",
-      "infoPlist": {
-        "UIBackgroundModes": ["audio"]
-      },
+      "infoPlist": {},
       "bundleIdentifier": "com.meditation.heylinda"
     },
     "android": {

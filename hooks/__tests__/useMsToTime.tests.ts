@@ -25,4 +25,9 @@ describe('useMsToTime unit tests', () => {
     const minutes = useMsToTime(1335000)
     expect(minutes).toBe('22:15')
   })
+
+  it('given 6443000 ms, should return 01:47:23', () => {
+    const minutes = useMsToTime(6443000)
+    expect(minutes).toBe('01:47:23')
+  })
 })

@@ -24,7 +24,7 @@
 
 ## Install
 
-- [Web](https://web.heylinda.app/)
+- [Web](https://webheylinda.netlify.app/)
 - [Android (beta)](https://play.google.com/store/apps/details?id=com.meditation.heylinda)
 - Coming soon for iOS
 

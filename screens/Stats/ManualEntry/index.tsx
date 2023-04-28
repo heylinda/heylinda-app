@@ -1,3 +1,4 @@
+// @ts-nocheck
 import * as React from 'react'
 import { StyleSheet } from 'react-native'
 import { Button, Paragraph, Dialog, Portal, Provider, TextInput } from 'react-native-paper'

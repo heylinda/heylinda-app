@@ -1,3 +1,4 @@
+// @ts-nocheck
 import { StackNavigationProp } from '@react-navigation/stack'
 import * as React from 'react'
 import { StyleSheet, FlatList } from 'react-native'

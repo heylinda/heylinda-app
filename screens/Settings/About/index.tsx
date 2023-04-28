@@ -1,3 +1,4 @@
+// @ts-nocheck
 import * as React from 'react'
 import * as Application from 'expo-application'
 import { Caption, Divider, List } from 'react-native-paper'

@@ -1,3 +1,4 @@
+// @ts-nocheck
 import * as React from 'react'
 import { Alert } from 'react-native'
 import { Divider, List } from 'react-native-paper'

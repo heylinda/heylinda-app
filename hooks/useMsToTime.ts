@@ -14,7 +14,7 @@ export function useMsToTime(s: number) {
   const minsString = formatToString(mins)
   const secsString = formatToString(secs)
 
-  if (s == 0) {
+  if (s === 0) {
     return minsString + ':' + secsString
   } else {
     return hourString + ':' + minsString + ':' + secsString

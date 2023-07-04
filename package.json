@@ -12,7 +12,8 @@
     "prettier": "prettier --write",
     "debug": "open 'rndebugger://set-debugger-loc?host=localhost&port=8081'",
     "lint": "eslint --ext .js,.jsx,.ts,.tsx ./",
-    "postinstall": "patch-package"
+    "postinstall": "patch-package",
+    "typecheck": "tsc -p tsconfig.json --noEmit"
   },
   "jest": {
     "preset": "jest-expo"
@@ -64,9 +65,9 @@
     "@babel/core": "^7.20.0",
     "@react-native-community/eslint-config": "^3.0.0",
     "@testing-library/react-native": "^7.2.0",
-    "@types/jest": "^26.0.24",
-    "@types/react": "~18.0.27",
-    "@types/react-native": "~0.64.12",
+    "@types/jest": "^29.2.1",
+    "@types/react": "~18.2.14",
+    "@types/react-native": "~0.71.8",
     "@types/react-native-calendars": "^1.1264.2",
     "@types/uuid": "^8.3.1",
     "cypress": "^8.7.0",

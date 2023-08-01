@@ -7091,12 +7091,11 @@ expo-modules-core@0.6.5:
     compare-versions "^3.4.0"
     invariant "^2.2.4"
 
-expo-navigation-bar@~1.1.1:
-  version "1.1.2"
-  resolved "https://registry.yarnpkg.com/expo-navigation-bar/-/expo-navigation-bar-1.1.2.tgz#1caddf41b3fd7652796db933ffe59a1ab0ed658c"
-  integrity sha512-6TEmFArrCazRKrhQrWho1sBEXiFBP+7MIcAeZ5wEB+QEb7ZkYmC+JKFfZl3oz9VWD7nnhgcLRgFE9XL0n74Fow==
+expo-navigation-bar@~2.3.0:
+  version "2.3.0"
+  resolved "https://registry.yarnpkg.com/expo-navigation-bar/-/expo-navigation-bar-2.3.0.tgz#9917fd0b89de23403e76d3d89d10d986d3417033"
+  integrity sha512-5C9iR+rrj0EUgCPIIxSHEPwj18IOL4zQPYKLbyV9KVeXSBqPspu+vRvF5pxgbyefWfoQDHKfOz56W/gZ3qRiTQ==
   dependencies:
-    "@expo/config-plugins" "^4.0.2"
     "@react-native/normalize-color" "^2.0.0"
     debug "^4.3.2"
 

@@ -37,9 +37,9 @@ To run the project, run the following commands:
 
 ## Contribution steps
 
-1. Fork this repository to your own repositiry.
+1. Fork this repository to your own repository.
 
-2. Clone the forked repositiry to your local machine.
+2. Clone the forked repository to your local machine.
 
 3. Create your feature branch: `git checkout -b my-new-feature`
 

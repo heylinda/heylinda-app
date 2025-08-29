@@ -14,6 +14,7 @@ import { completed, updateFavourite } from '../../redux/meditationSlice'
 import { LoadingScreen } from '../../components'
 import { useCallback } from 'react'
 import { StackNavigationProp } from '@react-navigation/stack'
+import { NativeStackNavigationProp } from '@react-navigation/native-stack'
 import { selectFavourites, selectFilePaths } from '../../redux/selectors'
 import FavouriteButton from '../../components/FavouriteButton'
 import { Meditation } from '../../data/meditations'
@@ -22,7 +23,7 @@ type PlayRouteProp = RouteProp<HomeParamList, 'PlayScreen'>
 
 type PlayNavProp = CompositeNavigationProp<
   StackNavigationProp<HomeParamList, 'PlayScreen'>,
-  StackNavigationProp<MainStackParamList>
+  NativeStackNavigationProp<MainStackParamList>
 >
 interface Props {
   navigation: PlayNavProp

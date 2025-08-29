@@ -7,6 +7,12 @@
 <p align="center">
   The open source and free meditation app alternative for everyone. <br />Built with React Native and Expo.
 </p>
+
+<p align="center">
+  <a href="https://x.com/icookandcode" target="_blank">Need help building your meditation app? Connect with Adrian on X 🚀 
+</a>
+</p>
+
 <p align="center">
   <img src="https://user-images.githubusercontent.com/3059371/153682336-44a93448-7630-4103-9a3b-b5109acdafca.jpg" alt="banner" />
 </p>
@@ -95,3 +101,19 @@ Thank you to all our backers! 🙏
 - [GGNU Affero General Public License v3.0](https://github.com/heylinda/heylinda-app/blob/main/LICENSE)
 - [Meditation
   Contributors](https://github.com/heylinda/heylinda-app/blob/main/MEDITATIONS)
+
+---
+
+<div align="center">
+
+**Ready to build a meditation app at scale?**
+
+⭐ **Star this repo** • 💬 **[Contact Adrian to Build It](https://x.com/icookandcode)**
+
+_Built with ❤️ by [Adrian](https://x.com/icookandcode)_
+
+</div>
+
+---
+
+**Keywords:** react-native, react, meditation, typescript, heylinda-app

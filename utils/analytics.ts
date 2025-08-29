@@ -1,5 +1,5 @@
-import * as Amplitude from 'expo-analytics-amplitude'
 import { Platform } from 'react-native'
+import { init, logEvent as log } from '@amplitude/analytics-react-native'
 import { requestTrackingPermissionsAsync } from 'expo-tracking-transparency'
 
 export const initializeAnalytics = async () => {
@@ -10,11 +10,11 @@ export const initializeAnalytics = async () => {
     }
   }
   if (Platform.OS !== 'web') {
-    await Amplitude.initializeAsync('c53c4e54414340dc1e6feeb7fd95293c')
+    init('c53c4e54414340dc1e6feeb7fd95293c')
   }
 }
 
-export const logEvent = async (eventName: string) => {
+export const logEvent = async (eventName: string, properties?: object) => {
   if (Platform.OS === 'ios') {
     const { status } = await requestTrackingPermissionsAsync()
     if (status !== 'granted') {
@@ -22,6 +22,8 @@ export const logEvent = async (eventName: string) => {
     }
   }
   if (Platform.OS !== 'web') {
-    await Amplitude.logEventAsync(eventName)
+    init('c53c4e54414340dc1e6feeb7fd95293c')
+    log(eventName, properties)
+    console.log(eventName, properties)
   }
 }

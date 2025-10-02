@@ -16,7 +16,7 @@ const Settings = ({ navigation }: Props) => {
 
   const openPrivacyPolicy = () => {
     try {
-      openURL('https://www.heylinda.app/privacy')
+      openURL('https://heylinda.netlify.app/privacy')
     } catch (error) {
       console.error(error)
     }

@@ -48,6 +48,36 @@ To run the project, run the following commands:
 - `yarn android`
 - `yarn ios`
 
+## Environment variables
+
+This project uses build-time environment injection for configuration. For local development you can create a `.env` file at the project root (this file is ignored by git).
+
+1. Copy the example file:
+
+```bash
+cp .env.example .env
+```
+
+2. Edit `.env` and set your values, for example:
+
+```env
+API_URL=https://staging.example.com
+AMPLITUDE_API_KEY=your_amplitude_key_here
+```
+
+3. Start the dev server. `app.config.js` will load `.env` and inject the values into the Expo config:
+
+```bash
+npx expo start
+```
+
+For production builds, don't commit secrets to the repo. Use EAS secrets or your CI's secret management and ensure the corresponding env vars are available during the build. Example with EAS:
+
+```bash
+eas secret:create --name API_URL --value https://api.yourdomain.com
+eas secret:create --name AMPLITUDE_API_KEY --value <your_key>
+```
+
 ## Contribute
 
 You can contribute to Hey Linda by beta testing, recording meditations, or submitting code.

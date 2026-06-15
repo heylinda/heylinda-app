@@ -116,4 +116,4 @@ _Built with ❤️ by [Adrian](https://x.com/icookandcode)_
 
 ---
 
-**Keywords:** react-native, react, meditation, typescript, heylinda-app
+**Keywords:** react-native, react, meditation, typescript, heylinda-app, meditate

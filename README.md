@@ -68,14 +68,14 @@ src="docs/images/logos/twitter.png" height="50px"/></a>
 
 Thanks to these awesome contributors and many more! 🧘
 
-[![](https://github.com/trentmercer.png?size=50)](https://github.com/trentmercer)
-[![](https://github.com/watadarkstar.png?size=50)](https://github.com/watadarkstar)
-[![](https://github.com/AliNisarAhmed.png?size=50)](https://github.com/AliNisarAhmed)
-[![](https://github.com/lsmacedo.png?size=50)](https://github.com/lsmacedo)
-[![](https://github.com/alexandrvicente.png?size=50)](https://github.com/alexandrvicente)
-[![](https://github.com/pedpess.png?size=50)](https://github.com/pedpess)
-[![](https://github.com/orama254.png?size=50)](https://github.com/orama254)
-[![](https://github.com/Kevan-Y.png?size=50)](https://github.com/Kevan-Y)
+<a href="https://github.com/watadarkstar"><img src="https://github.com/watadarkstar.png?s=50" width="50" height="50" alt="watadarkstar" /></a>
+<a href="https://github.com/AliNisarAhmed"><img src="https://github.com/AliNisarAhmed.png?s=50" width="50" height="50" alt="AliNisarAhmed" /></a>
+<a href="https://github.com/lsmacedo"><img src="https://github.com/lsmacedo.png?s=50" width="50" height="50" alt="lsmacedo" /></a>
+<a href="https://github.com/alexandrvicente"><img src="https://github.com/alexandrvicente.png?s=50" width="50" height="50" alt="alexandrvicente" /></a>
+<a href="https://github.com/pedpess"><img src="https://github.com/pedpess.png?s=50" width="50" height="50" alt="pedpess" /></a>
+<a href="https://github.com/orama254"><img src="https://github.com/orama254.png?s=50" width="50" height="50" alt="orama254" /></a>
+<a href="https://github.com/Kevan-Y"><img src="https://github.com/Kevan-Y.png?s=50" width="50" height="50" alt="Kevan-Y" /></a>
+<a href="https://github.com/trentmercer"><img src="https://github.com/trentmercer.png?s=50" width="50" height="50" alt="trentmercer" /></a>
 
 ### Sponsors
 

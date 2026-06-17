@@ -12,6 +12,9 @@ web-build/
 # macOS
 .DS_Store
 
+# Local environment file
+.env
+
 # eslint files
 .eslintcache
 

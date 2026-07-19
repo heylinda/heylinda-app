@@ -9,6 +9,10 @@
 </p>
 
 <p align="center">
+<a href="https://nicklaunches.com/products/hey-linda/?utm_source=github.com&utm_medium=badge&utm_campaign=featured" target="_blank" rel="noopener"><img src="https://nicklaunches.com/badges/featured.png" alt="Hey Linda on Nick Launches" width="244" height="56" /></a>
+</p>
+
+<p align="center">
   <a href="https://x.com/icookandcode" target="_blank">Need help building your meditation app? Connect with Adrian on X 🚀 
 </a>
 </p>

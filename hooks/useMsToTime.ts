@@ -8,8 +8,15 @@ export function useMsToTime(s: number) {
   const secs = s % 60
   s = (s - secs) / 60
   const mins = s % 60
+  s = (s - mins) / 60
+  const hour = s
+  const hourString = formatToString(hour)
   const minsString = formatToString(mins)
   const secsString = formatToString(secs)
 
-  return minsString + ':' + secsString
+  if (s === 0) {
+    return minsString + ':' + secsString
+  } else {
+    return hourString + ':' + minsString + ':' + secsString
+  }
 }

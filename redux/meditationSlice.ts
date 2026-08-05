@@ -14,6 +14,19 @@ export interface MeditationState {
   filepaths: string[]
 
   favourites: Meditation[]
+
+  reminder?: MeditationReminder
+}
+
+export type ReminderFrequency = 'daily' | 'weekly'
+
+export interface MeditationReminder {
+  enabled: boolean
+  frequency: ReminderFrequency
+  hour: number
+  minute: number
+  weekdays: number[]
+  notificationIds: string[]
 }
 
 const initialState: MeditationState = {
@@ -71,9 +84,22 @@ const meditationSlice = createSlice({
         state.favourites.push(meditation)
       }
     },
+    setReminder(state, action: PayloadAction<MeditationReminder>) {
+      state.reminder = action.payload
+    },
+    clearReminder(state) {
+      state.reminder = undefined
+    },
   },
 })
 
-export const { completed, manualEntry, reset, addFilePath, updateFavourite } =
-  meditationSlice.actions
+export const {
+  completed,
+  manualEntry,
+  reset,
+  addFilePath,
+  updateFavourite,
+  setReminder,
+  clearReminder,
+} = meditationSlice.actions
 export default meditationSlice.reducer

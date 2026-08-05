@@ -37,7 +37,7 @@
     "expo-file-system": "~13.1.4",
     "expo-font": "~10.0.4",
     "expo-linking": "~3.0.0",
-    "expo-navigation-bar": "~1.1.1",
+    "expo-navigation-bar": "~2.5.0",
     "expo-splash-screen": "~0.14.1",
     "expo-status-bar": "~1.2.0",
     "expo-system-ui": "~1.1.0",
